@@ -1,0 +1,26 @@
+$brand-secondary:            #445B6F !default;
+$navbar-default-bg:          #31313F !default;
+$border:             #DDD !default;
+$border-light:				 #EEE;
+$grey:						 #999;
+$grey-darker:				 #555;
+$background:                 #f2f2f2;
+$text-color: #333;
+
+
+// Basics of a navbar
+$navbar-default-bg:                #31313F !default;
+$navbar-default-link-color:        #EEE !default;
+
+// Navbar links
+$navbar-default-link-color:                #777 !default;
+$navbar-default-link-hover-color:          #27CAFF !default;
+$navbar-default-link-hover-bg:             transparent !default;
+$navbar-default-link-active-color:         #555 !default;
+$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-link-disabled-color:       #ccc !default;
+$navbar-default-link-disabled-bg:          transparent !default;
+
+$navbar-default-brand-color:       $navbar-default-link-color !default;
+$navbar-default-brand-hover-color: darken($navbar-default-link-color, 10%) !default;
+$navbar-default-brand-hover-bg:    transparent !default;

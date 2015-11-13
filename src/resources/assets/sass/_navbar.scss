@@ -1,0 +1,76 @@
+.navbar > .container {
+	padding: 4px 15px !important;
+}
+.navbar-default {
+	background: #393c3c;
+
+	.navbar-brand {
+		color: $navbar-default-brand-color;
+		font-size: 30px;
+		&:hover,
+		&:focus {
+			color: $navbar-default-brand-hover-color;
+			background-color: $navbar-default-brand-hover-bg;
+		}
+	}
+
+	.navbar-nav {
+		font-size: 16px;
+		> li > a {
+			color: $navbar-default-link-color;
+			margin-top: 3px;
+
+			&:hover,
+			&:focus {
+				color: $navbar-default-link-hover-color;
+				background-color: $navbar-default-link-hover-bg;
+			}
+		}
+		> .active > a {
+			&,
+			&:hover,
+			&:focus {
+				color: $navbar-default-link-active-color;
+				background-color: $navbar-default-link-active-bg;
+			}
+		}
+		> .disabled > a {
+			&,
+			&:hover,
+			&:focus {
+				color: $navbar-default-link-disabled-color;
+				background-color: $navbar-default-link-disabled-bg;
+			}
+		}
+	}
+}
+
+#nav-profile {
+	padding: 9px 0;
+
+	#nav-avatar {
+		width: 33px;
+		height: 33px;
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+	#nav-profile-links {
+		display: inline-block;
+		font-size: 16px;
+		vertical-align: middle;
+		min-width: 60px;
+
+		> a {
+			color: $navbar-default-link-color;
+		}
+		&:hover {
+			color: $navbar-default-link-hover-color;
+			text-decoration: none;
+		}
+	}
+}
+
+.navbar-form {
+	padding-right: 0px;
+}

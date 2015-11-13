@@ -1,0 +1,294 @@
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/box";
+@import "_variables";
+@import "_navbar";
+@import "_responsive-utilities.scss";
+
+a {
+	color: #006c91;
+}
+
+hr {
+	border-bottom: 1px solid #ddd;
+}
+
+// Center-align a block level element
+@mixin center-block() {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body {
+	background: $background;
+}
+
+.box {
+	background: #FFF;
+	border-left: 1px solid $border;
+	border-right: 1px solid $border;
+}
+
+.margin {
+	margin-bottom: 20px;
+	border-bottom: 1px solid $border;
+	@include clearfix();
+}
+
+.padding {
+	padding: 10px;
+	border-top: 1px solid $border;
+	@include clearfix();
+}
+
+.end {
+	margin-bottom: 15px;
+}
+
+p {
+	line-height: 1.8;
+	font-size: 16px;
+}
+
+.spoiler {
+	border: 1px dashed #F00;
+	padding-left: 10px;
+
+	legend {
+		border-bottom: 0;
+		width: 60px;
+		padding-left: 5px;
+		color: #F00;
+		font-size: 16px;
+		margin-bottom: 0px;
+	}
+}
+
+.box-header, .box-header-blue {
+	@include clearfix();
+	background: #f8f8f8;
+	padding: 8px;
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+
+	.toolTip {
+		margin-right: 5px;
+	}
+
+	> ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+
+		li {
+			float: left;
+			padding-right: 10px;
+		}
+	}
+}
+
+.box-header {
+	border-left: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+
+.box-header-blue {
+	background: #1c5a6e;
+	color: #fff;
+
+	a {
+		color: #fff;
+	}
+}
+
+h2 {
+	margin-top: 0px;
+}
+
+.topbar_text {
+	bottom: 15px;
+	position: relative;
+	top: 10px;
+}
+
+.top {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.rating i {
+	color: $grey;
+}
+
+#sign {
+	background-image: url(/images/Madoka-Magica-Prime_blur.jpg);
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.sign-container {
+	@include center-block();
+	float: none;
+
+	h1 {
+		font-size: 38px;
+		font-weight: normal;
+	}
+
+	@media (min-width: 1400px) {
+		max-width: 37%;
+	}
+
+	.nav-tabs.nav-justified > li > a {
+		border-radius: 0;
+		border-top: 0;
+		border-left: 0;
+		border-right: 0;
+
+		&:hover {
+			background: none;
+			border-top: 0;
+			border-left: 0;
+			border-right: 0;
+		}
+	}
+	.nav-tabs.nav-justified > li.active {
+		a {
+			background: #FFF !important;
+			border-bottom: 1px solid #FFF;
+		}
+		border-left: 1px solid $border;
+		border-top: 1px solid $border;
+		border-right: 1px solid $border;
+	}
+	#forgot-password {
+		margin-top: 10px;
+		display: block;
+		margin-bottom: 25px;
+	}
+}
+
+#sign-box {
+	@include clearfix();
+	background: #fff;
+	padding: 20px 30px;
+	border-left: 1px solid $border;
+	border-bottom: 1px solid $border;
+	border-right: 1px solid $border;
+	border-top: 0;
+}
+
+.pagination {
+	margin: 0;
+
+	li {
+		span, a {
+			text-decoration: none;
+			background: none !important;
+			border: 0;
+			border-bottom-right-radius: 0 !important;
+			border-top-right-radius:  0 !important;
+		}
+
+		&:not(:last-child)>a.page, &:not(:last-child)>span.page, .prev {
+			border-right: 1px solid #DDD !important;
+		}
+
+		span {
+			color: $text-color !important;
+		}
+	}
+
+	li.active>span {
+		color: #777 !important;
+	}
+
+	.pages {
+		padding: 6px 0 !important;
+		margin-right: -5px;
+	}
+
+}
+
+.more {
+	right: 20px;
+	position: absolute;
+	margin-top: -30px;
+}
+
+cite {
+	font-size: small;
+	font-weight: bold;
+}
+
+p.button-align {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+span.danger {
+	color: red;
+}
+span.warning {
+	color: orange;
+}
+span.success {
+	color: green;
+}
+
+#breadcrumbs {
+	background-color: #333333;
+}
+.breadcrumb {
+	background: none;
+	margin-bottom: 0px;
+	padding: 6px 0;
+
+	a {
+		color: #EEE;
+	}
+
+	.active {
+		color: #AAA;
+	}
+}
+
+.nav-search {
+	color: #fff;
+	font-size: 16px;
+	padding: 10px;
+}
+
+h1 {
+	font-size: 30px !important;
+	margin-bottom: 20px !important;
+	margin-top: 0 !important;
+}
+
+/*
+ * Bootstrap
+ */
+
+// Remove that nasty gutter width
+div[class^="col"] {
+	padding-left:10px; padding-right:10px;
+}
+.row {
+	margin-right: -10px;
+	margin-left: -10px;
+}
+.container {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.clearfix {
+	clear: both;
+}
+.preview {
+	pointer-events: none;
+	cursor: default;
+}
