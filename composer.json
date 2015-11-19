@@ -15,11 +15,11 @@
   ],
   "require": {
     "php": ">=5.5.9",
-    "illuminate/support": "~5.1",
-    "davejamesmiller/laravel-breadcrumbs": "3.*",
-    "laravelcollective/html": "5.1.*",
-    "erusev/parsedown": "1.*",
-    "mews/purifier": "1.*",
+    "illuminate/support": "~5.0",
+    "davejamesmiller/laravel-breadcrumbs": "~3.0",
+    "laravelcollective/html": "~5.0",
+    "erusev/parsedown": "~1.0",
+    "mews/purifier": "~2.0",
     "mccool/laravel-auto-presenter": "^4.0"
   },
   "autoload": {
