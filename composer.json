@@ -1,0 +1,31 @@
+{
+  "name": "kaamaru/laravel-forums",
+  "description": "A forums for laravel",
+  "keywords": [
+    "forums",
+    "laravel",
+    "forum"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "kaamaru",
+      "email": "calumks@live.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "illuminate/support": "~5.1",
+    "davejamesmiller/laravel-breadcrumbs": "3.*",
+    "laravelcollective/html": "5.1.*",
+    "erusev/parsedown": "1.*",
+    "mews/purifier": "1.*",
+    "mccool/laravel-auto-presenter": "^4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "kaamaru\\laravel-forums\\": "src"
+    }
+  },
+  "minimum-stability": "stable"
+}

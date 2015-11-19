@@ -3,39 +3,37 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateForumsTable extends Migration {
+class CreateForumsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        \Schema::create('forums', function ($table) {
+            /** @var Blueprint $table */
+            $table->increments('id');
+            $table->string('name', 100);
+            $table->string('slug', 100);
+            $table->string('path', 100);
+            $table->string('description');
+            $table->tinyInteger('rank', false, true);
+            $table->integer('posts');
+            $table->integer('topics_count');
+            $table->integer('last_topic')->nullable();
+            $table->string('type')->nullable();
+        });
+    }
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		\Schema::create('forums', function($table)
-		{
-			/** @var Blueprint $table */
-			$table->increments('id');
-			$table->string('name', 100);
-			$table->string('slug', 100);
-			$table->string('path', 100);
-			$table->string('description');
-			$table->tinyInteger('rank', false, true);
-			$table->integer('posts');
-			$table->integer('topics_count');
-			$table->integer('last_topic')->nullable();
-			$table->string('type')->nullable();
-		});
-	}
-
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		\Schema::drop('forums');
-	}
-
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        \Schema::drop('forums');
+    }
 }

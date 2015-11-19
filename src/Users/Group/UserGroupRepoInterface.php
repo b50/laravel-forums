@@ -1,27 +1,26 @@
-<?php namespace LaravelForums\Users\Group;
+<?php namespace Kaamaru\Forums\Users\Group;
 
 /**
  * Interface UserGroupInterface
  *
- * @package LaravelForums\Users
+ * @package Kaamaru\Forums\Users
  */
-interface UserGroupRepoInterface {
+interface UserGroupRepoInterface
+{
+    /**
+     * Get groups for the user
+     *
+     * @param int $userId
+     * @return mixed
+     */
+    public function getForUser($userId);
 
-	/**
-	 * Get groups for the user
-	 *
-	 * @param int $userId
-	 * @return mixed
-	 */
-	public function getForUser($userId);
-
-	/**
-	 * Add user to group
-	 *
-	 * @param $group
-	 * @param $userId
-	 * @return bool
-	 */
-	public function addToGroup($group, $userId);
-	
+    /**
+     * Add user to group
+     *
+     * @param $group
+     * @param $userId
+     * @return bool
+     */
+    public function addToGroup($group, $userId);
 }

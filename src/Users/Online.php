@@ -1,25 +1,24 @@
-<?php namespace LaravelForums\Users;
+<?php namespace Kaamaru\Forums\Users;
 
 /**
  * Track users online
  *
- * @package LaravelForums\Users
+ * @package Kaamaru\Forums\Users
  */
-class Online {
+class Online
+{
+    public function updateSeenTime($userId)
+    {
+        // TODO
+    }
 
-	public function updateSeenTime($userId)
-	{
-		// TODO
-	}
-
-	/**
-	 * Update a user's online time
-	 *
-	 * @param $userId
-	 */
-	public function update($userId)
-	{
-		\Cache::put('users_online:user_'.$userId, time(), 5);
-	}
-	
+    /**
+     * Update a user's online time
+     *
+     * @param $userId
+     */
+    public function update($userId)
+    {
+        \Cache::put('users_online:user_' . $userId, time(), 5);
+    }
 }

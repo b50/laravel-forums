@@ -1,81 +1,94 @@
 @import "_variables";
+
 h1 {
-	text-align: center;
+  text-align: center;
 }
+
 #profile {
-	margin: 0;
+  margin: 0;
 }
+
 #profile-avatar {
-	margin: 0 auto;
-	width: 180px;
-	display: block;
+  margin: 0 auto;
+  width: 180px;
+  display: block;
 }
+
 #profile-sidebar {
-	background: #FFF;
-	border-right: 1px solid $border-default;
-	max-width: 20%;
+  background: #FFF;
+  border-right: 1px solid $border-default;
+  max-width: 20%;
 }
+
 .profile-main {
-	width: 80% !important;
+  width: 80% !important;
 }
+
 #profile-box {
-	background: #FFF;
+  background: #FFF;
 }
 
 /**
  * Comments
  */
 #comments {
-	border-bottom: 1px solid $border-default;
-	margin-left: -8px;
+  border-bottom: 1px solid $border-default;
+  margin-left: -8px;
 }
+
 .comment {
-	border-top: 1px solid $border-default;
-	border-right: 1px solid $border-default;
-	clear: both;
-	display: inline-block;
-	width: 100%;
+  border-top: 1px solid $border-default;
+  border-right: 1px solid $border-default;
+  clear: both;
+  display: inline-block;
+  width: 100%;
 }
+
 .comment-avatar {
-	width: 80px;
-	float: left;
-	margin: 10px;
+  width: 80px;
+  float: left;
+  margin: 10px;
 }
+
 .comment-username {
-	margin-top: 10px;
+  margin-top: 10px;
 }
+
 .comment-menu {
-	margin-top: 30px;
-	width: 100%;
+  margin-top: 30px;
+  width: 100%;
 }
+
 .report {
-	float: right;
-	color: $grey;
-	margin-right: 5px;
+  float: right;
+  color: $grey;
+  margin-right: 5px;
 }
+
 #sidebar-right {
-	border-left: 1px solid $border-default;
-	margin-left: -9px;
+  border-left: 1px solid $border-default;
+  margin-left: -9px;
 }
+
 .profile-table {
-	width: 100%;
+  width: 100%;
 
-	td {
-		padding: 2px 0;
-	}
+  td {
+    padding: 2px 0;
+  }
 
-	.pull-right {
-		color: $grey;
-	}
+  .pull-right {
+    color: $grey;
+  }
 
-	td.value {
-		float: right;
-		text-align: right;
-	}
+  td.value {
+    float: right;
+    text-align: right;
+  }
 }
 
 .profile-info {
-	td {
-		padding: 6px 0;
-	}
+  td {
+    padding: 6px 0;
+  }
 }

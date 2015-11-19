@@ -4,5 +4,5 @@
 @section('title', $post->topic->title)
 
 @section('content')
-	 @include('forums.posts._edit_post')
+    @include('forums.posts._edit_post')
 @stop

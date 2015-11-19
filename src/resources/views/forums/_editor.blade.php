@@ -1,14 +1,14 @@
 @section('scripts', HTML::script('scripts/ace/ace.js'))
 @section('styles')
-	@parent
+    @parent
     {{ HTML::style('styles/editor.css') }}
 @show
 
 {{-- Show content error to the right of tabs --}}
 @if ($errors->has('content'))
-	<div class="has-error pull-right">
-		<div class="help-block">{{ $errors->first('content') }}</div>
-	</div>
+    <div class="has-error pull-right">
+        <div class="help-block">{{ $errors->first('content') }}</div>
+    </div>
 @endif
 
 @if (Input::get('tab') == 'visual')
@@ -29,7 +29,7 @@
     </noscript>
 @endif
 <div id="editor-pannel" {{ $errors->has('content') ? 'class="error"' : '' }}>
-	<p>{{ HTML::link('http://www.enable-javascript.com', _(' Enable javascript for more features!'), ['target' => '_blank']) }}</p>
+    <p>{{ HTML::link('http://www.enable-javascript.com', _(' Enable javascript for more features!'), ['target' => '_blank']) }}</p>
     <button type="button" class="btn btn-default" id="bold"><i class="fa fa-bold"></i></button>
     <button type="button" class="btn btn-default" id="italic"><i class="fa fa-italic"></i></button>
     <button type="button" class="btn btn-default" id="strikethrough"><i class="fa fa-strikethrough"></i></button>
@@ -38,7 +38,8 @@
     <button type="button" class="btn btn-default" id="spoiler"><i class="fa fa-warning"></i></button>
     <button type="button" class="btn btn-default" id="quote"><i class="fa fa-quote-left"></i></button>
     <button type="button" class="btn btn-default" id="link"><i class="fa fa-link"></i></button>
-    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" id="image"><i class="fa fa-picture-o"></i></button>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" id="image"><i
+                class="fa fa-picture-o"></i></button>
     <button type="button" class="btn btn-default" id="rule"><i class="fa fa-minus"></i></button>
     <div class="pull-right">
         {{ Form::button('Preview', ['type' => 'submit', 'class' => 'btn btn-default', 'name' => 'preview', 'value' => 1]) }}
@@ -51,19 +52,19 @@
 {{ Form::token() }}
 
 {{--<script type="text/javascript">--}}
-    {{--var editor = ace.edit("editor");--}}
-    {{--editor.getSession().setUseWrapMode(true);--}}
-    {{--editor.getSession().setMode("ace/mode/markdown");--}}
-    {{--editor.setShowPrintMargin(false);--}}
-    {{--editor.renderer.setShowGutter(false);--}}
-    {{--$('#editor').show();--}}
-    {{--$('#editor-pannel>button').show();--}}
-    {{--$('#editor-pannel>p').hide();--}}
-    {{--$('#editor-text').hide();--}}
+{{--var editor = ace.edit("editor");--}}
+{{--editor.getSession().setUseWrapMode(true);--}}
+{{--editor.getSession().setMode("ace/mode/markdown");--}}
+{{--editor.setShowPrintMargin(false);--}}
+{{--editor.renderer.setShowGutter(false);--}}
+{{--$('#editor').show();--}}
+{{--$('#editor-pannel>button').show();--}}
+{{--$('#editor-pannel>p').hide();--}}
+{{--$('#editor-text').hide();--}}
 
-    {{--$('form').submit(function() {--}}
-        {{--$('#editor-text').val(editor.getSession().getValue());--}}
-    {{--});--}}
+{{--$('form').submit(function() {--}}
+{{--$('#editor-text').val(editor.getSession().getValue());--}}
+{{--});--}}
 {{--</script>--}}
 
 

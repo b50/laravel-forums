@@ -1,25 +1,24 @@
-<?php namespace LaravelForums\Users;
+<?php namespace Kaamaru\Forums\Users;
 
-use LaravelForums\Core\Validation\Validator;
+use Kaamaru\Forums\Core\Validation\Validator;
 
 /**
  * Class UserCreateValidator
  *
- * @package LaravelForums\Users
+ * @package Kaamaru\Forums\Users
  */
-class UserCreateValidator extends Validator {
-
-	/**
-	 * {{ @inheritDocs }}
-	 */
-	public function rules()
-	{
-		return [
-			'username' => 'required|unique:users,id',
-			'password' => 'required|min:6|confirmed',
-			'email' => 'required|email|unique:users',
-			'terms' => 'accepted'
-		];
-	}
-
+class UserCreateValidator extends Validator
+{
+    /**
+     * {{ @inheritDocs }}
+     */
+    public function rules()
+    {
+        return [
+            'username' => 'required|unique:users,id',
+            'password' => 'required|min:6|confirmed',
+            'email' => 'required|email|unique:users',
+            'terms' => 'accepted'
+        ];
+    }
 }

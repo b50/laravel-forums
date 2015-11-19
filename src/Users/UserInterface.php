@@ -1,10 +1,8 @@
-<?php namespace LaravelForums\Users;
+<?php namespace Kaamaru\Forums\Users;
 
 /**
  * @package App\Forums
  */
-interface UserInterface {
-
-
-
+interface UserInterface
+{
 }

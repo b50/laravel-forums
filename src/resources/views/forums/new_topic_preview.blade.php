@@ -3,6 +3,6 @@
 @section('title', $topic->title)
 @section('content')
 
-<div class="box-header">{{ _('Preview') }}: {{{ $topic->title }}}</div>
-@include('topics._preview')
+    <div class="box-header">{{ _('Preview') }}: {{{ $topic->title }}}</div>
+    @include('topics._preview')
 @stop

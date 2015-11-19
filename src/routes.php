@@ -1,5 +1,5 @@
 <?php
-Route::group(['namespace' => 'LaravelForums\Http\Controllers'], function() {
+Route::group(['namespace' => 'Kaamaru\Forums\Http\Controllers'], function () {
     /*
      * topics
      */

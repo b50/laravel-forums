@@ -4,5 +4,5 @@
 @section('title', $topic->title)
 
 @section('content')
-	@include('forums.topics._reply')
+    @include('forums.topics._reply')
 @stop

@@ -1,5 +1,5 @@
 @extends('master')
 
 @section('styles')
-{{ HTML::style('styles/forum.css') }}
+    {{ HTML::style('styles/forum.css') }}
 @stop

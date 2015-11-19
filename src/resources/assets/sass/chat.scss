@@ -14,9 +14,11 @@ $screen-xl-message-width: 740px;
   height: 300px;
   overflow: hidden;
 }
+
 #send-message {
   display: none;
 }
+
 .entry {
   overflow: hidden;
 
@@ -25,7 +27,7 @@ $screen-xl-message-width: 740px;
   }
   .entry-info {
     clear: both;
-    .entry-user{
+    .entry-user {
       padding: 5px 10px;
       float: left;
       font-weight: bold;
@@ -44,13 +46,16 @@ $screen-xl-message-width: 740px;
     clear: both;
   }
 }
+
 .form-control, .btn-default {
   border-radius: 0 0 4px 4px;
   border-top: 1px solid #DDD;
 }
+
 .form-control {
   box-shadow: none;
 }
+
 .btn-default {
   border-left: 0;
   line-height: 20px;
@@ -71,6 +76,7 @@ $screen-xl-message-width: 740px;
   border: 0;
   border-radius: 0;
 }
+
 #submit {
   padding: 7px 12px;
   border-left: 1px solid #DDD;
@@ -145,6 +151,7 @@ $screen-xl-message-width: 740px;
     width: $screen-lg-message-width !important;
   }
 }
+
 @media (min-width: $screen-xl-min) {
   .entry-info {
     width: $screen-xl-info-width !important;
