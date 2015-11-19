@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "kaamaru\\laravel-forums\\": "src"
+      "Kaamaru\\Forums\\": "src/"
     }
   },
   "minimum-stability": "stable"
