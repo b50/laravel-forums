@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateForumPostReports extends Migration
+class CreateLForumsTopicReadTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class CreateForumPostReports extends Migration
      */
     public function up()
     {
-        \Schema::create('forum_post_reports', function ($table) {
+        \Schema::create('lforums_topic_read', function ($table) {
             /** @var Blueprint $table */
             $table->increments('id');
+            $table->integer('topic_id');
             $table->integer('user_id');
-            $table->integer('post_id');
         });
     }
 
@@ -27,6 +27,6 @@ class CreateForumPostReports extends Migration
      */
     public function down()
     {
-        \Schema::drop('forum_post_reports');
+        \Schema::drop('forum_topic_read');
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 /**
  * Class CreateForumTopicsTable
  */
-class CreateForumTopicsTable extends Migration
+class CreateLforumsTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class CreateForumTopicsTable extends Migration
      */
     public function up()
     {
-        \Schema::create('forum_topics', function ($table) {
+        \Schema::create('lforums_topics', function ($table) {
             /** @var Blueprint $table */
             $table->increments('id');
             $table->string('title', 100);
@@ -49,6 +49,6 @@ class CreateForumTopicsTable extends Migration
      */
     public function down()
     {
-        \Schema::drop('forum_topics');
+        \Schema::drop('lforums_topics');
     }
 }

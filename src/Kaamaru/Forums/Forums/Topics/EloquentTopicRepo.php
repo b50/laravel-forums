@@ -24,12 +24,12 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
     public function getRecent()
     {
         return $this->model
-            ->select('forum_topics.id', 'forum_topics.slug', 'forum_topics.title', 'forum_topics.created_at',
-                'users.username', 'users.slug as user_slug')
-            ->join('users', 'users.id', '=', 'user_id')
+            ->select('lforums_topics.id', 'lforums_topics.slug', 'lforums_topics.title',
+                'lforums_topics.created_at', 'users.username', 'users.slug as user_slug')
+            ->join('lforums_users as users', 'users.id', '=', 'user_id')
             ->take(\Config::get('forums/forum.recent'))
-            ->orderBy('forum_topics.updated_at', 'dsc')
-            ->where('forum_topics.expires_at', null)
+            ->orderBy('lforums_topics.updated_at', 'dsc')
+            ->where('lforums_topics.expires_at', null)
             ->get();
     }
 

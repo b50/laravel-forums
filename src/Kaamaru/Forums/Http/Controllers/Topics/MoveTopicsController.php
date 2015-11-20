@@ -44,7 +44,7 @@ class MoveTopicsController extends BaseController implements TopicMoverListener
 
         $tree = $this->tree->getTree();
 
-        return \View::make('Kaamaru\Forums::forums.move', compact('topic', 'tree'));
+        return \View::make('kaamaru.laravel-forums.forums.move', compact('topic', 'tree'));
     }
 
     /**

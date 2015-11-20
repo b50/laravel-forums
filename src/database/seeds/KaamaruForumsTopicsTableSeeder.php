@@ -1,14 +1,16 @@
 <?php
+
+use Illuminate\Database\Seeder;
 use Kaamaru\Forums\Forums\Topics\EloquentTopic;
 
 /**
  * Class ForumTopicsTableSeeder
  */
-class ForumTopicsTableSeeder extends Seeder
+class KaamaruForumsTopicsTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('forum_topics')->delete();
+        DB::table('lforums_topics')->delete();
 
         EloquentTopic::create([
             'id' => 1,
@@ -68,7 +70,6 @@ class ForumTopicsTableSeeder extends Seeder
             'sticky' => false,
             'updated_at' => strtotime('3 week ago'),
             'created_at' => strtotime('2 week ago'),
-            'wiki_id' => 1,
         ]);
     }
 }

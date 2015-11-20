@@ -59,7 +59,7 @@
     </div>
     <hr/>
     <div class="container">
-    <div class="pull-left" style="padding-top: 10px">{{ _('Kaamaru\Forums') }}</div>
+    <div class="pull-left" style="padding-top: 10px">{{ _('Laravel Forums') }}</div>
     <ul class="nav nav-pills pull-left">
         @if (\Auth::check())
             <li>{!! Html::linkRoute('auth.logout', _('Logout'), ['_token' => csrf_token()]) !!}</li>

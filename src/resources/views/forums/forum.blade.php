@@ -1,4 +1,4 @@
-@extends('Kaamaru\Forums::forums.master')
+@extends('kaamaru/laravel-forums.forums.master')
 
 @section('breadcrumbs', Breadcrumbs::render('forums.show', $forum->parents))
 @section('title', $forum->name)

@@ -1,14 +1,16 @@
 <?php
+
+use Illuminate\Database\Seeder;
 use Kaamaru\Forums\Users\EloquentUser;
 
 /**
  * Class UsersTableSeeder
  */
-class UsersTableSeeder extends Seeder
+class KaamaruForumsUsersTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('users')->delete();
+        DB::table('lforums_users')->delete();
 
         EloquentUser::create([
             'id' => 1,

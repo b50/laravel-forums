@@ -1,10 +1,12 @@
 <?php
+
+use Illuminate\Database\Seeder;
 use Kaamaru\Forums\Forums\Forums\EloquentForum;
 
 /**
  * Class ForumsTableSeeder
  */
-class ForumsTableSeeder extends Seeder
+class KaamaruForumsTableSeeder extends Seeder
 {
     protected $ids = [
         'news' => 1,
@@ -16,7 +18,7 @@ class ForumsTableSeeder extends Seeder
 
     public function run()
     {
-        DB::table('forums')->delete();
+        DB::table('lforums')->delete();
 
         EloquentForum::create([
             'id' => $this->ids['general'],

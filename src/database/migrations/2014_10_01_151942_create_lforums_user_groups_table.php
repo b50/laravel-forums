@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateForumFavorites extends Migration
+class CreateLforumsUserGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class CreateForumFavorites extends Migration
      */
     public function up()
     {
-        \Schema::create('forum_favorites', function ($table) {
+        \Schema::create('lforums_user_group', function ($table) {
             /** @var Blueprint $table */
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('topic_id');
+            $table->string('group');
+            $table->integer('user_id');
         });
     }
 
@@ -27,6 +27,6 @@ class CreateForumFavorites extends Migration
      */
     public function down()
     {
-        \Schema::drop('forum_favorites');
+        \Schema::drop('lforums_user_group');
     }
 }

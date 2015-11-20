@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UserGroup extends Migration
+class CreateLForumsPostReportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class UserGroup extends Migration
      */
     public function up()
     {
-        \Schema::create('user_group', function ($table) {
+        \Schema::create('lforums_post_reports', function ($table) {
             /** @var Blueprint $table */
             $table->increments('id');
-            $table->string('group');
             $table->integer('user_id');
+            $table->integer('post_id');
         });
     }
 
@@ -27,6 +27,6 @@ class UserGroup extends Migration
      */
     public function down()
     {
-        \Schema::drop('user_group');
+        \Schema::drop('forum_post_reports');
     }
 }

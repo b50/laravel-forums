@@ -18,7 +18,7 @@ class EloquentPost extends \Eloquent implements HasPresenter
         'topic_id' => 'required|integer',
         'user_id' => 'required|integer',
     ];
-    protected $table = 'forum_posts';
+    protected $table = 'lforums_posts';
 
     /**
      * Topic relation

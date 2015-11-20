@@ -1,25 +1,20 @@
 <?php namespace Kaamaru\Forums\Users;
 
-use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
-use Illuminate\Auth\Reminders\RemindableInterface;
-use McCool\LaravelAutoPresenter\PresenterInterface;
+use McCool\LaravelAutoPresenter\HasPresenter;
 
 /**
  * The user
  *
  * @package Kaamaru\Forums\Users
  */
-class EloquentUser extends \Eloquent implements UserInterface, RemindableInterface, PresenterInterface
+class EloquentUser extends \Eloquent implements HasPresenter
 {
-    use UserTrait, RemindableTrait;
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'users';
+    protected $table = 'lforums_users';
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -58,7 +53,7 @@ class EloquentUser extends \Eloquent implements UserInterface, RemindableInterfa
      *
      * @return string The class path to the presenter.
      */
-    public function getPresenter()
+    public function getPresenterClass()
     {
         return 'Kaamaru\Forums\Users\UserPresenter';
     }

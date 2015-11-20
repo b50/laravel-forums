@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateForumPostsTable extends Migration
+class CreateLForumsTopicFollowTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,11 @@ class CreateForumPostsTable extends Migration
      */
     public function up()
     {
-        \Schema::create('forum_posts', function ($table) {
+        \Schema::create('lforums_topic_follow', function ($table) {
             /** @var Blueprint $table */
             $table->increments('id');
             $table->integer('topic_id');
             $table->integer('user_id');
-            $table->text('markdown');
-            $table->text('html');
-            $table->timestamp('deleted_at')->nullable();
-            $table->timestamps();
-            $table->integer('votes')->default(0);
-            $table->boolean('developer_response');
         });
     }
 
@@ -33,6 +27,6 @@ class CreateForumPostsTable extends Migration
      */
     public function down()
     {
-        \Schema::drop('forum_posts');
+        \Schema::drop('forum_topic_follow');
     }
 }

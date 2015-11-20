@@ -25,14 +25,14 @@ class EloquentPostRepo extends EloquentRepo implements PostRepoInterface
     public function getRecent()
     {
         return $this->model
-            ->select('forum_posts.id', 'forum_topics.title', 'forum_posts.created_at',
+            ->select('lforums_posts.id', 'topics.title', 'lforums_posts.created_at',
                 'users.slug as user_slug', 'users.username as username')
-            ->join('users', 'users.id', '=', 'user_id')
-            ->join('forum_topics', 'forum_posts.topic_id', '=', 'forum_topics.id')
+            ->join('lforums_users as users', 'users.id', '=', 'user_id')
+            ->join('lforums_topics as topics', 'lforums_posts.topic_id', '=', 'topics.id')
             ->take(\Config::get('forums/forum.recent'))
-            ->orderBy('forum_topics.updated_at', 'dsc')
-            ->where('forum_topics.expires_at', null)
-            ->where('forum_topics.deleted_at', null)
+            ->orderBy('topics.updated_at', 'dsc')
+            ->where('topics.expires_at', null)
+            ->where('topics.deleted_at', null)
             ->get();
     }
 

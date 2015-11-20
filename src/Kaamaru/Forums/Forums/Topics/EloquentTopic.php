@@ -37,7 +37,7 @@ class EloquentTopic extends \Eloquent implements PathInterface, HasPresenter
     /**
      * @var string
      */
-    protected $table = 'forum_topics';
+    protected $table = 'lforums_topics';
 
     /**
      * Relate topic to it's posts

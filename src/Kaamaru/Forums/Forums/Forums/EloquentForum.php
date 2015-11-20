@@ -21,7 +21,7 @@ class EloquentForum extends \Eloquent implements PathInterface, HasPresenter
     /**
      * @var string
      */
-    protected $table = 'forums';
+    protected $table = 'lforums';
     /**
      * @var array
      */

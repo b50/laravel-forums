@@ -22,4 +22,7 @@ elixir(function(mix) {
         '../../../public/css/kaamaru/laravel-forums/bootstrap.min.css');
     mix.copy('../../../vendor/twbs/bootstrap/dist/js/bootstrap.min.js',
         '../../../public/js/kaamaru/laravel-forums/bootstrap.min.js')
+    mix.copy('src/database', '../../../database');
+    mix.copy('src/resources/views', '../../../resources/views/kaamaru/laravel-forums');
+    mix.copy('src/resources/assets/sass', '../../../resources/assets/sass/kaamaru/laravel-forums');
 });

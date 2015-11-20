@@ -35,6 +35,6 @@ class ForumsIndexController extends BaseController
         $recentPosts = $this->postRepo->getRecent();
         $recentTopics = $this->topicRepo->getRecent();
 
-        return \View::make('Kaamaru\Forums::forums.forums', compact('forums', 'recentTopics', 'recentPosts'));
+        return \View::make('kaamaru.laravel-forums.forums.forums', compact('forums', 'recentTopics', 'recentPosts'));
     }
 }

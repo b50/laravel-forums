@@ -27,7 +27,7 @@ class TopicsController extends BaseController
     public function getIndex()
     {
         $topics = $this->topicRepo->getAll($this->sort->getField(), $this->sort->getDirection());
-        return \View::make('Kaamaru\Forums::forums.all_topics', compact('topics'), ['sort' => $this->sort]);
+        return \View::make('kaamaru.laravel-forums.forums.all_topics', compact('topics'), ['sort' => $this->sort]);
     }
 
     /**
@@ -43,7 +43,7 @@ class TopicsController extends BaseController
 
         // Is it a suggestion topic?
         if ($topic->path and last($topic->parents)->type == 'suggestions') {
-            return \View::make('Kaamaru\Forums::forums.suggestion_topic', compact('topic'));
+            return \View::make('kaamaru.laravel-forums.forums.suggestion_topic', compact('topic'));
         }
 
         return \View::make($topicType . '.topics.topic', compact('topic'));

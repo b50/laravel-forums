@@ -4,6 +4,6 @@ use Eloquent;
 
 class EloquentImage extends Eloquent
 {
-    public $table = 'images';
+    public $table = 'lforums_images';
     public $fillable = ['slug', 'title', 'model', 'path'];
 }

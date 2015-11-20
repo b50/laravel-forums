@@ -104,8 +104,8 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
         $query = $this->forumsQuery();
 
         return $query
-            ->where('forums.path', 'LIKE', "%")
-            ->where('forums.path', 'NOT LIKE', "%/%/%/%")
+            ->where('lforums.path', 'LIKE', "%")
+            ->where('lforums.path', 'NOT LIKE', "%/%/%/%")
             ->get();
     }
 
@@ -130,28 +130,29 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
     protected function forumsQuery()
     {
         $query = $this->model
-            ->select('forums.id', 'forums.description', 'forums.name', 'forums.slug', 'forums.topics_count',
-                'forums.posts', 'forums.path', 'last_topic.updated_at as last_topic_updated_at',
+            ->select('lforums.id', 'lforums.description', 'lforums.name', 'lforums.slug',
+                'lforums.topics_count',
+                'lforums.posts', 'lforums.path', 'last_topic.updated_at as last_topic_updated_at',
                 'last_topic.slug as last_topic_slug', 'last_topic.last_post as last_post',
                 'last_topic.title as last_topic_title', 'last_user.slug as last_user_slug',
                 'last_user.username as last_user_username')
             ->leftJoin(
-                \DB::raw('(' . \DB::table('forum_topics')
+                \DB::raw('(' . \DB::table('lforums_topics')
                         ->select('title', 'last_post', 'slug', 'updated_at', 'path', 'last_post_user')
                         ->where('deleted_at', null)
                         ->orderBy('updated_at', 'desc')
                         ->toSql() . ' ) last_topic'), function ($join) {
                 // Mysql connects using the concat function
                 if (\DB::getDriverName() == 'mysql') {
-                    $join->on('last_topic.path', 'like', \DB::raw("CONCAT(forums.path, '%')"));
+                    $join->on('last_topic.path', 'like', \DB::raw("CONCAT(lforums.path, '%')"));
                 } // Else probably use || or at least that is how sqlite does it.
                 else {
                     $join->on('last_topic.path', 'like', "path || '%'");
                 }
             })
-            ->leftjoin('users as last_user', 'last_topic.last_post_user', '=', 'last_user.id')
+            ->leftjoin('lforums_users as last_user', 'last_topic.last_post_user', '=', 'last_user.id')
             ->orderBy('rank')
-            ->groupBy('forums.id');
+            ->groupBy('lforums.id');
 
         if (\Auth::check()) {
             $query->with('read');

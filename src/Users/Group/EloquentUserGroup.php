@@ -9,5 +9,5 @@ class EloquentUserGroup extends \Eloquent
 {
     public $timestamps = false;
     public $fillable = ['user_id', 'group'];
-    protected $table = 'user_group';
+    protected $table = 'lforums_user_group';
 }

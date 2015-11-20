@@ -1,4 +1,4 @@
-@extends('Kaamaru\Forums::forums.master')
+@extends('kaamaru/laravel-forums.forums.master')
 
 @section('title', _('Favorites'))
 @section('breadcrumbs', Breadcrumbs::render('forums.favorites'))

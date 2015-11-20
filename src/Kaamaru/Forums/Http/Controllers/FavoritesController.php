@@ -26,7 +26,7 @@ class FavoritesController extends BaseController
     public function getIndex()
     {
         $favorites = $this->favorites->all($this->sort->getField(), $this->sort->getDirection());
-        return View::make('Kaamaru\Forums::forums.favorites', compact('favorites', 'breadcrumbs'),
+        return View::make('kaamaru.laravel-forums.forums.favorites', compact('favorites', 'breadcrumbs'),
             ['sort' => $this->sort]);
     }
 

@@ -1,4 +1,4 @@
-@extends('Kaamaru\Forums::forums.master')
+@extends('kaamaru/laravel-forums.forums.master')
 
 @section('breadcrumbs', Breadcrumbs::render('forums.index'))
 @section('title', _('Forums'))
@@ -28,7 +28,7 @@
                 @else
                     <div class="box">
                         <div class="box-section">
-                            {{ _('No forums found :O') }} ?>
+                            {{ _('No forums found :O') }}
                         </div>
                     </div>
                 @endif

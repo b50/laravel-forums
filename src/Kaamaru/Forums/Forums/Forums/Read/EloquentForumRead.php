@@ -7,7 +7,7 @@
  */
 class EloquentForumRead extends \Eloquent
 {
-    public $table = 'forum_read';
+    public $table = 'lforums_read';
     public $timestamps = false;
     public $fillable = ['forum_id', 'user_id'];
 }

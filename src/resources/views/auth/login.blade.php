@@ -1,4 +1,4 @@
-@extends('Kaamaru\Forums::master')
+@extends('kaamaru/laravel-forums.master')
 
 @section('content')
 

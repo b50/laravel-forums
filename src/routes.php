@@ -101,3 +101,4 @@ Route::group(['before' => 'guest'], function()
 });
 
 Route::get('logout', ['before' => 'auth|csrf', 'uses' => 'AuthController@getLogout', 'as' => 'auth.logout']);
+Route::get('users', ['as' => 'users.show']);

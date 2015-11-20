@@ -38,7 +38,7 @@ class NewTopicForumsController extends BaseController implements TopicCreateList
     {
         $forum = $this->forumRepo->requireById($id);
         $forums = $this->tree->getTree();
-        return \View::make('Kaamaru\Forums::forums.new_topic', compact('forum', 'forums'));
+        return \View::make('kaamaru.laravel-forums.forums.new_topic', compact('forum', 'forums'));
     }
 
     /**
@@ -58,7 +58,7 @@ class NewTopicForumsController extends BaseController implements TopicCreateList
      */
     public function showPreview($post, $topic)
     {
-        return \View::make('Kaamaru\Forums::forums.new_topic_preview', compact('post', 'topic'),
+        return \View::make('kaamaru.laravel-forums.forums.new_topic_preview', compact('post', 'topic'),
             ['forum' => $this->forum]);
     }
 

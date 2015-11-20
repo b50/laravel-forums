@@ -1,14 +1,16 @@
 <?php
+
+use Illuminate\Database\Seeder;
 use Kaamaru\Forums\Forums\Posts\EloquentPost;
 
 /**
  * Class ForumPostsTableSeeder
  */
-class ForumPostsTableSeeder extends Seeder
+class KaamaruForumsPostsTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('forum_posts')->delete();
+        DB::table('lforums_posts')->delete();
 
         EloquentPost::create([
             'id' => 1,
