@@ -58,20 +58,20 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
     public function getForSuggestionForum($forumPath, $sort, $direction)
     {
         $topics = $this->model
-            ->select('users.slug as user_slug', 'users.username', 'forum_topics.slug', 'forum_topics.title',
-                'forum_topics.created_at', 'forum_topics.id', 'forum_topics.updated_at', 'forum_topics.views',
-                'forum_topics.posts_count', 'forum_topics.sticky', 'forum_topics.locked', 'forum_topics.last_post',
-                'last_user.slug as last_user_slug', 'last_user.username as last_user_username', 'forum_topics.tag',
-                'forum_topics.path', 'first_post.votes as votes')
-            ->join('users', 'user_id', '=', 'users.id')
-            ->join('users as last_user', 'forum_topics.last_post_user', '=', 'last_user.id')
-            ->join('forum_posts as first_post', 'forum_topics.id', '=', 'first_post.topic_id')
+            ->select('users.slug as user_slug', 'users.username', 'lforums_topics.slug', 'lforums_topics.title',
+                'lforums_topics.created_at', 'lforums_topics.id', 'lforums_topics.updated_at', 'lforums_topics.views',
+                'lforums_topics.posts_count', 'lforums_topics.sticky', 'lforums_topics.locked', 'lforums_topics.last_post',
+                'last_user.slug as last_user_slug', 'last_user.username as last_user_username', 'lforums_topics.tag',
+                'lforums_topics.path', 'first_post.votes as votes')
+            ->join('lforum_users as users', 'user_id', '=', 'users.id')
+            ->join('users as last_user', 'lforums_topics.last_post_user', '=', 'last_user.id')
+            ->join('forum_posts as first_post', 'lforums_topics.id', '=', 'first_post.topic_id')
             ->whereNested(function ($query) {
                 /** @var $query \Illuminate\Database\Query\Builder */
-                $query->where('forum_topics.expires_at', null)
-                    ->orWhere('forum_topics.expires_at', '>', Carbon::createFromTime());
+                $query->where('lforums_topics.expires_at', null)
+                    ->orWhere('lforums_topics.expires_at', '>', Carbon::createFromTime());
             })
-            ->orderBy('forum_topics.sticky', 'desc')
+            ->orderBy('lforums_topics.sticky', 'desc')
             ->orderBy($sort, $direction)
             ->groupBy('id');
 
@@ -94,17 +94,17 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
         // Get user specific stuff if user is logged in
         if ($user) {
             $topic = $topic
-                ->select('forum_topics.*', 'forum_topic_follow.id as following', 'forum_favorites.id as favorite');
+                ->select('lforums_topics.*', 'forum_topic_follow.id as following', 'forum_favorites.id as favorite');
 
             // Find if this topic is in our favorites
             $topic->leftJoin('forum_favorites', function ($join) use ($user) {
-                $join->on('forum_favorites.topic_id', '=', 'forum_topics.id')
+                $join->on('forum_favorites.topic_id', '=', 'lforums_topics.id')
                     ->where('forum_favorites.user_id', '=', $user->id);
             });
 
             // Find if we are following this topic
             $topic->leftJoin('forum_topic_follow', function ($join) use ($user) {
-                $join->on('forum_topic_follow.topic_id', '=', 'forum_topics.id')
+                $join->on('forum_topic_follow.topic_id', '=', 'lforums_topics.id')
                     ->where('forum_topic_follow.user_id', '=', $user->id);
             });
         }
@@ -226,19 +226,19 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
     {
         // Get topics
         $topics = $this->model
-            ->select('users.slug as user_slug', 'users.username', 'forum_topics.slug', 'forum_topics.title',
-                'forum_topics.created_at', 'forum_topics.id', 'forum_topics.updated_at', 'forum_topics.views',
-                'forum_topics.posts_count', 'forum_topics.sticky', 'forum_topics.locked', 'forum_topics.last_post',
-                'last_user.slug as last_user_slug', 'last_user.username as last_user_username', 'forum_topics.tag',
-                'forum_topics.path')
-            ->join('users', 'user_id', '=', 'users.id')
-            ->join('users as last_user', 'forum_topics.last_post_user', '=', 'last_user.id')
+            ->select('users.slug as user_slug', 'users.username', 'lforums_topics.slug', 'lforums_topics.title',
+                'lforums_topics.created_at', 'lforums_topics.id', 'lforums_topics.updated_at', 'lforums_topics.views',
+                'lforums_topics.posts_count', 'lforums_topics.sticky', 'lforums_topics.locked', 'lforums_topics.last_post',
+                'last_user.slug as last_user_slug', 'last_user.username as last_user_username', 'lforums_topics.tag',
+                'lforums_topics.path')
+            ->join('lforums_users as users', 'user_id', '=', 'users.id')
+            ->join('lforums_users as last_user', 'lforums_topics.last_post_user', '=', 'last_user.id')
             ->whereNested(function ($query) {
                 /** @var $query \Illuminate\Database\Query\Builder */
-                $query->where('forum_topics.expires_at', null)
-                    ->orWhere('forum_topics.expires_at', '>', Carbon::createFromTime());
+                $query->where('lforums_topics.expires_at', null)
+                    ->orWhere('lforums_topics.expires_at', '>', Carbon::createFromTime());
             })
-            ->orderBy('forum_topics.sticky', 'desc')
+            ->orderBy('lforums_topics.sticky', 'desc')
             ->orderBy($sort, $direction);
 
         if (\Auth::check()) {

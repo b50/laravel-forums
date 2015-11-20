@@ -1,4 +1,4 @@
-{{ $topics->links() }}
+{{ $topics->render() }}
 <div class="row">
     <div class="col-md-12">
         @if ($topics->count())
@@ -25,7 +25,7 @@
                                         ['type' => 'forums', 'id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token(), 'route' => \Route::currentRouteName()]) }}
                                 @elseif (Auth::check())
                                     {{ Html::uLinkRoute('forums.topics.read', '<li class="fa fa-circle"></li>',
-                                        ['type' => 'forums, 'id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token(), 'route' => \Route::currentRouteName()]) }}
+                                        ['type' => 'forums', 'id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token(), 'route' => \Route::currentRouteName()]) }}
                                 @else
                                     <li class="fa fa-circle"></li>
                                 @endif
@@ -77,9 +77,9 @@
             </div>
         @else
             <div class="box margin padding">
-                {{ _('No topics found.'); }}
+                {{ _('No topics found.') }}
             </div>
         @endif
     </div>
 </div>
-{{ $topics->links() }}
+{{ $topics->render() }}

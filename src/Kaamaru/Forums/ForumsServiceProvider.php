@@ -51,13 +51,16 @@ class ForumsServiceProvider extends ServiceProvider
             'Kaamaru\Forums\Forums\Topics\Read\EloquentTopicReadRepo');
         $this->app->bind('Kaamaru\Forums\Forums\Topics\Follow\FollowRepoInterface',
             'Kaamaru\Forums\Forums\Topics\Follow\EloquentFollowRepo');
+        $this->app->bind('Kaamaru\Forums\Users\Group\UserGroupRepoInterface',
+            'Kaamaru\Forums\Users\Group\EloquentUserGroupRepo');
         $this->app->view->composer('forums.topics._reply', 'Kaamaru\Forums\Forums\Posts\QuotesComposer');
         $this->app->view->composer('forums.move_post', 'Kaamaru\Forums\Forums\Posts\MovePostComposer');
 
         // Register aliases
-        AliasLoader::getInstance()->alias("Breadcrumbs",'DaveJamesMiller\Breadcrumbs\Facade');
-        AliasLoader::getInstance()->alias("Form",'Collective\Html\FormFacade');
-        AliasLoader::getInstance()->alias("Html",'Collective\Html\HtmlFacade');
+        AliasLoader::getInstance()->alias('Breadcrumbs','DaveJamesMiller\Breadcrumbs\Facade');
+        AliasLoader::getInstance()->alias('Form','Collective\Html\FormFacade');
+        AliasLoader::getInstance()->alias('Html','Collective\Html\HtmlFacade');
+        AliasLoader::getInstance()->alias('Bouncer','Kaamaru\Forums\Core\Facades\Bouncer');
 
         // Register service providers
         $this->app->register('DaveJamesMiller\Breadcrumbs\ServiceProvider');

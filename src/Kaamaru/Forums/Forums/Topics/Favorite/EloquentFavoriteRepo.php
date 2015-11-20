@@ -23,17 +23,17 @@ class EloquentFavoriteRepo extends EloquentRepo implements FavoriteRepoInterface
     public function all($sort, $order)
     {
         return $this->model
-            ->select('users.slug as user_slug', 'users.username', 'forum_topics.slug', 'forum_topics.title',
-                'forum_topics.created_at', 'forum_topics.id', 'forum_topics.updated_at',
-                'forum_topics.posts_count', 'forum_topics.sticky', 'forum_topics.locked',
+            ->select('users.slug as user_slug', 'users.username', 'lforums_topics.slug', 'lforums_topics.title',
+                'lforums_topics.created_at', 'lforums_topics.id', 'lforums_topics.updated_at',
+                'lforums_topics.posts_count', 'lforums_topics.sticky', 'lforums_topics.locked',
                 'last_user.slug as last_user_slug',
-                'forum_topics.deleted_at', 'last_user.username as last_user_username')
+                'lforums_topics.deleted_at', 'last_user.username as last_user_username')
             ->where('forum_favorites.user_id', \Auth::user()->id)
-            ->join('forum_topics', 'forum_favorites.topic_id', '=', 'forum_topics.id')
-            ->join('users', 'forum_topics.user_id', '=', 'users.id')
-            ->join('users as last_user', 'forum_topics.last_post_user', '=', 'last_user.id')
-            ->orderBy('forum_topics.sticky', 'desc')
-            ->orderBy('forum_topics.' . $sort, $order)
+            ->join('lforums_topics', 'forum_favorites.topic_id', '=', 'lforums_topics.id')
+            ->join('users', 'lforums_topics.user_id', '=', 'users.id')
+            ->join('users as last_user', 'lforums_topics.last_post_user', '=', 'last_user.id')
+            ->orderBy('lforums_topics.sticky', 'desc')
+            ->orderBy('lforums_topics.' . $sort, $order)
             ->paginate(\Config::get('forums/forum.topics_per_page'));
     }
 

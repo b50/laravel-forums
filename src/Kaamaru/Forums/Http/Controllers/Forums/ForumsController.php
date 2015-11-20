@@ -1,5 +1,6 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Forums;
 
+use Illuminate\Support\Facades\View;
 use Kaamaru\Forums\Forums\Forums\ForumRepoInterface;
 use Kaamaru\Forums\Forums\Forums\Read\ForumReadRepoInterface;
 use Kaamaru\Forums\Forums\Topics\TopicRepoInterface;

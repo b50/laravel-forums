@@ -117,8 +117,8 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
         $query = $this->forumsQuery();
 
         return $query
-            ->where('forums.path', 'LIKE', "$forum->path%/%")
-            ->where('forums.path', 'NOT LIKE', "$forum->path%/%/%/%")
+            ->where('lforums.path', 'LIKE', "$forum->path%/%")
+            ->where('lforums.path', 'NOT LIKE', "$forum->path%/%/%/%")
             ->get();
     }
 
