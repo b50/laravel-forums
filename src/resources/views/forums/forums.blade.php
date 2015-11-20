@@ -1,4 +1,4 @@
-@extends('forums.master')
+@extends('Kaamaru\Forums::forums.master')
 
 @section('breadcrumbs', Breadcrumbs::render('forums.index'))
 @section('title', _('Forums'))
@@ -15,12 +15,12 @@
                                 <thead>
                                 <tr>
                                     <th colspan="5">
-                                        {{ HTML::linkRoute('forums.show', $forum->name, [$forum->id, $forum->slug]) }}
+                                        {!! Html::linkRoute('forums.show', $forum->name, [$forum->id, $forum->slug]) !!}
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @include('forums._forums', ['forums' => $forums, 'path' => $forum->path, 'index' => true])
+                                @include('Kaamaru\Forums::forums._forums', ['forums' => $forums, 'path' => $forum->path, 'index' => true])
                                 </tbody>
                             </table>
                         @endif
@@ -36,15 +36,15 @@
 
             <div class="col-md-3" id="forums-sidebar">
                 <div class="list-group">
-                    {{-- HTML::uLinkRoute('forums.rules', '<i class="fa fa-gavel"></i> '. _('Forum Rules'), [], ['class' => 'list-group-item']) --}}
-                    {{ HTML::uLinkRoute('forums.topics.index', '<i class="fa fa-list-ul"></i> '. _('View All Topics'), [], ['class' => 'list-group-item']) }}
+                    {{-- Html::uLinkRoute('forums.rules', '<i class="fa fa-gavel"></i> '. _('Forum Rules'), [], ['class' => 'list-group-item']) --}}
+                    {!! Html::uLinkRoute('forums.topics.index', '<i class="fa fa-list-ul"></i> '. _('View All Topics'), [], ['class' => 'list-group-item']) !!}
                     @if (Auth::check())
-                        {{ HTML::uLinkRoute('forums.favorites', '<i class="fa fa-heart"></i> '. _('Favorites'), [], ['class' => 'list-group-item']) }}
+                        {!! Html::uLinkRoute('forums.favorites', '<i class="fa fa-heart"></i> '. _('Favorites'), [], ['class' => 'list-group-item']) !!}
                     @endif
                 </div>
 
-                @include('forums._recent_posts', ['posts' => $recentPosts])
-                @include('forums._recent_topics', ['topics' => $recentTopics])
+                @include('Kaamaru\Forums::forums._recent_posts', ['posts' => $recentPosts])
+                @include('Kaamaru\Forums::forums._recent_topics', ['topics' => $recentTopics])
             </div>
         </div>
     </div>

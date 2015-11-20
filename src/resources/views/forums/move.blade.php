@@ -1,4 +1,4 @@
-@extends('forums.master')
+@extends('Kaamaru\Forums::forums.master')
 
 @section('breadcrumbs', Breadcrumbs::render('forums.topics.show', $topic, _('Move topic')))
 @section('title', _('Move topic'))

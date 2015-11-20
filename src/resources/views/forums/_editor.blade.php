@@ -1,7 +1,7 @@
-@section('scripts', HTML::script('scripts/ace/ace.js'))
+@section('scripts', Html::script('scripts/ace/ace.js'))
 @section('styles')
     @parent
-    {{ HTML::style('styles/editor.css') }}
+    {!! Html::style('styles/editor.css') !!}
 @show
 
 {{-- Show content error to the right of tabs --}}
@@ -13,14 +13,14 @@
 
 @if (Input::get('tab') == 'visual')
     <ul class="nav nav-tabs editor-tabs">
-        {{ HTML::linkRoute('forums.topics.new', $forum->name, $forum->slug) }}
-        <li>{{ HTML::link(Request::url().'?tab=visual', 'Visual') }}</li>
+        {!! Html::linkRoute('forums.topics.new', $forum->name, $forum->slug) !!}
+        <li>{!! Html::link(Request::url().'?tab=visual', 'Visual') !!}</li>
         <li class="active"><a {{ $errors->has('content') ? 'class="error"' : '' }} href="#">{{ _('Source') }}</a></li>
     </ul>
 @else
     <ul class="nav nav-tabs editor-tabs">
         <li class="active"><a {{ $errors->has('content') ? 'class="error"' : '' }} href="#">{{ _('Visual') }}</a></li>
-        <li>{{ HTML::link(Request::url().'?tab=source', 'Source') }}</li>
+        <li>{!! Html::link(Request::url().'?tab=source', 'Source') !!}</li>
     </ul>
     <noscript>
         <div class="box" id="article-content">
@@ -29,7 +29,7 @@
     </noscript>
 @endif
 <div id="editor-pannel" {{ $errors->has('content') ? 'class="error"' : '' }}>
-    <p>{{ HTML::link('http://www.enable-javascript.com', _(' Enable javascript for more features!'), ['target' => '_blank']) }}</p>
+    <p>{!! Html::link('http://www.enable-javascript.com', _(' Enable javascript for more features!'), ['target' => '_blank']) !!}</p>
     <button type="button" class="btn btn-default" id="bold"><i class="fa fa-bold"></i></button>
     <button type="button" class="btn btn-default" id="italic"><i class="fa fa-italic"></i></button>
     <button type="button" class="btn btn-default" id="strikethrough"><i class="fa fa-strikethrough"></i></button>
@@ -42,14 +42,14 @@
                 class="fa fa-picture-o"></i></button>
     <button type="button" class="btn btn-default" id="rule"><i class="fa fa-minus"></i></button>
     <div class="pull-right">
-        {{ Form::button('Preview', ['type' => 'submit', 'class' => 'btn btn-default', 'name' => 'preview', 'value' => 1]) }}
-        {{ Form::button(isset($button) ? $button: 'Post', ['type' => 'submit', 'class' => 'btn btn-primary', 'value' => 'post' ]) }}
+        {!! Form::button('Preview', ['type' => 'submit', 'class' => 'btn btn-default', 'name' => 'preview', 'value' => 1]) !!}
+        {!! Form::button(isset($button) ? $button: 'Post', ['type' => 'submit', 'class' => 'btn btn-primary', 'value' => 'post' ]) !!}
     </div>
 </div>
 <div id="editor">{{{ \Input::get('content') ?: $content }}}</div>
-{{ Form::textarea('content', \Input::get('content') ?: $content, ['id' => 'editor-text', 'name' => 'content']) }}
+{!! Form::textarea('content', \Input::get('content') ?: $content, ['id' => 'editor-text', 'name' => 'content']) !!}
 
-{{ Form::token() }}
+{!! Form::token() !!}
 
 {{--<script type="text/javascript">--}}
 {{--var editor = ace.edit("editor");--}}

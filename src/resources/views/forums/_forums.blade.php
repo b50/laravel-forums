@@ -4,17 +4,17 @@
         <tr>
             <td class="forum-folder">
                 @if (Auth::check() and $forum->read)
-                    {{ HTML::uLinkRoute('forums.unread', '<i class="fa fa-folder-o"></i>',
+                    {{ Html::uLinkRoute('forums.unread', '<i class="fa fa-folder-o"></i>',
                         ['id' => $forum->id, 'slug' => $forum->slug, '_token' => csrf_token(), 'index' => $index]) }}
                 @elseif (Auth::check())
-                    {{ HTML::uLinkRoute('forums.read', '<i class="fa fa-folder"></i>',
+                    {{ Html::uLinkRoute('forums.read', '<i class="fa fa-folder"></i>',
                         ['id' => $forum->id, 'slug' => $forum->slug, '_token' => csrf_token(), 'index' => $index]) }}
                 @else
                     <i class="fa fa-folder"></i>
                 @endif
             </td>
             <td class="board">
-                {{ HTML::linkRoute('forums.show', $forum->name, ['id' => $forum->id, 'slug' => $forum->slug]) }}<br>
+                {!! Html::linkRoute('forums.show', $forum->name, ['id' => $forum->id, 'slug' => $forum->slug]) !!}<br>
 
                 <div class="subforums">
                     <?php $i = 0 ?>
@@ -26,7 +26,7 @@
                             @endif
 
                             <?php $i++ ?>
-                            {{ HTML::linkRoute('forums.show', $subforum->name,
+                            {{ Html::linkRoute('forums.show', $subforum->name,
                                 ['id' => $subforum->id, 'slug' => $subforum->slug]) }}
                         @endif
                     @endforeach
@@ -44,18 +44,18 @@
             </td>
             <td class="last-forum">
                 @if (isset($forum->last_user_username))
-                    {{ HTML::imageExists("images/avatars/{$forum->last_user_slug}/{$forum->last_user_slug}-small.jpg",
+                    {{ Html::imageExists("images/avatars/{$forum->last_user_slug}/{$forum->last_user_slug}-small.jpg",
                         $forum->last_user_username, [
                             'class' => 'forum-avatar'
                         ])
                     }}
                     <div class="last-info">
-                        {{ HTML::linkRoute('forums.posts.show', $forum->last_topic_title, ['topicType' => 'forums', 'id' => $forum->last_post]) }}
+                        {!! Html::linkRoute('forums.posts.show', $forum->last_topic_title, ['topicType' => 'forums', 'id' => $forum->last_post]) !!}
                         <br>
                         <span class="description">{{ $forum->last_topic_updated_at }} by </span>
-                        {{ HTML::linkRoute('users.show', $forum->last_user_username, ['slug' => $forum->last_user_slug]) }}
+                        {!! Html::linkRoute('users.show', $forum->last_user_username, ['slug' => $forum->last_user_slug]) !!}
                         <br>
-                        {{ HTML::uLinkRoute('forums.posts.show', '<i class="icon-chevron-sign-right" style="display: none"></i>', ['id' => $forum->last_post]) }}
+                        {!! Html::uLinkRoute('forums.posts.show', '<i class="icon-chevron-sign-right" style="display: none"></i>', ['id' => $forum->last_post]) !!}
                     </div>
                 @endif
             </td>

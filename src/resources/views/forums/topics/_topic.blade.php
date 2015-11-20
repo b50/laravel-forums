@@ -1,12 +1,12 @@
 <h1 id="topic-header">{{{ $topic->title }}}</h1>
-{{ HTML::flash('topic') }}
+{!! Html::flash('topic') !!}
 <div class="row">
     <div class="col-md-5">
         {{ $topic->posts->links() }}
     </div>
     <div class="col-md-7">
         <ul class="social topic-menu">
-            @include('...share')
+            @include('Kaamaru\Forums::...share')
         </ul>
     </div>
 </div>
@@ -48,58 +48,58 @@
     <ul class="pull-right">
         @if (Auth::check())
             @if ($topic->following)
-                <li>{{ HTML::linkRoute('forums.topics.unfollow',_('Unfollow'),
+                <li>{{ Html::linkRoute('forums.topics.unfollow',_('Unfollow'),
 					['topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token(),]) }}</li>
             @else
-                <li>{{ HTML::linkRoute('forums.topics.follow',_('Follow'),
+                <li>{{ Html::linkRoute('forums.topics.follow',_('Follow'),
 					['topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token(),]) }}</li>
             @endif
-            <li>{{ HTML::linkRoute('forums.topics.unread', _('Mark unread'),
+            <li>{{ Html::linkRoute('forums.topics.unread', _('Mark unread'),
 				['topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token(), 'route' => 'forums.show']) }}</li>
 
             @if (Bouncer::hasPermission('forums.move') and \Route::current()->parameter('topicType') == 'forums')
-                <li>{{ HTML::linkRoute('forums.topics.move', _('Move'),
+                <li>{{ Html::linkRoute('forums.topics.move', _('Move'),
 					 ['topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug]) }}</li>
             @endif
             @if ( Bouncer::hasPermission('forums.lock'))
-                <li>{{ HTML::linkRoute('forums.topics.lock', $topic->locked ? _('Unlock') : _('Lock'),
+                <li>{{ Html::linkRoute('forums.topics.lock', $topic->locked ? _('Unlock') : _('Lock'),
 					['topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token()]) }}</li>
             @endif
             @if ( Bouncer::hasPermission('forums.sticky'))
-                <li>{{ HTML::linkRoute('forums.topics.sticky', $topic->sticky ? _('Unsticky') : _('Sticky'),
+                <li>{{ Html::linkRoute('forums.topics.sticky', $topic->sticky ? _('Unsticky') : _('Sticky'),
 					['topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token()]) }}</li>
             @endif
             @if ( Bouncer::hasPermission('forums.delete') or $topic->user_id == Auth::user()->id)
-                <li>{{ HTML::linkRoute('forums.topics.delete', _('Delete'),
+                <li>{{ Html::linkRoute('forums.topics.delete', _('Delete'),
 					['topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug]) }}</li>
             @endif
 
             @if ($topic->favorite)
                 <li>
-                    {{ HTML::uLinkRoute('forums.topics.unfavorite', '<i class="fa fa-heart"></i> '._('Unfavorite'),
+                    {{ Html::uLinkRoute('forums.topics.unfavorite', '<i class="fa fa-heart"></i> '._('Unfavorite'),
                         ['topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token()] ) }}
                 </li>
             @else
                 <li>
-                    {{ HTML::uLinkRoute('forums.topics.favorite', '<i class="fa fa-heart-o"></i> '._('Favorite'),
+                    {{ Html::uLinkRoute('forums.topics.favorite', '<i class="fa fa-heart-o"></i> '._('Favorite'),
                         ['topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token()]) }}
                 </li>
             @endif
 
         @endif
-        {{ HTML::uLinkRoute('forums.topics.reply', '<i class="fa fa-plus"></i> '._('Reply'),
+        {{ Html::uLinkRoute('forums.topics.reply', '<i class="fa fa-plus"></i> '._('Reply'),
             ['topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug]) }}
     </ul>
 </div>
 
 @if (Auth::check())
-    {{ Form::open(['route' => ['forums.topics.reply', 'topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug], 'method' => 'GET']) }}
+    {!! Form::open(['route' => ['forums.topics.reply', 'topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug], 'method' => 'GET']) !!}
 @endif
 
 <div class="posts">
     <?php $i = (Request::get('page') * Config::get('forums\forum.posts_per_page')) + 1 ?>
     @foreach ($topic->posts as $post)
-        @include('...forums._post', [$post])
+        @include('Kaamaru\Forums::...forums._post', [$post])
         <?php $i++ ?>
     @endforeach
 </div>
@@ -110,15 +110,15 @@
     </div>
     <div class="col-md-7">
         <ul class="post-menu">
-            <li>{{ HTML::uLinkRoute('forums.topics.reply', '<i class="fa fa-plus"></i> '._('Reply'),
+            <li>{{ Html::uLinkRoute('forums.topics.reply', '<i class="fa fa-plus"></i> '._('Reply'),
             	['topicType' => \Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug]) }}</li>
             @if (Auth::check())
-                <li>{{ Form::submit('Quote selected', ['id' => 'quoteSelected']) }}</li>
+                <li>{!! Form::submit('Quote selected', ['id' => 'quoteSelected']) !!}</li>
             @endif
         </ul>
     </div>
 </div>
 
 @if (Auth::check())
-    {{ Form::close() }}
+    {!! Form::close() !!}
 @endif

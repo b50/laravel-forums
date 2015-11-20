@@ -3,16 +3,16 @@
 <head>
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{ HTML::style('packages/bootstrap-3.3.5/css/bootstrap.min.css') }}
-    {{ HTML::style('styles/index.css') }}
-    {{ HTML::style('packages/font-awesome-4.1.0/css/font-awesome.min.css') }}
+    {!! Html::style('packages/bootstrap-3.3.5/css/bootstrap.min.css') !!}
+    {!! Html::style('styles/index.css') !!}
+    {!! Html::style('packages/font-awesome-4.1.0/css/font-awesome.min.css') !!}
     @yield('styles')
 
-    {{ HTML::script('scripts/jquery-1.11.3.min.js') }}
+    {!! Html::script('scripts/jquery-1.11.3.min.js') !!}
     @yield('scripts')
 </head>
 <body>
-<header class="navbar navbar-default navbar-static-top">
+    <header class="navbar navbar-default navbar-static-top">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -27,24 +27,23 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li>{{ HTML::link('', _('Index')) }}</li>
-                <li>{{ HTML::linkRoute('forums.index', _('Forums')) }}</li>
-                <li>{{ HTML::linkRoute('chat.index', _('Chat')) }}</li>
+                <li>{!! Html::link('', _('Index')) !!}</li>
+                <li>{!! Html::linkRoute('forums.index', _('Forums')) !!}</li>
             </ul>
             @if (Auth::check())
                 <div id="nav-profile" class="navbar-right">
                     <i class="fa fa-bell nav-search"></i>
                     <i class="fa fa-search nav-search" id="nav-search-icon"></i>
-                    {{ HTML::imageExists('images/avatars/'.Auth::user()->slug.'/'.Auth::user()->slug.'-small.jpg', Auth::user()->username, ['id' => 'nav-avatar']) }}
+                    {!! Html::imageExists('images/avatars/'.Auth::user()->slug.'/'.Auth::user()->slug.'-small.jpg', Auth::user()->username, ['id' => 'nav-avatar']) !!}
                     <div id="nav-profile-links">
-                        {{ HTML::uLinkRoute('users.show', Auth::user()->username.' <i class="fa fa-caret-down"></i>', ['user' => Auth::user()->slug]) }}
+                        {!! Html::uLinkRoute('users.show', Auth::user()->username.' <i class="fa fa-caret-down"></i>', ['user' => Auth::user()->slug]) !!}
                         <br>
                     </div>
                 </div>
             @else
                 <ul class="nav navbar-right navbar-nav">
-                    <li>{{ HTML::uLinkRoute('auth.login', 'Login') }}</li>
-                    <li>{{ HTML::uLinkRoute('auth.register', 'Register') }}</li>
+                    <li>{!! Html::uLinkRoute('auth.login', 'Login') !!}</li>
+                    <li>{!! Html::uLinkRoute('auth.register', 'Register') !!}</li>
                 </ul>
             @endif
         </div>
@@ -54,19 +53,19 @@
             @yield('breadcrumbs')
         </div>
     </div>
-</header>
-<div class="container">
-    {{ HTML::flash() }}
+    </header>
+    <div class="container">
+    {!! Html::flash() !!}
     @yield('content')
-</div>
-<hr/>
-<div class="container">
+    </div>
+    <hr/>
+    <div class="container">
     <div class="pull-left" style="padding-top: 10px">{{ _('Kaamaru\Forums') }}</div>
     <ul class="nav nav-pills pull-left">
         @if (\Auth::check())
-            <li>{{ HTML::linkRoute('auth.logout', _('Logout'), ['_token' => csrf_token()]) }}</li>
+            <li>{!! Html::linkRoute('auth.logout', _('Logout'), ['_token' => csrf_token()]) !!}</li>
         @endif
     </ul>
-</div>
-</body>
+    </div>
+    </body>
 </html>

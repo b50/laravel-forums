@@ -1,10 +1,10 @@
-@extends('forums.master')
+@extends('Kaamaru\Forums::forums.master')
 @section('breadcrumbs', Breadcrumbs::render('forums.topics.show', $topic))
 @section('title', $topic->title)
 @section('content')
 
     <h1>{{ $topic->title }}</h1>
-    {{ HTML::flash('topic') }}
+    {!! Html::flash('topic') !!}
     <div class="box-header-blue">
         <ul>
             <li>
@@ -43,66 +43,66 @@
         <ul class="pull-right">
             @if (Auth::check())
                 @if ($topic->following)
-                    <li>{{ HTML::linkRoute('forums.topics.unfollow',_('Unfollow'),
+                    <li>{{ Html::linkRoute('forums.topics.unfollow',_('Unfollow'),
 						['id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token(),]) }}</li>
                 @else
-                    <li>{{ HTML::linkRoute('forums.topics.follow',_('Follow'),
+                    <li>{{ Html::linkRoute('forums.topics.follow',_('Follow'),
 						['id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token(),]) }}</li>
                 @endif
-                <li>{{ HTML::linkRoute('forums.topics.unread', _('Mark unread'),
+                <li>{{ Html::linkRoute('forums.topics.unread', _('Mark unread'),
 					['id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token(), 'route' => 'forums.show']) }}</li>
 
                 @if ( Bouncer::hasPermission('forums.move'))
-                    <li>{{ HTML::linkRoute('forums.topics.move', _('Move'),
+                    <li>{{ Html::linkRoute('forums.topics.move', _('Move'),
 						 ['id' => $topic->id, 'slug' => $topic->slug]) }}</li>
                 @endif
                 @if ( Bouncer::hasPermission('forums.lock'))
-                    <li>{{ HTML::linkRoute('forums.topics.lock', $topic->locked ? _('Unlock') : _('Lock'),
+                    <li>{{ Html::linkRoute('forums.topics.lock', $topic->locked ? _('Unlock') : _('Lock'),
 						['id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token()]) }}</li>
                 @endif
                 @if ( Bouncer::hasPermission('forums.sticky'))
-                    <li>{{ HTML::linkRoute('forums.topics.sticky', $topic->sticky ? _('Unsticky') : _('Sticky'),
+                    <li>{{ Html::linkRoute('forums.topics.sticky', $topic->sticky ? _('Unsticky') : _('Sticky'),
 						['id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token()]) }}</li>
                 @endif
                 @if ( Bouncer::hasPermission('forums.delete') or $topic->user_id == Auth::user()->id)
-                    <li>{{ HTML::linkRoute('forums.topics.delete', _('Delete'),
+                    <li>{{ Html::linkRoute('forums.topics.delete', _('Delete'),
 						['id' => $topic->id, 'slug' => $topic->slug]) }}</li>
                 @endif
 
                 @if ($topic->favorite)
                     <li>
-                        {{ HTML::uLinkRoute('forums.topics.favorites', '<i class="fa fa-heart"></i> '._('Unfavorite'),
+                        {{ Html::uLinkRoute('forums.topics.favorites', '<i class="fa fa-heart"></i> '._('Unfavorite'),
                             ['id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token()] ) }}
                     </li>
                 @else
                     <li>
-                        {{ HTML::uLinkRoute('forums.topics.unfavorite', '<i class="fa fa-heart-o"></i> '._('Favorite'),
+                        {{ Html::uLinkRoute('forums.topics.unfavorite', '<i class="fa fa-heart-o"></i> '._('Favorite'),
                             ['id' => $topic->id, 'slug' => $topic->slug, '_token' => csrf_token()]) }}
                     </li>
                 @endif
 
             @endif
             @if (\Bouncer::hasPermission('forums.response'))
-                {{ HTML::linkRoute('forums.topics.reply', _('Developer response'),
+                {{ Html::linkRoute('forums.topics.reply', _('Developer response'),
                     ['id' => $topic->id, 'slug' => $topic->slug, 'devresponse' => true]) }}
             @endif
-            {{ HTML::uLinkRoute('forums.topics.reply', '<i class="fa fa-plus"></i> '._('Reply'),
+            {{ Html::uLinkRoute('forums.topics.reply', '<i class="fa fa-plus"></i> '._('Reply'),
                 ['id' => $topic->id, 'slug' => $topic->slug]) }}
         </ul>
     </div>
 
     @if (Auth::check())
-        {{ Form::open(['route' => ['forums.topics.reply', 'id' => $topic->id, 'slug' => $topic->slug], 'method' => 'GET']) }}
+        {!! Form::open(['route' => ['forums.topics.reply', 'id' => $topic->id, 'slug' => $topic->slug], 'method' => 'GET']) !!}
     @endif
 
     <div class="posts">
-        @include('forums._post', ['post' => $topic->first_post])
+        @include('Kaamaru\Forums::forums._post', ['post' => $topic->first_post])
     </div>
 
     @if ($topic->developer_response)<br>
     <div class="box-header-blue">{{ _('Developer response') }}</div>
     <div class="posts">
-        @include('forums._post', ['post' => $topic->developer_response])
+        @include('Kaamaru\Forums::forums._post', ['post' => $topic->developer_response])
     </div>
     @endif
 
@@ -113,7 +113,7 @@
             </div>
             <div class="col-md-7">
                 <ul class="topic-menu social">
-                    @include('share')
+                    @include('Kaamaru\Forums::share')
                 </ul>
             </div>
         </div>
@@ -122,7 +122,7 @@
             {{ _('Comments') }}
 
             <ul class="pull-right">
-                <li>{{ HTML::uLinkRoute('forums.topics.reply', '<i class="fa fa-plus"></i> '._('Reply'),
+                <li>{{ Html::uLinkRoute('forums.topics.reply', '<i class="fa fa-plus"></i> '._('Reply'),
 					['id' => $topic->id, 'slug' => $topic->slug]) }}</li>
             </ul>
         </div>
@@ -131,7 +131,7 @@
                 <?php $i = (Request::get('page') * Config::get('forums\forum.posts_per_page')) + 2 ?>
                 @foreach ($topic->postsByVotes as $post)
                     @if ($topic->first_post->id != $post->id)
-                        @include('forums._post', [$post])
+                        @include('Kaamaru\Forums::forums._post', [$post])
                         <?php $i++ ?>
                     @endif
                 @endforeach
@@ -149,16 +149,16 @@
             </div>
             <div class="col-md-7">
                 <ul class="topic-menu">
-                    <li>{{ HTML::uLinkRoute('forums.topics.reply', '<i class="fa fa-plus"></i> '._('Reply'),
+                    <li>{{ Html::uLinkRoute('forums.topics.reply', '<i class="fa fa-plus"></i> '._('Reply'),
 						['id' => $topic->id, 'slug' => $topic->slug]) }}</li>
                     @if (Auth::check())
-                        <li>{{ Form::submit('Quote selected', ['id' => 'quoteSelected']) }}</li>
+                        <li>{!! Form::submit('Quote selected', ['id' => 'quoteSelected']) !!}</li>
                     @endif
                 </ul>
             </div>
         </div>
     </div>
     @if (Auth::check())
-        {{ Form::close() }}
+        {!! Form::close() !!}
     @endif
 @stop

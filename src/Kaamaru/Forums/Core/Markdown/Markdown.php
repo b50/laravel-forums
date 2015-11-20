@@ -38,7 +38,7 @@ class Markdown extends \Parsedown
             $users = $this->userRepo->getBySlug($matches[1]);
 
             foreach ($users as $user) {
-                $link = \HTML::linkRoute('users.show', $user->username, ['slug' => $user->slug]);
+                $link = \Html::linkRoute('users.show', $user->username, ['slug' => $user->slug]);
                 $text = preg_replace("/\@$user->slug/i", $link, $text);
             }
         }

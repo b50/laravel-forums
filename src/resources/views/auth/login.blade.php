@@ -1,4 +1,4 @@
-@extends('master')
+@extends('Kaamaru\Forums::master')
 
 @section('content')
 
@@ -7,7 +7,7 @@
         <div class="col-md-5 sign-container">
             <ul class="nav nav-tabs nav-justified">
                 <li class="active"><a href="#">Sign in</a></li>
-                <li>{{ HTML::linkRoute('auth.register', _('Register')); }}</li>
+                <li>{!! Html::.* !!}</li>
             </ul>
             <div id="sign-box">
                 <h1 class="text-center">{{ _('Login') }}</h1>

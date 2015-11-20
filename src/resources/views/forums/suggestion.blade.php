@@ -1,4 +1,4 @@
-@extends('forums.master')
+@extends('Kaamaru\Forums::forums.master')
 
 @section('breadcrumbs', Breadcrumbs::render('forums.show', $forum->parents))
 @section('title', $forum->name)
@@ -19,7 +19,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @include('forums._forums', ['forums' => $subforums, 'path' => $forum->path, 'index' => false])
+                        @include('Kaamaru\Forums::forums._forums', ['forums' => $subforums, 'path' => $forum->path, 'index' => false])
                         </tbody>
                     </table>
                 @endif
@@ -29,24 +29,24 @@
 
     <ul class="nav nav-pills navbar-right">
         @if (Auth::check())
-            <li>{{ HTML::linkRoute('forums.unread', _('Mark unread'),
+            <li>{{ Html::linkRoute('forums.unread', _('Mark unread'),
 			['id' => $forum->id, 'slug' => $forum->slug, '_token' => csrf_token()]) }}</li>
         @endif
         @if ( ! isset($forum->locked) and ! \Bouncer::inGroup('admin'))
-            <li>{{ HTML::linkRoute('forums.topics.new', _('New topic'), [$forum->id, $forum->slug]) }}</li>
+            <li>{!! Html::linkRoute('forums.topics.new', _('New topic'), [$forum->id, $forum->slug]) !!}</li>
         @endif
     </ul>
 
-    @include('forums._suggestions', ['topics' => $topics, 'route' => 'forums.show', 'routeParams' => [
+    @include('Kaamaru\Forums::forums._suggestions', ['topics' => $topics, 'route' => 'forums.show', 'routeParams' => [
         'id' => $forum->id, 'slug' => $forum->slug]])
 
     <ul class="nav nav-pills navbar-right">
         @if (Auth::check())
-            <li>{{ HTML::linkRoute('forums.unread', _('Mark unread'),
+            <li>{{ Html::linkRoute('forums.unread', _('Mark unread'),
 			['id' => $forum->id, 'slug' => $forum->slug, '_token' => csrf_token()]) }}</li>
         @endif
         @if ( ! isset($forum->locked))
-            <li>{{ HTML::linkRoute('forums.topics.new', _('New topic')) }}</li>
+            <li>{!! Html::linkRoute('forums.topics.new', _('New topic')) !!}</li>
         @endif
     </ul>
 @stop

@@ -1,5 +1,5 @@
-@extends('...master')
+@extends('Kaamaru\Forums::...master')
 
 @section('content')
-    @include('forums.posts._delete')
+    @include('Kaamaru\Forums::forums.posts._delete')
 @stop

@@ -1,7 +1,7 @@
-@extends('forums.master')
+@extends('Kaamaru\Forums::forums.master')
 
 @section('breadcrumbs', Breadcrumbs::render('forums.topics.show', $topic, 'Reply'))
 @section('title', $topic->title)
 @section('content')
-    @include('forums.topics._reply_preview')
+    @include('Kaamaru\Forums::forums.topics._reply_preview')
 @stop

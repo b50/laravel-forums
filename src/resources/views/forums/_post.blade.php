@@ -12,31 +12,31 @@
             @if (isset($preview))
                 {{{ $post->author->username }}}
             @else
-                {{ HTML::linkRoute('users.show', $post->author->username, $post->author->slug) }}
+                {!! Html::linkRoute('users.show', $post->author->username, $post->author->slug) !!}
             @endif
         </h5>
 
         <div class="user-date">{{ _('Posted')}} {{$post->created_at }}</div>
         <ul class="post-menu">
-            {{ HTML::flashInline("post-$post->id") }}
+            {!! Html::flashInline("post-$post->id") !!}
             @if ( ! isset($preview))
                 @if (Auth::check())
-                    <li>{{ Form::checkbox('quotes[]', $post->id) }}</li>
-                    <li>{{ HTML::linkRoute('forums.topics.reply', _('Quote'),
+                    <li>{!! Form::checkbox('quotes[]', $post->id) !!}</li>
+                    <li>{{ Html::linkRoute('forums.topics.reply', _('Quote'),
 					[\Route::current()->parameter('topicType'), 'id' => $topic->id, 'slug' => $topic->slug, 'quote' => $post->id]) }}</li>
                 @endif
 
                 @if (Auth::user() and (Auth::user()->id == $post->user_id or Bouncer::hasPermission('forums.delete')) and isset($i) and $i > 1)
-                    <li>{{ HTML::linkRoute('forums.posts.delete', _('Delete'), [\Route::current()->parameter('topicType'), 'id' => $post->id]) }}</li>
+                    <li>{!! Html::linkRoute('forums.posts.delete', _('Delete'), [\Route::current()->parameter('topicType'), 'id' => $post->id]) !!}</li>
                 @endif
                 @if (Auth::user() and (Auth::user()->id == $post->user_id or Bouncer::hasPermission('forums.edit')))
-                    <li>{{ HTML::linkRoute('forums.posts.edit', _('Edit'), [\Route::current()->parameter('topicType'), 'id' => $post->id]) }}</li>
+                    <li>{!! Html::linkRoute('forums.posts.edit', _('Edit'), [\Route::current()->parameter('topicType'), 'id' => $post->id]) !!}</li>
                 @endif
 
                 @if (Auth::check() and Auth::user()->id != $post->user_id)
-                    <li>{{ HTML::linkRoute('forums.posts.report', _('Report'), [\Route::current()->parameter('topicType'), 'id' => $post->id]) }}</li>
-                    <li>{{ HTML::uLinkRoute('forums.posts.vote', '<i class="fa fa-angle-down"></i>', ['topicType' => \Route::current()->parameter('topicType'), 'id' => $post->id, 'direction' => 'down', '_token' => csrf_token()], ['id' => 'voteDown']) }}</li>
-                    <li>{{ HTML::uLinkRoute('forums.posts.vote', '<i class="fa fa-angle-up"></i>', ['topicType' => \Route::current()->parameter('topicType'), 'id' => $post->id, 'direction' => 'up', '_token' => csrf_token()], ['id' => 'voteUp']) }}</li>
+                    <li>{!! Html::linkRoute('forums.posts.report', _('Report'), [\Route::current()->parameter('topicType'), 'id' => $post->id]) !!}</li>
+                    <li>{!! Html::uLinkRoute('forums.posts.vote', '<i class="fa fa-angle-down"></i>', ['topicType' => \Route::current()->parameter('topicType'), 'id' => $post->id, 'direction' => 'down', '_token' => csrf_token()], ['id' => 'voteDown']) !!}</li>
+                    <li>{!! Html::uLinkRoute('forums.posts.vote', '<i class="fa fa-angle-up"></i>', ['topicType' => \Route::current()->parameter('topicType'), 'id' => $post->id, 'direction' => 'up', '_token' => csrf_token()], ['id' => 'voteUp']) !!}</li>
                 @endif
 
                 @if ($post->votes > 0)
@@ -50,7 +50,7 @@
     <div class="post-container">
         <div class="avatar-background"></div>
         <div class="avatar">
-            {{ HTML::imageExists("images/avatars/{$post->author->slug}/{$post->author->slug}.jpg", $post->author->username, ['class' => 'post-user-avatar']) }}
+            {!! Html::imageExists("images/avatars/{$post->author->slug}/{$post->author->slug}.jpg", $post->author->username, ['class' => 'post-user-avatar']) !!}
         </div>
         <div class="post-content">
             {{ $post->html }}

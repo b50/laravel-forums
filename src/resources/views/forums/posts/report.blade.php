@@ -1,5 +1,5 @@
-@extends('...master')
+@extends('Kaamaru\Forums::...master')
 
 @section('content')
-    @include('forums.posts._report')
+    @include('Kaamaru\Forums::forums.posts._report')
 @stop

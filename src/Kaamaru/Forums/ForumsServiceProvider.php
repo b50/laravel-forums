@@ -1,5 +1,6 @@
 <?php namespace Kaamaru\Forums;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Kaamaru\Forums\Core\Auth\EloquentUserProvider;
 use Kaamaru\Forums\Core\Html\HtmlBuilder;
@@ -15,14 +16,13 @@ class ForumsServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'Kaamaru\Forums');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'Kaamaru\Forums');
         \Validator::resolver(function ($translator, $data, $rules, $messages) {
             return new ValidationRules($translator, $data, $rules, $messages);
         });
 
         \Auth::extend('eloquent', function ($app) {
             $model = $this->app['config']['auth.model'];
-
             return new EloquentUserProvider($this->app['hash'], $model);
         });
         require __DIR__ . '/Http/breadcrumbs.php';
@@ -30,13 +30,11 @@ class ForumsServiceProvider extends ServiceProvider
 
     public function register()
     {
+        // Load forums routes
         if (!$this->app->routesAreCached()) {
-            require __DIR__ . '/routes.php';
+            require __DIR__ . '/../../routes.php';
         }
-        $this->app->bindShared('html', function ($app) {
-            return new HtmlBuilder($app['url']);
-        });
-        $this->app->alias('html', 'Kaamaru\Forums\Core\Html\HtmlBuilder');
+
         $this->app->bind('counter', 'Kaamaru\Forums\Core\Counters\Redis\RedisCounter');
         $this->app->bind('markdown', 'Kaamaru\Forums\Core\Markdown\Markdown');
         $this->app->bind('flash', 'Kaamaru\Forums\Core\Flash\Flash');
@@ -62,15 +60,19 @@ class ForumsServiceProvider extends ServiceProvider
             'Kaamaru\Forums\Forums\Topics\Follow\EloquentFollowRepo');
         $this->app->view->composer('forums.topics._reply', 'Kaamaru\Forums\Forums\Posts\QuotesComposer');
         $this->app->view->composer('forums.move_post', 'Kaamaru\Forums\Forums\Posts\MovePostComposer');
-    }
 
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return ['html', 'form', 'Kaamaru\Forums\Core\Html\HtmlBuilder', 'Collective\Html\FormBuilder'];
+        // Register aliases
+        AliasLoader::getInstance()->alias("Breadcrumbs",'DaveJamesMiller\Breadcrumbs\Facade');
+        AliasLoader::getInstance()->alias("Form",'Collective\Html\FormFacade');
+        AliasLoader::getInstance()->alias("Html",'Collective\Html\HtmlFacade');
+
+        // Register service providers
+        $this->app->register('DaveJamesMiller\Breadcrumbs\ServiceProvider');
+        $this->app->register('Collective\Html\HtmlServiceProvider');
+
+        // Override HTML builder to add some useful methods
+        $this->app->bindShared('html', function ($app) {
+            return new HtmlBuilder($app['url']);
+        });
     }
 }

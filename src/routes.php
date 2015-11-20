@@ -84,3 +84,20 @@ Route::group(['namespace' => 'Kaamaru\Forums\Http\Controllers'], function () {
         });
     });
 });
+
+/*
+ * Auth
+ */
+Route::group(['before' => 'guest'], function()
+{
+    Route::get('login', ['uses' => 'AuthController@getLogin', 'as' => 'auth.login']);
+    Route::get('register', ['uses' => 'AuthController@getRegister', 'as' => 'auth.register']);
+
+    Route::group(['before' => 'csrf'], function ()
+    {
+        Route::post('register', ['uses' => 'AuthController@postRegister', 'as' => 'auth.register']);
+        Route::post('login', ['uses' => 'AuthController@postLogin', 'as' => 'auth.login']);
+    });
+});
+
+Route::get('logout', ['before' => 'auth|csrf', 'uses' => 'AuthController@getLogout', 'as' => 'auth.logout']);

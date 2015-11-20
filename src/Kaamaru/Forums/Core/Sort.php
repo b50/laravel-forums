@@ -53,7 +53,7 @@ class Sort
         }
 
         $params = "?order=$id&direction=$direction";
-        return \HTML::link(\Request::path() . $params, $title ?: ucfirst($id));
+        return \Html::link(\Request::path() . $params, $title ?: ucfirst($id));
     }
 
     /**

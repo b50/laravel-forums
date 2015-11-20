@@ -1,5 +1,5 @@
-@extends('master')
+@extends('Kaamaru\Forums::master')
 
 @section('styles')
-    {{ HTML::style('styles/forum.css') }}
+    {!! Html::style('styles/forum.css') !!}
 @stop
