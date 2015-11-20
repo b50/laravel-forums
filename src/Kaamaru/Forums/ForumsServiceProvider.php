@@ -7,13 +7,6 @@ use Kaamaru\Forums\Core\Html\HtmlBuilder;
 
 class ForumsServiceProvider extends ServiceProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = true;
-
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'Kaamaru\Forums');
