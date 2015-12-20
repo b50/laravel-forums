@@ -1,2 +1,2 @@
 <div class="box-header-blue">{{ _('Preview') }}: {{{ $topic->title }}}</div>
-@include('Kaamaru\Forums::forums.topics._preview', ['post' => $post, 'topic' => $topic])
+@include('kaamaru/laravel-forums/forums.topics._preview', ['post' => $post, 'topic' => $topic])

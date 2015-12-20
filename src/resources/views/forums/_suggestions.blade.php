@@ -1,13 +1,5 @@
-{{ $topics->links() }}
-<ul class="nav nav-pills navbar-left">
-    <li>{{ Html::linkRoute($route, _('Top'), array_merge($routeParams, [
-    	'sort' => 'vote', 'order' => 'desc', 'page' => \Input::get('page')
-    ])); }}</li>
-
-    <li>{{ Html::linkRoute($route, _('New'), array_merge($routeParams, [
-		'sort' => 'created_at', 'order' => 'desc', 'page' => \Input::get('page')
-	])); }}</li>
-</ul>
+{{ $topics->render() }}
+@include('kaamaru/laravel-forums/forums._suggestion_sort')
 <div class="row">
     <div class="col-md-12">
         @if ($topics->count())
@@ -17,13 +9,13 @@
                     <tr id="topics-order">
                         <td></td>
                         <td>
-                            {{ $sort->getSortLink('title') }}
+                            {!! $sort->getSortLink('title') !!}
                         </td>
                         <td class="stats">
-                            {{ $sort->getSortLink('views') }} / {{ $sort->getSortLink('replies') }}
+                            {!! $sort->getSortLink('views') !!} / {!! $sort->getSortLink('replies') !!}
                         </td>
                         <td>
-                            {{ $sort->getSortLink('last_post', _('Last post')) }}
+                            {!! $sort->getSortLink('last_post', _('Last post')) !!}
                         </td>
                     </tr>
                     @foreach ($topics as $topic)
@@ -48,8 +40,8 @@
                                     <i class="fa fa-thumb-tack"></i>
                                 @endif
                                 <span class="title @if ($topic->sticky) sticky @endif">
-									{{$topic->tag}} {{ Html::linkRoute('forums.topics.show', $topic->title,
-										['topicType' => 'forums', 'id' => $topic->id, 'slug' => $topic->slug]) }}<br>
+									{{$topic->tag}} {!! Html::linkRoute('forums.topics.show', $topic->title,
+										['topicType' => 'forums', 'id' => $topic->id, 'slug' => $topic->slug]) !!}<br>
 								</span>
 								<span class="description">
 									{{ _('Started by') }}
@@ -62,9 +54,9 @@
                                 {{ $topic->views or 0 }} {{ _('views') }}
                             </td>
                             <td class="last-post">
-                                {{ Html::imageExists("images/avatars/tiny-{$topic->last_user_slug}.jpg",
+                                {!! Html::imageExists("images/avatars/tiny-{$topic->last_user_slug}.jpg",
                                     $topic->username, ['class' => 'forum-avatar']
-                                ) }}
+                                ) !!}
 
                                 <div class="last-info">
                                     {!! Html::linkRoute('users.show', $topic->last_user_username, $topic->last_user_slug) !!}
@@ -75,9 +67,9 @@
                                     @endif
                                 </div>
 
-                                {{ Html::uLinkRoute('forums.topics.show', '<i class="icon-chevron-sign-right" style="display: none"></i>',
+                                {!! Html::uLinkRoute('forums.topics.show', '<i class="icon-chevron-sign-right" style="display: none"></i>',
                                     [], ['page' => $topic->pages.'#last']
-                                ) }}
+                                ) !!}
                             </td>
                         </tr>
                     @endforeach
@@ -87,19 +79,11 @@
         @else
             <div class="box">
                 <div class="box-section">
-                    {{ _('No topics found.'); }}
+                    {{ _('No topics found.') }}
                 </div>
             </div>
         @endif
     </div>
 </div>
-{{ $topics->links() }}
-<ul class="nav nav-pills navbar-left">
-    <li>{{ Html::linkRoute($route, _('Top'), array_merge($routeParams, [
-    	'sort' => 'vote', 'order' => 'desc', 'page' => \Input::get('page')
-    ])); }}</li>
-
-    <li>{{ Html::linkRoute($route, _('New'), array_merge($routeParams, [
-		'sort' => 'created_at', 'order' => 'desc', 'page' => \Input::get('page')
-	])); }}</li>
-</ul>
+{{ $topics->render() }}
+@include('kaamaru/laravel-forums/forums._suggestion_sort')

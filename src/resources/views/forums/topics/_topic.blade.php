@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-7">
         <ul class="social topic-menu">
-            @include('Kaamaru\Forums::...share')
+            @include('kaamaru/laravel-forums/...share')
         </ul>
     </div>
 </div>
@@ -99,7 +99,7 @@
 <div class="posts">
     <?php $i = (Request::get('page') * Config::get('forums\forum.posts_per_page')) + 1 ?>
     @foreach ($topic->posts as $post)
-        @include('Kaamaru\Forums::...forums._post', [$post])
+        @include('kaamaru/laravel-forums/...forums._post', [$post])
         <?php $i++ ?>
     @endforeach
 </div>

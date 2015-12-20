@@ -1,4 +1,4 @@
-@extends('kaamaru/laravel-forums.forums.master')
+@extends('kaamaru/laravel-forums.master')
 
 @section('breadcrumbs', Breadcrumbs::render('forums.index'))
 @section('title', _('Forums'))
@@ -20,7 +20,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @include('Kaamaru\Forums::forums._forums', ['forums' => $forums, 'path' => $forum->path, 'index' => true])
+                                @include('kaamaru/laravel-forums/forums._forums', ['forums' => $forums, 'path' => $forum->path, 'index' => true])
                                 </tbody>
                             </table>
                         @endif
@@ -43,8 +43,8 @@
                     @endif
                 </div>
 
-                @include('Kaamaru\Forums::forums._recent_posts', ['posts' => $recentPosts])
-                @include('Kaamaru\Forums::forums._recent_topics', ['topics' => $recentTopics])
+                @include('kaamaru/laravel-forums/forums._recent_posts', ['posts' => $recentPosts])
+                @include('kaamaru/laravel-forums/forums._recent_topics', ['topics' => $recentTopics])
             </div>
         </div>
     </div>

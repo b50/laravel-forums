@@ -6,7 +6,7 @@
     {{ BootForm::text(_('Title'), 'title', \Input::old('title') ?: $post->topic->title) }}
 @endif
 
-@include('Kaamaru\Forums::forums._editor', ['content' => \Input::old('content') ?: $post->markdown, 'button' => _('Edit')])
+@include('kaamaru/laravel-forums/forums._editor', ['content' => \Input::old('content') ?: $post->markdown, 'button' => _('Edit')])
 
 @if (Bouncer::hasPermission('forums.tag') and $firstPost)
     {{ BootForm::text(_('Tag'), 'tag', \Input::old('tag') ?: $post->topic->tag) }}

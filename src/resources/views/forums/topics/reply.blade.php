@@ -4,5 +4,5 @@
 @section('title', $topic->title)
 
 @section('content')
-    @include('Kaamaru\Forums::forums.topics._reply')
+    @include('kaamaru/laravel-forums/forums.topics._reply')
 @stop

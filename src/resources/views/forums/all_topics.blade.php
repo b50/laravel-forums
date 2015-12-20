@@ -1,4 +1,4 @@
-@extends('kaamaru/laravel-forums.forums.master')
+@extends('kaamaru/laravel-forums.master')
 @section('breadcrumbs', Breadcrumbs::render('forums.all'))
 
 @section('content')
@@ -7,7 +7,7 @@
     <ul class="nav nav-pills navbar-right">
         <li>{!! Html::linkRoute('forums.topics.new', _('New topic'), ['id' => 5, 'slug' => 'general']) !!}</li>
     </ul>
-    @include('Kaamaru\Forums::forums._topics', ['topics' => $topics])
+    @include('kaamaru/laravel-forums/forums._topics', ['topics' => $topics])
     <ul class="nav nav-pills navbar-right">
         <li>{!! Html::linkRoute('forums.topics.new', _('New topic'), ['id' => 5, 'slug' => 'general']) !!}</li>
     </ul>

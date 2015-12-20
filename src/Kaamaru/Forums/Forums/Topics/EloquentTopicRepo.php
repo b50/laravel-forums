@@ -63,9 +63,9 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
                 'lforums_topics.posts_count', 'lforums_topics.sticky', 'lforums_topics.locked', 'lforums_topics.last_post',
                 'last_user.slug as last_user_slug', 'last_user.username as last_user_username', 'lforums_topics.tag',
                 'lforums_topics.path', 'first_post.votes as votes')
-            ->join('lforum_users as users', 'user_id', '=', 'users.id')
-            ->join('users as last_user', 'lforums_topics.last_post_user', '=', 'last_user.id')
-            ->join('forum_posts as first_post', 'lforums_topics.id', '=', 'first_post.topic_id')
+            ->join('lforums_users as users', 'user_id', '=', 'users.id')
+            ->join('lforums_users as last_user', 'lforums_topics.last_post_user', '=', 'last_user.id')
+            ->join('lforums_posts as first_post', 'lforums_topics.id', '=', 'first_post.topic_id')
             ->whereNested(function ($query) {
                 /** @var $query \Illuminate\Database\Query\Builder */
                 $query->where('lforums_topics.expires_at', null)
@@ -73,7 +73,7 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
             })
             ->orderBy('lforums_topics.sticky', 'desc')
             ->orderBy($sort, $direction)
-            ->groupBy('id');
+            ->groupBy('lforums_topics.id');
 
         if (\Auth::check()) {
             $topics->with('read');

@@ -3,11 +3,10 @@
 <head>
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {!! Html::style('css/kaamaru/laravel-forums/bootstrap.min.css') !!}
-    {!! Html::style('css/kaamaru/laravel-forums/forums.css') !!}
+    {!! Html::style('kaamaru/laravel-forums/bootstrap/bootstrap.min.css') !!}
+    {!! Html::style('kaamaru/laravel-forums/font-awesome/css/font-awesome.min.css') !!}
+    {!! Html::style('kaamaru/laravel-forums/forums.css') !!}
     @yield('styles')
-
-    {{--{!! Html::script('scripts/jquery-1.11.3.min.js') !!}--}}
     @yield('scripts')
 </head>
 <body>
