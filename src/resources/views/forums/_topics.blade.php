@@ -66,9 +66,9 @@
                                     @endif
                                 </div>
 
-                                {{ Html::uLinkRoute('forums.topics.show', '<i class="icon-chevron-sign-right" style="display: none"></i>',
-                                    [], ['page' => $topic->pages.'#last']
-                                ) }}
+                                {!! Html::uLinkRoute('forums.topics.show', '<i class="icon-chevron-sign-right" style="display: none"></i>',
+                                    ['topicType' => 'forums', 'id' => $topic->id, 'slug' => $topic->slug], ['page' => $topic->pages.'#last']
+                                ) !!}
                             </td>
                         </tr>
                     @endforeach

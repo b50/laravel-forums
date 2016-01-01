@@ -15,7 +15,6 @@
   ],
   "require": {
     "php": ">=5.5.9",
-    "illuminate/support": "~5.0",
     "davejamesmiller/laravel-breadcrumbs": "~3.0",
     "laravelcollective/html": "~5.0",
     "erusev/parsedown": "~1.0",
@@ -28,6 +27,5 @@
     "psr-4": {
       "Kaamaru\\Forums\\": "src/"
     }
-  },
-  "minimum-stability": "stable"
+  }
 }

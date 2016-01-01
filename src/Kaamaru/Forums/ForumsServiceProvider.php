@@ -67,8 +67,8 @@ class ForumsServiceProvider extends ServiceProvider
         $this->app->register('Collective\Html\HtmlServiceProvider');
 
         // Override HTML builder to add some useful methods
-        $this->app->bindShared('html', function ($app) {
-            return new HtmlBuilder($app['url']);
+        $this->app->singleton('html', function ($app) {
+            return new HtmlBuilder($app['url'], $app->view);
         });
     }
 }

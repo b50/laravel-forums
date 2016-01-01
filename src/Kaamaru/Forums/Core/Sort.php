@@ -1,5 +1,7 @@
 <?php namespace Kaamaru\Forums\Core;
 
+use Illuminate\Support\Facades\Input;
+
 /**
  * Sort by a field
  *
@@ -46,10 +48,10 @@ class Sort
             $defaultDirection = $this->defaultDirection;
         }
 
-        $direction = \Input::get('direction') ?: $defaultDirection;
+        $direction = Input::get('direction') ?: $defaultDirection;
 
-        if (\Input::get('order') == $id) {
-            $direction = (\Input::get('direction') == 'asc') ? 'desc' : 'asc';
+        if (Input::get('order') == $id) {
+            $direction = (Input::get('direction') == 'asc') ? 'desc' : 'asc';
         }
 
         $params = "?order=$id&direction=$direction";
@@ -63,8 +65,8 @@ class Sort
      */
     public function getField()
     {
-        if (array_key_exists(\Input::get('order'), $this->fields)) {
-            return $this->fields[\Input::get('order')];
+        if (array_key_exists(Input::get('order'), $this->fields)) {
+            return $this->fields[Input::get('order')];
         }
 
         return $this->defaultField;
@@ -77,8 +79,8 @@ class Sort
      */
     public function getDirection()
     {
-        if (in_array(\Input::get('direction'), ['asc', 'desc'])) {
-            return \Input::get('direction');
+        if (in_array(Input::get('direction'), ['asc', 'desc'])) {
+            return Input::get('direction');
         }
         return $this->defaultDirection;
     }

@@ -53,8 +53,8 @@ class ForumsController extends BaseController
             $topics = $this->topicRepo->getForSuggestionForum($forum->path, $this->topicSort->getField(),
                 $this->topicSort->getDirection());
 
-            return \View::make('kaamaru.laravel-forums.forums.suggestion', compact('forum', 'subforums', 'topics'),
-                ['sort' => $this->topicSort]);
+            return \View::make('kaamaru.laravel-forums.forums.suggestion',
+                compact('forum', 'subforums', 'topics'), ['sort' => $this->topicSort]);
         }
 
         // Get topics

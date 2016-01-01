@@ -55,7 +55,7 @@
                         <span class="description">{{ $forum->last_topic_updated_at }} by </span>
                         {!! Html::linkRoute('users.show', $forum->last_user_username, ['slug' => $forum->last_user_slug]) !!}
                         <br>
-                        {!! Html::uLinkRoute('forums.posts.show', '<i class="icon-chevron-sign-right" style="display: none"></i>', ['id' => $forum->last_post]) !!}
+                        {!! Html::uLinkRoute('forums.posts.show', '<i class="icon-chevron-sign-right" style="display: none"></i>', ['topicType' => 'forums', 'id' => $forum->last_post]) !!}
                     </div>
                 @endif
             </td>

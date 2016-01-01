@@ -46,7 +46,6 @@
 			['id' => $forum->id, 'slug' => $forum->slug, '_token' => csrf_token()]) }}</li>
         @endif
         @if ( ! isset($forum->locked))
-            <li>{!! Html::linkRoute('forums.topics.new', _('New topic')) !!}</li>
         @endif
     </ul>
 @stop

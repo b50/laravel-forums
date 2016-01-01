@@ -71,8 +71,7 @@ Route::group(['namespace' => 'Kaamaru\Forums\Http\Controllers'], function () {
             Route::get('', ['uses' => 'ForumsController@getForum', 'as' => 'forums.show']);
 
             Route::group(['before' => 'auth'], function () {
-                Route::get('new-topic',
-                    ['uses' => 'NewTopicForumsController@getNewTopic', 'as' => 'forums.topics.new']);
+                Route::get('new-topic', ['uses' => 'NewTopicForumsController@getNewTopic', 'as' => 'forums.topics.new']);
 
                 Route::group(['before' => 'csrf'], function () {
                     Route::get('read', ['uses' => 'ReadForumsController@getRead', 'as' => 'forums.read']);
