@@ -10,6 +10,7 @@ abstract class EloquentRepo implements RepoInterface
      */
     protected $model;
 
+
     /**
      * {@inheritDocs}
      */

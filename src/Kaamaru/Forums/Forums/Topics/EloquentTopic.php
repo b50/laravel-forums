@@ -46,7 +46,9 @@ class EloquentTopic extends \Eloquent implements PathInterface, HasPresenter
      */
     public function posts()
     {
-        return $this->hasMany('Kaamaru\Forums\Forums\Posts\EloquentPost', 'topic_id')->with('author');
+        return $this
+            ->hasMany('Kaamaru\Forums\Forums\Posts\EloquentPost', 'topic_id')
+            ->with('author');
     }
 
     /**
@@ -56,7 +58,8 @@ class EloquentTopic extends \Eloquent implements PathInterface, HasPresenter
      */
     public function read()
     {
-        return $this->hasOne('Kaamaru\Forums\Forums\Topics\Read\EloquentTopicRead', 'topic_id')
+        return $this
+            ->hasOne('Kaamaru\Forums\Forums\Topics\Read\EloquentTopicRead', 'topic_id')
             ->where('user_id', \Auth::user()->id);
     }
 
@@ -72,13 +75,15 @@ class EloquentTopic extends \Eloquent implements PathInterface, HasPresenter
 
     public function favorite()
     {
-        return $this->hasOne('Kaamaru\Forums\Forums\Topics\Favorite\EloquentFavorite', 'topic_id')
+        return $this
+            ->hasOne('Kaamaru\Forums\Forums\Topics\Favorite\EloquentFavorite', 'topic_id')
             ->where('user_id', \Auth::user()->id);
     }
 
     public function firstPost()
     {
-        return $this->hasOne('Kaamaru\Forums\Forums\Posts\EloquentPost', 'topic_id')
+        return $this
+            ->hasOne('Kaamaru\Forums\Forums\Posts\EloquentPost', 'topic_id')
             ->orderBy('id')->with('author');
     }
 
@@ -99,7 +104,9 @@ class EloquentTopic extends \Eloquent implements PathInterface, HasPresenter
             return $this->posts;
         }
 
-        return $this->posts = $this->posts()->paginate(\Config::get('forums/forum.posts_per_page'));
+        return $this->posts = $this
+            ->posts()
+            ->paginate(\Config::get('forums/forum.posts_per_page'));
     }
 
     /**
@@ -129,7 +136,9 @@ class EloquentTopic extends \Eloquent implements PathInterface, HasPresenter
         if (!$this->path) {
             return [];
         }
-        return \DB::table('forums')->whereIn('id', $this->pathExplode())->orderBy(\DB::raw('LENGTH(path)'))->get();
+        return \DB::table('lforums')
+            ->whereIn('id', $this->pathExplode())
+            ->orderBy(\DB::raw('LENGTH(path)'))->get();
     }
 
     /**

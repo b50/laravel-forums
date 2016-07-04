@@ -74,4 +74,5 @@ class EloquentForum extends \Eloquent implements PathInterface, HasPresenter
 
         return $parents[count($parents) - 2];
     }
+
 }

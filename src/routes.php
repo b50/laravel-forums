@@ -3,7 +3,7 @@ Route::group(['namespace' => 'Kaamaru\Forums\Http\Controllers'], function () {
     /*
      * topics
      */
-    Route::group(['prefix' => '{topicType}/'], function () {
+    Route::group(['prefix' => 'forums/', 'namespace' => 'Topics'], function () {
         Route::group(['prefix' => 'topics/{id}-{slug?}'], function () {
             Route::get('', ['uses' => 'TopicsController@getTopic', 'as' => 'forums.topics.show']);
 

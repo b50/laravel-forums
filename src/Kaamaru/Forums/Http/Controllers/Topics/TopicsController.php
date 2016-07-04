@@ -26,8 +26,12 @@ class TopicsController extends BaseController
      */
     public function getIndex()
     {
-        $topics = $this->topicRepo->getAll($this->sort->getField(), $this->sort->getDirection());
-        return \View::make('kaamaru.laravel-forums.forums.all_topics', compact('topics'), ['sort' => $this->sort]);
+        $topics = $this->topicRepo->getAll(
+            $this->sort->getField(), 
+            $this->sort->getDirection()
+        );
+        return \View::make('lforums.forums.all_topics', 
+            compact('topics'), ['sort' => $this->sort]);
     }
 
     /**
@@ -35,17 +39,19 @@ class TopicsController extends BaseController
      *
      * @param string $topicType
      * @param int $id
-     * @return Illuminate\View\View
+     * @return Illuminate\Views\View
      */
-    public function getTopic($topicType, $id)
+    public function getTopic($id)
     {
         $topic = $this->topicBuilder->build($id);
 
         // Is it a suggestion topic?
         if ($topic->path and last($topic->parents)->type == 'suggestions') {
-            return \View::make('kaamaru.laravel-forums.forums.suggestion_topic', compact('topic'));
+            $view = 'lforums.suggestion_topic';
+            return \View::make(view, compact('topic'));
         }
 
-        return \View::make($topicType . '.topics.topic', compact('topic'));
+        return \View::make('lforums.topics.topic', 
+            compact('topic', 'topicType'));
     }
 }
