@@ -1,10 +1,10 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Topics;
 
 use Kaamaru\Forums\Core\Auth\AuthorizeTrait;
-use Kaamaru\Forums\Forums\Forums\ForumTree;
-use Kaamaru\Forums\Forums\Topics\Move\MoveTopicRequest;
-use Kaamaru\Forums\Forums\Topics\Move\TopicMoverListener;
-use Kaamaru\Forums\Forums\Topics\TopicRepoInterface;
+use Kaamaru\Forums\Forums\ForumTree;
+use Kaamaru\Forums\Topics\Move\MoveTopicRequest;
+use Kaamaru\Forums\Topics\Move\TopicMoverListener;
+use Kaamaru\Forums\Topics\TopicRepoInterface;
 use Kaamaru\Forums\Http\Controllers\BaseController;
 
 /**

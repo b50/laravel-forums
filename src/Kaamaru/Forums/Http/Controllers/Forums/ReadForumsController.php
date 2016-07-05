@@ -1,7 +1,7 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Forums;
 
-use Kaamaru\Forums\Forums\Forums\ForumRepoInterface;
-use Kaamaru\Forums\Forums\Forums\Read\ForumReadRepoInterface;
+use Kaamaru\Forums\Forums\ForumRepoInterface;
+use Kaamaru\Forums\Forums\Read\ForumReadRepoInterface;
 use Kaamaru\Forums\Http\Controllers\BaseController;
 
 /**

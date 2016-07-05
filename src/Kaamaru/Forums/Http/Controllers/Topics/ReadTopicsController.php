@@ -1,8 +1,8 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Topics;
 
-use Kaamaru\Forums\Forums\Forums\ForumRepoInterface;
-use Kaamaru\Forums\Forums\Topics\Read\TopicReadRepoInterface;
-use Kaamaru\Forums\Forums\Topics\TopicRepoInterface;
+use Kaamaru\Forums\Forums\ForumRepoInterface;
+use Kaamaru\Forums\Topics\Read\TopicReadRepoInterface;
+use Kaamaru\Forums\Topics\TopicRepoInterface;
 use Kaamaru\Forums\Http\Controllers\BaseController;
 
 /**

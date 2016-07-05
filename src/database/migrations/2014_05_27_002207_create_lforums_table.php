@@ -34,6 +34,6 @@ class CreateLforumsTable extends Migration
      */
     public function down()
     {
-        \Schema::drop('forums');
+        \Schema::drop('lforums');
     }
 }

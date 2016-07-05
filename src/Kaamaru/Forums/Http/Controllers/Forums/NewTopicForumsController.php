@@ -1,9 +1,9 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Forums;
 
-use Kaamaru\Forums\Forums\Forums\ForumRepoInterface;
-use Kaamaru\Forums\Forums\Forums\ForumTree;
-use Kaamaru\Forums\Forums\Topics\Create\CreateTopicRequest;
-use Kaamaru\Forums\Forums\Topics\Create\TopicCreateListener;
+use Kaamaru\Forums\Forums\ForumRepoInterface;
+use Kaamaru\Forums\Forums\ForumTree;
+use Kaamaru\Forums\Topics\Create\CreateTopicRequest;
+use Kaamaru\Forums\Topics\Create\TopicCreateListener;
 use Kaamaru\Forums\Http\Controllers\BaseController;
 
 /**

@@ -1,9 +1,9 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Topics;
 
 use Kaamaru\Forums\Core\Auth\AuthorizeTrait;
-use Kaamaru\Forums\Forums\Topics\Sticky\StickyTopic;
-use Kaamaru\Forums\Forums\Topics\Sticky\StickyTopicListener;
-use Kaamaru\Forums\Forums\Topics\TopicRepoInterface;
+use Kaamaru\Forums\Topics\Sticky\StickyTopic;
+use Kaamaru\Forums\Topics\Sticky\StickyTopicListener;
+use Kaamaru\Forums\Topics\TopicRepoInterface;
 
 /**
  * Sticky topics controller

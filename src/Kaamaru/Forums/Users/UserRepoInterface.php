@@ -3,7 +3,7 @@
 /**
  * Interface UserRepoInterface
  *
- * @package Kaamaru\Forums\Forums\Users
+ * @package Kaamaru\Forums\Users
  */
 interface UserRepoInterface
 {

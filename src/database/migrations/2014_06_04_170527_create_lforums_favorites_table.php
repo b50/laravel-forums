@@ -27,6 +27,6 @@ class CreateLforumsFavoritesTable extends Migration
      */
     public function down()
     {
-        \Schema::drop('forum_favorites');
+        \Schema::drop('lforums_favorites');
     }
 }

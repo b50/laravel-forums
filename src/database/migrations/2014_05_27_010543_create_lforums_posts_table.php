@@ -16,7 +16,7 @@ class CreateLforumsPostsTable extends Migration
             /** @var Blueprint $table */
             $table->increments('id');
             $table->integer('topic_id');
-            $table->integer('user_id');
+            $table->integer('author_id');
             $table->text('markdown');
             $table->text('html');
             $table->timestamp('deleted_at')->nullable();
@@ -33,6 +33,6 @@ class CreateLforumsPostsTable extends Migration
      */
     public function down()
     {
-        \Schema::drop('forum_posts');
+        \Schema::drop('lforums_posts');
     }
 }

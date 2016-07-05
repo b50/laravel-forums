@@ -1,7 +1,7 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Posts;
 
-use Kaamaru\Forums\Forums\Posts\PostRepoInterface;
-use Kaamaru\Forums\Forums\Posts\Report\PostReporter;
+use Kaamaru\Forums\Posts\PostRepoInterface;
+use Kaamaru\Forums\Posts\Report\PostReporter;
 
 /**
  * Class PostsController

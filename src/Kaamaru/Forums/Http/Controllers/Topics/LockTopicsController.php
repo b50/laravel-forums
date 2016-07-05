@@ -1,9 +1,9 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Topics;
 
 use Kaamaru\Forums\Core\Auth\AuthorizeTrait;
-use Kaamaru\Forums\Forums\Topics\Lock\LockTopic;
-use Kaamaru\Forums\Forums\Topics\Lock\LockTopicListener;
-use Kaamaru\Forums\Forums\Topics\TopicRepoInterface;
+use Kaamaru\Forums\Topics\Lock\LockTopic;
+use Kaamaru\Forums\Topics\Lock\LockTopicListener;
+use Kaamaru\Forums\Topics\TopicRepoInterface;
 
 /**
  * The topics controller

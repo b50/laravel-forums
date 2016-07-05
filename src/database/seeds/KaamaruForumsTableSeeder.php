@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Kaamaru\Forums\Forums\Forums\EloquentForum;
+use Kaamaru\Forums\Forums\EloquentForum;
 
 /**
  * Class ForumsTableSeeder

@@ -3,7 +3,6 @@
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Kaamaru\Forums\Core\Auth\EloquentUserProvider;
-use Kaamaru\Forums\Core\Html\HtmlBuilder;
 
 class ForumsServiceProvider extends ServiceProvider
 {
@@ -24,7 +23,7 @@ class ForumsServiceProvider extends ServiceProvider
     public function register()
     {
         // Load forums routes
-        if (!$this->app->routesAreCached()) {
+        if ( ! $this->app->routesAreCached()) {
             require __DIR__ . '/../../routes.php';
         }
 
@@ -33,42 +32,34 @@ class ForumsServiceProvider extends ServiceProvider
         $this->app->bind('flash', 'Kaamaru\Forums\Core\Flash\Flash');
         $this->app->bind('bouncer', 'Kaamaru\Forums\Core\Auth\Bouncer');
         $this->app->bind('finediff', 'cogpowered\FineDiff\Diff');
-        $this->app->bind('Kaamaru\Forums\Forums\Forums\ForumRepoInterface',
-            'Kaamaru\Forums\Forums\Forums\EloquentForumRepo');
-        $this->app->bind('Kaamaru\Forums\Forums\Topics\TopicRepoInterface',
-            'Kaamaru\Forums\Forums\Topics\EloquentTopicRepo');
-        $this->app->bind('Kaamaru\Forums\Forums\Posts\PostRepoInterface',
-            'Kaamaru\Forums\Forums\Posts\EloquentPostRepo');
-        $this->app->bind('Kaamaru\Forums\Forums\Topics\Favorite\FavoriteRepoInterface',
-            'Kaamaru\Forums\Forums\Topics\Favorite\EloquentFavoriteRepo');
-        $this->app->bind('Kaamaru\Forums\Forums\Posts\Vote\PostVoteRepoInterface',
-            'Kaamaru\Forums\Forums\Posts\Vote\EloquentPostVoteRepo');
-        $this->app->bind('Kaamaru\Forums\Forums\Posts\Report\PostReportRepoInterface',
-            'Kaamaru\Forums\Forums\Posts\Report\EloquentPostReportRepo');
-        $this->app->bind('Kaamaru\Forums\Forums\Forums\Read\ForumReadRepoInterface',
-            'Kaamaru\Forums\Forums\Forums\Read\EloquentForumReadRepo');
-        $this->app->bind('Kaamaru\Forums\Forums\Topics\Read\TopicReadRepoInterface',
-            'Kaamaru\Forums\Forums\Topics\Read\EloquentTopicReadRepo');
-        $this->app->bind('Kaamaru\Forums\Forums\Topics\Follow\FollowRepoInterface',
-            'Kaamaru\Forums\Forums\Topics\Follow\EloquentFollowRepo');
+        $this->app->bind('Kaamaru\Forums\Forums\ForumRepoInterface',
+            'Kaamaru\Forums\Forums\EloquentForumRepo');
+        $this->app->bind('Kaamaru\Forums\Topics\TopicRepoInterface',
+            'Kaamaru\Forums\Topics\EloquentTopicRepo');
+        $this->app->bind('Kaamaru\Forums\Posts\PostRepoInterface',
+            'Kaamaru\Forums\Posts\EloquentPostRepo');
+        $this->app->bind('Kaamaru\Forums\Topics\Favorite\FavoriteRepoInterface',
+            'Kaamaru\Forums\Topics\Favorite\EloquentFavoriteRepo');
+        $this->app->bind('Kaamaru\Forums\Posts\Vote\PostVoteRepoInterface',
+            'Kaamaru\Forums\Posts\Vote\EloquentPostVoteRepo');
+        $this->app->bind('Kaamaru\Forums\Posts\Report\PostReportRepoInterface',
+            'Kaamaru\Forums\Posts\Report\EloquentPostReportRepo');
+        $this->app->bind('Kaamaru\Forums\Forums\Read\ForumReadRepoInterface',
+            'Kaamaru\Forums\Forums\Read\EloquentForumReadRepo');
+        $this->app->bind('Kaamaru\Forums\Topics\Read\TopicReadRepoInterface',
+            'Kaamaru\Forums\Topics\Read\EloquentTopicReadRepo');
+        $this->app->bind('Kaamaru\Forums\Topics\Follow\FollowRepoInterface',
+            'Kaamaru\Forums\Topics\Follow\EloquentFollowRepo');
         $this->app->bind('Kaamaru\Forums\Users\Group\UserGroupRepoInterface',
             'Kaamaru\Forums\Users\Group\EloquentUserGroupRepo');
-        $this->app->view->composer('forums.topics._reply', 'Kaamaru\Forums\Forums\Posts\QuotesComposer');
-        $this->app->view->composer('forums.move_post', 'Kaamaru\Forums\Forums\Posts\MovePostComposer');
+        $this->app->view->composer('forums.topics._reply', 'Kaamaru\Forums\Posts\QuotesComposer');
+        $this->app->view->composer('forums.move_post', 'Kaamaru\Forums\Posts\MovePostComposer');
 
         // Register aliases
-        AliasLoader::getInstance()->alias('Breadcrumbs','DaveJamesMiller\Breadcrumbs\Facade');
-        AliasLoader::getInstance()->alias('Form','Collective\Html\FormFacade');
-        AliasLoader::getInstance()->alias('Html','Collective\Html\HtmlFacade');
-        AliasLoader::getInstance()->alias('Bouncer','Kaamaru\Forums\Core\Facades\Bouncer');
+        AliasLoader::getInstance()->alias('Breadcrumbs', 'DaveJamesMiller\Breadcrumbs\Facade');
+        AliasLoader::getInstance()->alias('Bouncer', 'Kaamaru\Forums\Core\Facades\Bouncer');
 
         // Register service providers
         $this->app->register('DaveJamesMiller\Breadcrumbs\ServiceProvider');
-        $this->app->register('Collective\Html\HtmlServiceProvider');
-
-        // Override HTML builder to add some useful methods
-        $this->app->singleton('html', function ($app) {
-            return new HtmlBuilder($app['url'], $app->view);
-        });
     }
 }

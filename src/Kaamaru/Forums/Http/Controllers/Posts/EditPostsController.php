@@ -1,8 +1,8 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Posts;
 
-use Kaamaru\Forums\Forums\Posts\Edit\EditPostRequest;
-use Kaamaru\Forums\Forums\Posts\Edit\PostEditListener;
-use Kaamaru\Forums\Forums\Posts\PostRepoInterface;
+use Kaamaru\Forums\Posts\Edit\EditPostRequest;
+use Kaamaru\Forums\Posts\Edit\PostEditListener;
+use Kaamaru\Forums\Posts\PostRepoInterface;
 
 /**
  * Class PostsController

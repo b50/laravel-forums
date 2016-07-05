@@ -1,6 +1,6 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Posts;
 
-use Kaamaru\Forums\Forums\Posts\PostRepoInterface;
+use Kaamaru\Forums\Posts\PostRepoInterface;
 use Kaamaru\Forums\Http\Controllers\BaseController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

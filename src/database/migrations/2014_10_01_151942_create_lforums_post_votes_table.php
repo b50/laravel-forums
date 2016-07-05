@@ -28,6 +28,6 @@ class CreateLForumsPostVotesTable extends Migration
      */
     public function down()
     {
-        \Schema::drop('forum_post_votes');
+        \Schema::drop('lforums_post_votes');
     }
 }

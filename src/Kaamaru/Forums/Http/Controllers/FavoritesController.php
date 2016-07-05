@@ -1,7 +1,7 @@
 <?php namespace Kaamaru\Forums\Http\Controllers;
 
-use Kaamaru\Forums\Forums\Topics\Favorite\FavoriteRepoInterface;
-use Kaamaru\Forums\Forums\Topics\TopicSort;
+use Kaamaru\Forums\Topics\Favorite\FavoriteRepoInterface;
+use Kaamaru\Forums\Topics\TopicSort;
 
 /**
  * Show a user's favorite topics

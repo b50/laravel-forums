@@ -1,10 +1,10 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Topics;
 
 use Kaamaru\Forums\Core\Auth\AuthorizeTrait;
-use Kaamaru\Forums\Forums\Forums\ForumRepoInterface;
-use Kaamaru\Forums\Forums\Topics\Delete\TopicDeleteListener;
-use Kaamaru\Forums\Forums\Topics\Delete\TopicDeleter;
-use Kaamaru\Forums\Forums\Topics\TopicRepoInterface;
+use Kaamaru\Forums\Forums\ForumRepoInterface;
+use Kaamaru\Forums\Topics\Delete\TopicDeleteListener;
+use Kaamaru\Forums\Topics\Delete\TopicDeleter;
+use Kaamaru\Forums\Topics\TopicRepoInterface;
 
 /**
  * The topics controller

@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Kaamaru\Forums\Forums\Topics\EloquentTopic;
+use Kaamaru\Forums\Topics\EloquentTopic;
 
-/**
- * Class ForumTopicsTableSeeder
- */
 class KaamaruForumsTopicsTableSeeder extends Seeder
 {
     public function run()
@@ -53,8 +50,8 @@ class KaamaruForumsTopicsTableSeeder extends Seeder
             'last_post' => 1,
             'views' => 0,
             'sticky' => false,
-            'updated_at' => strtotime('3 week ago'),
-            'created_at' => strtotime('2 week ago'),
+            'updated_at' => strtotime('3 weeks ago'),
+            'created_at' => strtotime('2 weeks ago'),
             'tag' => 'Closed',
         ]);
 
@@ -68,8 +65,8 @@ class KaamaruForumsTopicsTableSeeder extends Seeder
             'last_post' => 1,
             'views' => 0,
             'sticky' => false,
-            'updated_at' => strtotime('3 week ago'),
-            'created_at' => strtotime('2 week ago'),
+            'updated_at' => strtotime('3 weeks ago'),
+            'created_at' => strtotime('2 weeks ago'),
         ]);
     }
 }

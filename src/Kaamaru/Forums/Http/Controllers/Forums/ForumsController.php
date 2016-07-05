@@ -1,10 +1,10 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Forums;
 
 use Illuminate\Support\Facades\View;
-use Kaamaru\Forums\Forums\Forums\ForumRepoInterface;
-use Kaamaru\Forums\Forums\Forums\Read\ForumReadRepoInterface;
-use Kaamaru\Forums\Forums\Topics\TopicRepoInterface;
-use Kaamaru\Forums\Forums\Topics\TopicSort;
+use Kaamaru\Forums\Forums\ForumRepoInterface;
+use Kaamaru\Forums\Forums\Read\ForumReadRepoInterface;
+use Kaamaru\Forums\Topics\TopicRepoInterface;
+use Kaamaru\Forums\Topics\TopicSort;
 use Kaamaru\Forums\Http\Controllers\BaseController;
 
 /**

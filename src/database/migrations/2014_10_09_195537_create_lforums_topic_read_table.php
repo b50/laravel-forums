@@ -27,6 +27,6 @@ class CreateLForumsTopicReadTable extends Migration
      */
     public function down()
     {
-        \Schema::drop('forum_topic_read');
+        \Schema::drop('lforums_topic_read');
     }
 }

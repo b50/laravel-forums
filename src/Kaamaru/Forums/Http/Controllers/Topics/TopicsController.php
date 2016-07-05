@@ -1,7 +1,7 @@
 <?php namespace Kaamaru\Forums\Http\Controllers\Topics;
 
-use Kaamaru\Forums\Forums\Topics\TopicBuilder;
-use Kaamaru\Forums\Forums\Topics\TopicRepoInterface;
+use Kaamaru\Forums\Topics\TopicBuilder;
+use Kaamaru\Forums\Topics\TopicRepoInterface;
 use Kaamaru\Forums\Http\Controllers\BaseController;
 
 /**

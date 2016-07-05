@@ -27,6 +27,6 @@ class CreateLForumsTopicFollowTable extends Migration
      */
     public function down()
     {
-        \Schema::drop('forum_topic_follow');
+        \Schema::drop('lforums_topic_follow');
     }
 }

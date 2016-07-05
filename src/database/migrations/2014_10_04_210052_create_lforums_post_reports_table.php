@@ -27,6 +27,6 @@ class CreateLForumsPostReportsTable extends Migration
      */
     public function down()
     {
-        \Schema::drop('forum_post_reports');
+        \Schema::drop('lforums_post_reports');
     }
 }

@@ -19,13 +19,14 @@
     "laravelcollective/html": "~5.0",
     "erusev/parsedown": "~1.0",
     "mews/purifier": "~2.0",
-    "mccool/laravel-auto-presenter": "^4.0",
     "twbs/bootstrap": "~3.0",
     "fortawesome/font-awesome": "~4.5"
   },
   "autoload": {
+    "classmap": [
+    ],
     "psr-4": {
-      "Kaamaru\\Forums\\": "src/"
-    }
+    	"Kaamaru\\Forums\\": "src/"
+  	}     
   }
 }
