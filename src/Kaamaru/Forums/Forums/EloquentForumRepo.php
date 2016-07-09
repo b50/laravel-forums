@@ -98,6 +98,7 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
 
     /**
      * {@inheritDoc}
+     * 
      * @todo Order by an order field
      */
     public function getForums()
@@ -107,7 +108,7 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
         return $query
             ->where('lforums.path', 'LIKE', "%")
             ->where('lforums.path', 'NOT LIKE', "%/%/%/%")
-            ->orderBy('title')
+            ->orderBy('name')
             ->get();
     }
 
@@ -125,7 +126,7 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
     }
 
     /**
-     * The forum query
+     * The forums query shared by other queries
      *
      * @return $this
      */
@@ -133,25 +134,12 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
     {
         $query = $this->model
             ->select('id', 'description', 'name', 'slug', 'topics_count',
-                'posts', 'path', 'last_topic.updated_at as last_topic_updated_at',
-                'last_topic.slug as last_topic_slug', 'last_topic.last_post as last_post',
-                'last_topic.title as last_topic_title', 'last_user.slug as last_user_slug',
-                'last_user.username as last_user_username')
-            ->leftJoin(
-                \DB::raw('(' . \DB::table('lforums_topics')
-                        ->select('title', 'last_post', 'slug', 'updated_at', 'path', 'last_post_user')
-                        ->where('deleted_at', null)
-                        ->orderBy('updated_at', 'desc')
-                        ->toSql() . ' ) last_topic'), function ($join) {
-                // Mysql connects using the concat function
-                if (\DB::getDriverName() == 'mysql') {
-                    $join->on('last_topic.path', 'like', \DB::raw("CONCAT(lforums.path, '%')"));
-                } // Else probably use || or at least that is how sqlite does it.
-                else {
-                    $join->on('last_topic.path', 'like', "path || '%'");
-                }
-            })
-            ->leftjoin('lforums_users as last_user', 'last_topic.last_post_user', '=', 'last_user.id')
+                'posts', 'path')
+            ->with(['topics' => function($query) {
+                $query->select('title', 'last_post', 'slug', 'updated_at',
+                    'forum_id', 'last_post_user')
+                    ->where('deleted_at', null);
+            }])
             ->orderBy('rank')
             ->groupBy('lforums.id');
 

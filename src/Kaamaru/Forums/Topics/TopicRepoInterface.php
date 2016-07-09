@@ -93,10 +93,10 @@ interface TopicRepoInterface extends RepoInterface
      * Move topic to a different forum
      *
      * @param int $topicId
-     * @param string $forumPath
+     * @param integer $forumId
      * @return mixed
      */
-    public function move($topicId, $forumPath);
+    public function move($topicId, $forumId);
 
     /**
      * Delete a post from the topic
@@ -119,20 +119,20 @@ interface TopicRepoInterface extends RepoInterface
     /**
      * Get topics for a forum
      *
-     * @param $forumPath
+     * @param integer $forumId
      * @param $sort
      * @param $direction
      * @return \Illuminate\Pagination\Paginator
      */
-    public function getForForum($forumPath, $sort, $direction);
+    public function getForForum($forumId, $sort, $direction);
 
     /**
      * Get topics for a forum
      *
-     * @param $forumPath
+     * @param integer $forumId
      * @param $sort
      * @param $direction
      * @return \Illuminate\Pagination\Paginator
      */
-    public function getForSuggestionForum($forumPath, $sort, $direction);
+    public function getForSuggestionForum($forumId, $sort, $direction);
 }

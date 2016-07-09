@@ -1,8 +1,6 @@
 <?php namespace Kaamaru\Forums\Topics;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Kaamaru\Forums\Core\Paths\PathInterface;
-use Kaamaru\Forums\Core\Paths\PathTrait;
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
@@ -11,10 +9,10 @@ use McCool\LaravelAutoPresenter\HasPresenter;
  *
  * @package App\Models\Forums
  */
-class EloquentTopic extends \Eloquent implements PathInterface, HasPresenter
+class EloquentTopic extends \Eloquent implements HasPresenter
 {
     use SoftDeletes;
-    use PathTrait;
+
     /**
      * We need to update manually as topic may be updated
      * without needing to show a new post
@@ -24,7 +22,7 @@ class EloquentTopic extends \Eloquent implements PathInterface, HasPresenter
     public $timestamps = true;
     
     public $fillable = [
-        'title', 'slug', 'path', 'updated_at', 'created_at', 'user_id'
+        'title', 'slug', 'forum_id', 'updated_at', 'created_at', 'user_id'
     ];
 
     /**

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLForumsPostReportsTable extends Migration
+class CreateLforumsPostReportsTable extends Migration
 {
     /**
      * Run the migrations.

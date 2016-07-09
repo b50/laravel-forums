@@ -47,15 +47,15 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
     /**
      * {@inheritDoc}
      */
-    public function getForForum($forumPath, $sort, $direction)
+    public function getForForum($forumId, $sort, $direction)
     {
         return $this
             ->getTopicsQuery($sort, $direction)
-            ->where('path', $forumPath)
+            ->where('forum_id', $forumId)
             ->paginate(\Config::get('forums/forum.topics_per_page'));
     }
 
-    public function getForSuggestionForum($forumPath, $sort, $direction)
+    public function getForSuggestionForum($forumId, $sort, $direction)
     {
         $topics = $this->model
             ->select('users.slug as user_slug', 'users.username', 'lforums_topics.slug', 'lforums_topics.title',
@@ -79,7 +79,7 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
             $topics->with('read');
         }
 
-        return $topics->where('path', $forumPath)
+        return $topics->where('path', $forumId)
             ->paginate(\Config::get('forums/forum.topics_per_page'));
     }
 
@@ -185,11 +185,11 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
     /**
      * {@inheritDoc}
      */
-    public function move($topicId, $forumPath)
+    public function move($topicId, $forumId)
     {
         return $this->model
             ->where('id', $topicId)
-            ->update(['path' => $forumPath]);
+            ->update(['path' => $forumId]);
     }
 
     /**

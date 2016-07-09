@@ -8,7 +8,7 @@ use Kaamaru\Forums\Forums\EloquentForum;
  */
 class KaamaruForumsTableSeeder extends Seeder
 {
-    protected $ids = [
+    public $ids = [
         'news' => 1,
         'general' => 5,
         'games' => 8,

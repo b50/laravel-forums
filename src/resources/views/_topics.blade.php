@@ -46,7 +46,7 @@
                                             {!! Html::linkRoute('users.show', $topic->username, $topic->user_slug) !!},
                                             <span class="date">{{ $topic->created_at->diffForHumans() }}</span>
                                         </span>
-                            </td> 
+                            </td>s
                             <td class="stats">
                                 {{ $topic->posts_count - 1 }} {{ _('replies') }}<br>
                                 {{ $topic->views or 0 }} {{ _('views') }}

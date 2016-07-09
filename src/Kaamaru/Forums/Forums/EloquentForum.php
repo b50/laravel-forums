@@ -2,7 +2,8 @@
 
 use Kaamaru\Forums\Core\Paths\PathInterface;
 use Kaamaru\Forums\Core\Paths\PathTrait;
-use Carbon\Carbon;
+use Kaamaru\Forums\Read\EloquentForumRead;
+use Kaamaru\Forums\Topics\EloquentTopic;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use McCool\LaravelAutoPresenter\PresenterInterface;
 
@@ -38,8 +39,16 @@ class EloquentForum extends \Eloquent implements PathInterface, HasPresenter
      */
     public function read()
     {
-        return $this->hasOne('Kaamaru\Forums\Forums\Read\EloquentForumRead', 'forum_id')
+        return $this->hasOne(EloquentForumRead::class, 'forum_id')
             ->where('user_id', \Auth::user()->id);
+    }
+
+    /**
+     * Topic relation
+     */
+    public function topics()
+    {
+        return $this->hasMany(EloquentTopic::class, 'forum_id');
     }
 
     /**
@@ -50,7 +59,9 @@ class EloquentForum extends \Eloquent implements PathInterface, HasPresenter
     public function getParentsAttribute()
     {
         return $this
-            ->WhereIn('id', $this->pathExplode())->orderBy(\DB::raw('LENGTH(path)'))->get();
+            ->WhereIn('id', $this->pathExplode())
+            ->orderBy(\DB::raw('LENGTH(path)'))
+            ->get();
     }
 
     /**

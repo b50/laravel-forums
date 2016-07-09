@@ -8,13 +8,14 @@ class KaamaruForumsTopicsTableSeeder extends Seeder
     public function run()
     {
         DB::table('lforums_topics')->delete();
+        $forumsSeeder = new KaamaruForumsTableSeeder();
 
         EloquentTopic::create([
             'id' => 1,
             'title' => 'Test Topic',
             'slug' => 'test-topic',
             'posts_count' => 1,
-            'path' => '5/1',
+            'forum_id' => $forumsSeeder->ids['news'],
             'user_id' => 2,
             'last_post_user' => 2,
             'last_post' => 1,
@@ -30,7 +31,7 @@ class KaamaruForumsTopicsTableSeeder extends Seeder
             'slug' => 'hello',
             'posts_count' => 2,
             'views' => 0,
-            'path' => '5/1',
+            'forum_id' => $forumsSeeder->ids['news'],
             'user_id' => 1,
             'last_post_user' => 2,
             'last_post' => 2,
@@ -44,7 +45,7 @@ class KaamaruForumsTopicsTableSeeder extends Seeder
             'title' => 'Suggestion',
             'slug' => 'suggestion',
             'posts_count' => 1,
-            'path' => '10/9',
+            'forum_id' => $forumsSeeder->ids['suggestions'],
             'user_id' => 2,
             'last_post_user' => 2,
             'last_post' => 1,
@@ -67,6 +68,7 @@ class KaamaruForumsTopicsTableSeeder extends Seeder
             'sticky' => false,
             'updated_at' => strtotime('3 weeks ago'),
             'created_at' => strtotime('2 weeks ago'),
+            'forum_id' => $forumsSeeder->ids['suggestions'],
         ]);
     }
 }

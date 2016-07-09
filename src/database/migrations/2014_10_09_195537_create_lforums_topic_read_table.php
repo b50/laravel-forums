@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLForumsTopicReadTable extends Migration
+class CreateLforumsTopicReadTable extends Migration
 {
     /**
      * Run the migrations.

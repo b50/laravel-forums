@@ -22,7 +22,7 @@ class CreateLforumsTopicsTable extends Migration
             $table->string('slug', 100);
             $table->integer('user_id');
             $table->timestamp('deleted_at')->nullable();
-            $table->string('path', 100)->nullable();
+            $table->integer('forum_id')->nullable();
             $table->timestamp('created_at');
             $table->timestamp('updated_at')->nullable();
             $table->integer('posts_count')->default(0);
