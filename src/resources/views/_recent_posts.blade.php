@@ -8,10 +8,15 @@
         @endif
 
         <div class="recent-info">
-          {!! link_to_route('forums.posts.show', $post->topic->title, ['post' => 'forums', 'id' => $post->id]) !!}
+          <a href="{{ url('forums.posts.show', [
+            'post' => 'forums', 'id' => $post->id]) }}">
+            {{  $post->topic->title }}
+          </a>
           <p class="description">
             {{ $post->created_at->diffForHumans() }} by
-            {!! link_to_route('users.show', $post->author->username, ['slug' => $post->author->slug]) !!}
+            <a href="{{ url('users.show', ['slug' => $post->author->slug]) }}">
+              {{   $post->author->username }}
+            </a>
           </p>
         </div>
       </div>

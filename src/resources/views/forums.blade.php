@@ -1,4 +1,4 @@
-@extends('kaamaru/laravel-forums.master')
+@extends('lforums.master')
 
 @section('breadcrumbs', Breadcrumbs::render('forums.index'))
 @section('title', _('Forums'))
@@ -22,7 +22,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @include('kaamaru/laravel-forums/forums._forums', [
+                @include('lforums._forums', [
                   'forums' => $forums, 'path' => $forum->path, 'index' => true
                 ])
                 </tbody>
@@ -40,11 +40,13 @@
 
       <div class="col-md-3" id="forums-sidebar">
         <div class="list-group">
-          <a href="{{ url('forums.topics.index', [$forum->id, $forum->slug]) }}" class="list-group-item">
+          <a href="{{ url('forums.topics.index', [$forum->id, $forum->slug]) }}"
+             class="list-group-item">
             <i class="fa fa-gavel"></i> {{ _('View All Topics') }}
           </a>
           @if (Auth::check())
-            <a href="{{ url('forums.favorites', [$forum->id, $forum->slug]) }}" class="list-group-item">
+            <a href="{{ url('forums.favorites', [$forum->id, $forum->slug]) }}"
+               class="list-group-item">
               <i class="fa fa-heart"></i> {{ _('Favorites') }}
             </a>
           @endif

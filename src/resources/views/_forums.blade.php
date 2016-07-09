@@ -1,15 +1,13 @@
 @foreach ($forums as $forum)
-
-  <?php $readParameters = [
-      'id' => $forum->id,
-      'slug' => $forum->slug,
-      '_token' => csrf_token(),
-      'index' => $index
-  ]; ?>
-
   @if (preg_match("~$path/.$~", $forum->path))
     <tr>
       <td class="forum-folder">
+        <?php $readParameters = [
+            'id' => $forum->id,
+            'slug' => $forum->slug,
+            '_token' => csrf_token(),
+            'index' => $index
+        ]; ?>
         @if (Auth::check() and $forum->read)
           <a href="{{ url('forums.unread', $readParameters) }}">
             <i class="fa fa-folder-o"></i>
@@ -26,7 +24,7 @@
         <a href="{{ url('forums.show', [
           'id' => $forum->id, 'slug' => $forum->slug
         ]) }}">
-          $forum->name
+          {{ $forum->name }}
         </a>
         <br>
         <div class="subforums">
@@ -39,8 +37,10 @@
               @endif
 
               <?php $i++ ?>
-              {{ Html::linkRoute('forums.show', $subforum->name,
-                  ['id' => $subforum->id, 'slug' => $subforum->slug]) }}
+              <a href="{{ url('forums.show', [
+                'id' => $subforum->id, 'slug' => $subforum->slug]) }}">
+                {{ $subforum->name }}
+              </a>
             @endif
           @endforeach
         </div>
@@ -56,21 +56,29 @@
         <div class="name">{{ _('Posts') }}</div>
       </td>
       <td class="last-forum">
-        @if (isset($forum->last_user_username))
-
-          {{ Html::imageExists("images/avatars/{$forum->last_user_slug}/{$forum->last_user_slug}-small.jpg",
-              $forum->last_user_username, [
-                  'class' => 'forum-avatar'
-              ])
-          }}
+        @if ($forum->last_user)
+          @if (file_exists($avatar = $forum->last_user->avatar))
+            <img src="{{ $avatar }}" alt="" class="forum-avatar">
+          @endif
           <div class="last-info">
-            {!! Html::linkRoute('forums.posts.show', $forum->last_topic_title, ['topicType' => 'forums', 'id' => $forum->last_post]) !!}
+            <a href="{{ url('forums.posts.show', [
+              'topicType' => 'forums', 'id' => $forum->last_post]) }}">
+              {{  $forum->last_topic_title }}
+            </a>
             <br>
-            <span class="description">{{ $forum->last_topic_updated_at->diffForHumans() }}
-              by </span>
-            {!! Html::linkRoute('users.show', $forum->last_user_username, ['slug' => $forum->last_user_slug]) !!}
+            <span class="description">
+              {{ $forum->last_topic_updated_at->diffForHumans() }} by
+            </span>
+            <a href="{{ url('users.show', [
+              'slug' => $forum->last_user_slug]) }}">
+              {{  $forum->last_user_username }}
+            </a>
             <br>
-            {!! Html::uLinkRoute('forums.posts.show', '<i class="icon-chevron-sign-right" style="display: none"></i>', ['topicType' => 'forums', 'id' => $forum->last_post]) !!}
+            <a href="{{ url('forums.posts.show', [
+              'topicType' => 'forums',
+              'id' => $forum->last_post]) }}">
+              <i class="icon-chevron-sign-right" style="display: none"></i>
+            </a>
           </div>
         @endif
       </td>

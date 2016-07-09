@@ -69,7 +69,7 @@ class EloquentTopic extends \Eloquent implements HasPresenter
      */
     public function author()
     {
-        return $this->belongsTo('Kaamaru\Forums\Users\EloquentUser', 'user_id');
+        return $this->belongsTo('Kaamaru\Forums\Users\EloquentUser');
     }
 
     public function favorite()

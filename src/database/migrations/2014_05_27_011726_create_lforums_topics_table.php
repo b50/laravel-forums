@@ -20,7 +20,7 @@ class CreateLforumsTopicsTable extends Migration
             $table->increments('id');
             $table->string('title', 100);
             $table->string('slug', 100);
-            $table->integer('user_id');
+            $table->integer('author_id');
             $table->timestamp('deleted_at')->nullable();
             $table->integer('forum_id')->nullable();
             $table->timestamp('created_at');

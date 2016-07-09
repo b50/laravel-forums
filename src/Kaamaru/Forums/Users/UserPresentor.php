@@ -19,10 +19,12 @@ class UserPresenter extends BasePresenter
 
     /**
      * Return the user's avatar
+     * @param string $size
+     * @return string
      */
-    public function avatar()
+    public function avatar($size = "small")
     {
         $slug = $this->resource->slug;
-        return "images/avatars/$slug/$slug-small.jpg";
+        return "images/avatars/$slug/$slug-$size.jpg";
     }
 }

@@ -24,9 +24,8 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
     public function getRecent()
     {
         return $this->model
-            ->select('lforums_topics.id', 'lforums_topics.slug', 'lforums_topics.title',
-                'lforums_topics.created_at', 'users.username', 'users.slug as user_slug')
-            ->join('lforums_users as users', 'users.id', '=', 'user_id')
+            ->select('id', 'slug', 'title', 'created_at', 'author_id')
+            ->with('author')
             ->take(\Config::get('forums/forum.recent'))
             ->orderBy('lforums_topics.updated_at', 'dsc')
             ->where('lforums_topics.expires_at', null)
@@ -62,7 +61,7 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
                 'lforums_topics.created_at', 'lforums_topics.id', 'lforums_topics.updated_at', 'lforums_topics.views',
                 'lforums_topics.posts_count', 'lforums_topics.sticky', 'lforums_topics.locked', 'lforums_topics.last_post',
                 'last_user.slug as last_user_slug', 'last_user.username as last_user_username', 'lforums_topics.tag',
-                'lforums_topics.path', 'first_post.votes as votes')
+                'lforums_topics.forum_id', 'first_post.votes as votes')
             ->join('lforums_users as users', 'user_id', '=', 'users.id')
             ->join('lforums_users as last_user', 'lforums_topics.last_post_user', '=', 'last_user.id')
             ->join('lforums_posts as first_post', 'lforums_topics.id', '=', 'first_post.topic_id')
@@ -79,7 +78,7 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
             $topics->with('read');
         }
 
-        return $topics->where('path', $forumId)
+        return $topics->where('forum_id', $forumId)
             ->paginate(\Config::get('forums/forum.topics_per_page'));
     }
 
@@ -133,7 +132,8 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
             'created_at' => date('Y-m-d H:i:s'),
             'title' => $attributes['title'],
             'slug' => \Str::slug($attributes['title']) ?: 'topic',
-            'path' => isset($attributes['path']) ? $attributes['path'] : null,
+            'forum_id' => isset($attributes['forum_id']) ?
+                $attributes['forum_id'] : null,
         ]);
     }
 
@@ -189,7 +189,7 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
     {
         return $this->model
             ->where('id', $topicId)
-            ->update(['path' => $forumId]);
+            ->update(['forum_id' => $forumId]);
     }
 
     /**
@@ -230,7 +230,7 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
                 'lforums_topics.created_at', 'lforums_topics.id', 'lforums_topics.updated_at', 'lforums_topics.views',
                 'lforums_topics.posts_count', 'lforums_topics.sticky', 'lforums_topics.locked', 'lforums_topics.last_post',
                 'last_user.slug as last_user_slug', 'last_user.username as last_user_username', 'lforums_topics.tag',
-                'lforums_topics.path')
+                'lforums_topics.forum_id')
             ->join('lforums_users as users', 'user_id', '=', 'users.id')
             ->join('lforums_users as last_user', 'lforums_topics.last_post_user', '=', 'last_user.id')
             ->whereNested(function ($query) {
