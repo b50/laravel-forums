@@ -20,13 +20,13 @@ elixir(function(mix) {
         '../../../public/lforums/font-awesome/css/font-awesome.min.css');
     mix.copy('../../../vendor/fortawesome/font-awesome/fonts',
         '../../../public/lforums/font-awesome/fonts');
-    mix.copy('src/database', '../../../database');
-    mix.copy('src/resources/views', '../../../resources/views/lforums');
-    mix.copy('src/resources/assets/sass', '../../../resources/assets/lforums/sass');
-    mix.sass('../../../src/resources/assets/sass/forums.scss',
+    mix.copy('database', '../../../database');
+    mix.copy('resources/views', '../../../resources/views/lforums');
+    mix.copy('resources/assets/sass', '../../../resources/assets/lforums/sass');
+    mix.sass('resources/assets/sass/forums.scss',
         '../../../public/lforums/forums.css');
-    mix.sass('../../../src/resources/assets/sass/profile.scss',
+    mix.sass('resources/assets/sass/profile.scss',
         '../../../public/lforums/profile.css');
-    mix.sass('../../../src/resources/assets/sass/editor.scss',
+    mix.sass('resources/assets/sass/editor.scss',
         '../../../public/lforums/editor.css');
 });

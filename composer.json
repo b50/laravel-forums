@@ -20,7 +20,8 @@
     "erusev/parsedown": "~1.0",
     "mews/purifier": "~2.0",
     "twbs/bootstrap": "~3.0",
-    "fortawesome/font-awesome": "~4.5"
+    "fortawesome/font-awesome": "~4.5",
+    "mccool/laravel-auto-presenter": "^5.0"
   },
   "autoload": {
     "classmap": [
