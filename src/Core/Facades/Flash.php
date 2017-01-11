@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Core\Facades;
+<?php namespace B50\Forums\Core\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * Flash facade
  *
- * @package Kaamaru\Forums\Core\Facades
+ * @package B50\Forums\Core\Facades
  */
 class Flash extends Facade
 {

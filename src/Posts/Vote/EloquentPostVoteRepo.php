@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Posts\Vote;
+<?php namespace B50\Forums\Posts\Vote;
 
-use Kaamaru\Forums\Core\Repositories\EloquentRepo;
+use B50\Forums\Core\Repositories\EloquentRepo;
 
 /**
  * EloquentPostVote repository
  *
- * @package Kaamaru\Forums\Posts\Vote
+ * @package B50\Forums\Posts\Vote
  */
 class EloquentPostVoteRepo extends EloquentRepo implements PostVoteRepoInterface
 {

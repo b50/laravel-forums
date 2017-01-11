@@ -1,5 +1,5 @@
 <div class="posts" id="preview">
-    @include('kaamaru/laravel-forums/forums._post', ['preview' => true])
+    @include('b50/laravel-forums/forums._post', ['preview' => true])
 </div>
 
 {{-- Setup as two forms to avoid anoying Codeception (v2.0.5) bug >_> --}}

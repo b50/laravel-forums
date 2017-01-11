@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Core\Pagination;
+<?php namespace B50\Forums\Core\Pagination;
 
 use Illuminate\Pagination\Presenter;
 
 /**
  * Our custom pagination
  *
- * @package Kaamaru\Forums\Core\Presenters
+ * @package B50\Forums\Core\Presenters
  */
 class CustomPresenter extends Presenter
 {

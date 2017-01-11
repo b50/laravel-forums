@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Users;
+<?php namespace B50\Forums\Users;
 
 /**
  * @package App\Forums

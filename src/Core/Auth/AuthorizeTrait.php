@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Core\Auth;
+<?php namespace B50\Forums\Core\Auth;
 
 /**
  * Class EloquentAncestorsTrait

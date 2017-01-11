@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Topics\Move;
+<?php namespace B50\Forums\Topics\Move;
 
-use Kaamaru\Forums\Topics\RedirectionTopic;
+use B50\Forums\Topics\RedirectionTopic;
 
 /**
  * Move a topic

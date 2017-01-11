@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Users;
+<?php namespace B50\Forums\Users;
 
 /**
  * Track users online
  *
- * @package Kaamaru\Forums\Users
+ * @package B50\Forums\Users
  */
 class Online
 {

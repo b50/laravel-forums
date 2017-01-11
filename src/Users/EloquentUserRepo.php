@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Users;
+<?php namespace B50\Forums\Users;
 
-use Kaamaru\Forums\Core\Repositories\EloquentRepo;
+use B50\Forums\Core\Repositories\EloquentRepo;
 
 /**
  * Class EloquentUserRepo

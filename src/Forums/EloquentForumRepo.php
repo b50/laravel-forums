@@ -1,7 +1,7 @@
-<?php namespace Kaamaru\Forums\Forums;
+<?php namespace B50\Forums\Forums;
 
-use Kaamaru\Forums\Core\Repositories\EloquentRepo;
-use Kaamaru\Forums\Topics\EloquentTopic;
+use B50\Forums\Core\Repositories\EloquentRepo;
+use B50\Forums\Topics\EloquentTopic;
 
 /**
  * Forum Model

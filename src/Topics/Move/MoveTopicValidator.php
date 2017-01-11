@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Topics\Move;
+<?php namespace B50\Forums\Topics\Move;
 
-use Kaamaru\Forums\Core\Validation\Validator;
+use B50\Forums\Core\Validation\Validator;
 
 /**
  * Validate user

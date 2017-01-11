@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Core\Revisionable;
+<?php namespace B50\Forums\Core\Revisionable;
 
 class RevisionableObserver
 {

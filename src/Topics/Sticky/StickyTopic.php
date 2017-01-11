@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Topics\Sticky;
+<?php namespace B50\Forums\Topics\Sticky;
 
-use Kaamaru\Forums\Topics\TopicRepoInterface;
+use B50\Forums\Topics\TopicRepoInterface;
 
 /**
  * Make a topic sticky

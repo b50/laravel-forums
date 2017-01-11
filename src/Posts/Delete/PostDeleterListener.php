@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Posts\Delete;
+<?php namespace B50\Forums\Posts\Delete;
 
 /**
  * Interface for deleted posts

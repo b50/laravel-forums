@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Forums;
+<?php namespace B50\Forums\Forums;
 
 /**
  * Move a topic

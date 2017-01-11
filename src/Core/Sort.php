@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Core;
+<?php namespace B50\Forums\Core;
 
 use Illuminate\Support\Facades\Input;
 
 /**
  * Sort by a field
  *
- * @package Kaamaru\Forums\Core
+ * @package B50\Forums\Core
  */
 class Sort
 {

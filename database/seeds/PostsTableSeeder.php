@@ -1,13 +1,13 @@
-<?php
+<?php namespace B50\Forums;
 
 use Illuminate\Database\Seeder;
-use Kaamaru\Forums\Posts\EloquentPost;
+use B50\Forums\Posts\EloquentPost;
 
-class KaamaruForumsPostsTableSeeder extends Seeder
+class PostsTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('lforums_posts')->delete();
+        \DB::table('lforums_posts')->delete();
 
         EloquentPost::create([
             'id' => 1,

@@ -1,5 +1,5 @@
 {
-  "name": "kaamaru/laravel-forums",
+  "name": "b50/laravel-forums",
   "description": "A forums for laravel",
   "keywords": [
     "forums",
@@ -9,7 +9,7 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "kaamaru",
+      "name": "b50",
       "email": "calumks@live.com"
     }
   ],
@@ -27,7 +27,7 @@
     "classmap": [
     ],
     "psr-4": {
-    	"Kaamaru\\Forums\\": "src/"
+    	"b50\\Forums\\": "src/"
   	}     
   }
 }

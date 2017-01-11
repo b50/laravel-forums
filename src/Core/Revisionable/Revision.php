@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Core\Revisionable;
+<?php namespace B50\Forums\Core\Revisionable;
 
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model as Eloquent;

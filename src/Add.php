@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums;
+<?php namespace B50\Forums;
 
-use Kaamaru\Forums\Forums\ForumRepoInterface;
-use Kaamaru\Forums\Posts\PostRepoInterface;
-use Kaamaru\Forums\Topics\TopicRepoInterface;
-use Kaamaru\Forums\Users\UserRepoInterface;
+use B50\Forums\Forums\ForumRepoInterface;
+use B50\Forums\Posts\PostRepoInterface;
+use B50\Forums\Topics\TopicRepoInterface;
+use B50\Forums\Users\UserRepoInterface;
 
 /**
  * Add post or topic to their parents and update counts

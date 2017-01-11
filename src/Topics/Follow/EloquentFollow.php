@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Topics\Follow;
+<?php namespace B50\Forums\Topics\Follow;
 
 /**
  * Class EloquentFollowing
  *
- * @package Kaamaru\Forums\Topics\Following
+ * @package B50\Forums\Topics\Following
  */
 class EloquentFollow extends \Eloquent
 {

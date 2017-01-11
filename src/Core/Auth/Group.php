@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Core\Auth;
+<?php namespace B50\Forums\Core\Auth;
 
-use Kaamaru\Forums\Users\Group\UserGroupRepoInterface;
+use B50\Forums\Users\Group\UserGroupRepoInterface;
 
 /**
  * Bouncer to block members without the required group or permission
  *
- * @package Kaamaru\Forums\Core\Auth\Guard
+ * @package B50\Forums\Core\Auth\Guard
  */
 class Group
 {
@@ -35,7 +35,7 @@ class Group
         $groups = [];
 
         foreach ($dbGroups as $key => $group) {
-            $groups[] = \App::make('Kaamaru\Forums\Core\Auth\Groups\\' . $group);
+            $groups[] = \App::make('B50\Forums\Core\Auth\Groups\\' . $group);
         }
 
         // Return group objects

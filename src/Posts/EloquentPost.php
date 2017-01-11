@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Posts;
+<?php namespace B50\Forums\Posts;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
@@ -32,7 +32,7 @@ class EloquentPost extends \Eloquent implements HasPresenter
      */
     public function topic()
     {
-        return $this->belongsTo('Kaamaru\Forums\Topics\EloquentTopic');
+        return $this->belongsTo('B50\Forums\Topics\EloquentTopic');
     }
 
     /**
@@ -42,7 +42,7 @@ class EloquentPost extends \Eloquent implements HasPresenter
      */
     public function author()
     {
-        return $this->belongsTo('Kaamaru\Forums\Users\EloquentUser');
+        return $this->belongsTo('B50\Forums\Users\EloquentUser');
     }
 
     /**
@@ -52,6 +52,6 @@ class EloquentPost extends \Eloquent implements HasPresenter
      */
     public function getPresenterClass()
     {
-        return 'Kaamaru\Forums\Posts\PostPresenter';
+        return 'B50\Forums\Posts\PostPresenter';
     }
 }

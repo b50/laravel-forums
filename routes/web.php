@@ -1,5 +1,5 @@
 <?php
-Route::group(['namespace' => 'Kaamaru\Forums\Http\Controllers', 'middleware' => ['web']], function () {
+Route::group(['namespace' => 'B50\Forums\Http\Controllers', 'middleware' => ['web']], function () {
     /*
      * topics
      */

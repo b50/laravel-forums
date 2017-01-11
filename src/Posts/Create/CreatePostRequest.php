@@ -1,7 +1,7 @@
-<?php namespace Kaamaru\Forums\Posts\Create;
+<?php namespace B50\Forums\Posts\Create;
 
-use Kaamaru\Forums\Forums\Preview;
-use Kaamaru\Forums\Posts\PostValidator;
+use B50\Forums\Forums\Preview;
+use B50\Forums\Posts\PostValidator;
 
 /**
  * A request to make a post

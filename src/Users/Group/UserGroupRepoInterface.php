@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Users\Group;
+<?php namespace B50\Forums\Users\Group;
 
 /**
  * Interface UserGroupInterface
  *
- * @package Kaamaru\Forums\Users
+ * @package B50\Forums\Users
  */
 interface UserGroupRepoInterface
 {

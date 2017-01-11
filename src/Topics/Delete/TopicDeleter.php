@@ -1,8 +1,8 @@
-<?php namespace Kaamaru\Forums\Topics\Delete;
+<?php namespace B50\Forums\Topics\Delete;
 
-use Kaamaru\Forums\Core\Paths\PathInterface;
-use Kaamaru\Forums\Add;
-use Kaamaru\Forums\Topics\TopicRepoInterface;
+use B50\Forums\Core\Paths\PathInterface;
+use B50\Forums\Add;
+use B50\Forums\Topics\TopicRepoInterface;
 
 /**
  * I delete topics >:D

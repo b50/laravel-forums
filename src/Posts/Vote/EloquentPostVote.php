@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Posts\Vote;
+<?php namespace B50\Forums\Posts\Vote;
 
 /**
  * Class EloquentVote
  *
- * @package Kaamaru\Forums\Posts\Votes
+ * @package B50\Forums\Posts\Votes
  */
 class EloquentPostVote extends \Eloquent
 {

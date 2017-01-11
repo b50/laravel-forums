@@ -1,5 +1,5 @@
-@extends('kaamaru/laravel-forums....master')
+@extends('b50/laravel-forums....master')
 
 @section('content')
-    @include('kaamaru/laravel-forums/forums.posts._report')
+    @include('b50/laravel-forums/forums.posts._report')
 @stop

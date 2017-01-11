@@ -1,4 +1,4 @@
-@extends('kaamaru/laravel-forums.master')
+@extends('b50/laravel-forums.master')
 
 @section('breadcrumbs', Breadcrumbs::render('forums.show', $forum->parents))
 @section('title', $forum->name)
@@ -19,7 +19,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @include('kaamaru/laravel-forums/forums._forums', ['forums' => $subforums, 'path' => $forum->path, 'index' => false])
+                        @include('b50/laravel-forums/forums._forums', ['forums' => $subforums, 'path' => $forum->path, 'index' => false])
                         </tbody>
                     </table>
                 @endif
@@ -37,7 +37,7 @@
         @endif
     </ul>
 
-    @include('kaamaru/laravel-forums/forums._suggestions', ['topics' => $topics, 'route' => 'forums.show', 'routeParams' => [
+    @include('b50/laravel-forums/forums._suggestions', ['topics' => $topics, 'route' => 'forums.show', 'routeParams' => [
         'id' => $forum->id, 'slug' => $forum->slug]])
 
     <ul class="nav nav-pills navbar-right">

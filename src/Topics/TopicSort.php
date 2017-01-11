@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Topics;
+<?php namespace B50\Forums\Topics;
 
-use Kaamaru\Forums\Core\Sort;
+use B50\Forums\Core\Sort;
 
 class TopicSort extends Sort
 {

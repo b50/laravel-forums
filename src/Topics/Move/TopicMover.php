@@ -1,8 +1,8 @@
-<?php namespace Kaamaru\Forums\Topics\Move;
+<?php namespace B50\Forums\Topics\Move;
 
-use Kaamaru\Forums\Core\Paths\PathInterface;
-use Kaamaru\Forums\Forums\ForumRepoInterface;
-use Kaamaru\Forums\Topics\TopicRepoInterface;
+use B50\Forums\Core\Paths\PathInterface;
+use B50\Forums\Forums\ForumRepoInterface;
+use B50\Forums\Topics\TopicRepoInterface;
 
 /**
  * Move a topic

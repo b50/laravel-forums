@@ -1,16 +1,16 @@
-<?php
+<?php namespace B50\Forums;
 
 use Illuminate\Database\Seeder;
-use Kaamaru\Forums\Users\EloquentUser;
+use B50\Forums\Users\EloquentUser;
 
 /**
  * Class UsersTableSeeder
  */
-class KaamaruForumsUsersTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('lforums_users')->delete();
+        \DB::table('lforums_users')->delete();
 
         EloquentUser::create([
             'id' => 1,

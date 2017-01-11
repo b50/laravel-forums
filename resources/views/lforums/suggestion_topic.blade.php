@@ -1,4 +1,4 @@
-@extends('kaamaru/laravel-forums.master')
+@extends('b50/laravel-forums.master')
 @section('breadcrumbs', Breadcrumbs::render('forums.topics.show', $topic))
 @section('title', $topic->title)
 @section('content')
@@ -96,13 +96,13 @@
     @endif
 
     <div class="posts">
-        @include('kaamaru/laravel-forums/forums._post', ['post' => $topic->first_post])
+        @include('b50/laravel-forums/forums._post', ['post' => $topic->first_post])
     </div>
 
     @if ($topic->developer_response)<br>
         <div class="box-header-blue">{{ _('Developer response') }}</div>
         <div class="posts">
-            @include('kaamaru/laravel-forums/forums._post', ['post' => $topic->developer_response])
+            @include('b50/laravel-forums/forums._post', ['post' => $topic->developer_response])
         </div>
     @endif
 
@@ -113,7 +113,7 @@
             </div>
             <div class="col-md-7">
                 <ul class="topic-menu social">
-                    @include('kaamaru/laravel-forums/share')
+                    @include('b50/laravel-forums/share')
                 </ul>
             </div>
         </div>
@@ -131,7 +131,7 @@
                 <?php $i = (Request::get('page') * Config::get('forums\forum.posts_per_page')) + 2 ?>
                 @foreach ($topic->postsByVotes as $post)
                     @if ($topic->first_post->id != $post->id)
-                        @include('kaamaru/laravel-forums/forums._post', [$post])
+                        @include('b50/laravel-forums/forums._post', [$post])
                         <?php $i++ ?>
                     @endif
                 @endforeach

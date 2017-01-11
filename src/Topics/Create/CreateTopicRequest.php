@@ -1,7 +1,7 @@
-<?php namespace Kaamaru\Forums\Topics\Create;
+<?php namespace B50\Forums\Topics\Create;
 
-use Kaamaru\Forums\Preview;
-use Kaamaru\Forums\Topics\TopicValidator;
+use B50\Forums\Preview;
+use B50\Forums\Topics\TopicValidator;
 
 /**
  * Create a topic

@@ -1,12 +1,12 @@
-<?php namespace Kaamaru\Forums\Forums;
+<?php namespace B50\Forums;
 
-use Kaamaru\Forums\Posts\PostRepoInterface;
-use Kaamaru\Forums\Topics\TopicRepoInterface;
+use B50\Forums\Posts\PostRepoInterface;
+use B50\Forums\Topics\TopicRepoInterface;
 
 /**
  * Topic\Post Preview generation
  *
- * @package Kaamaru\Forums\Services
+ * @package B50\Forums\Services
  */
 class Preview
 {

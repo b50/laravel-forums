@@ -1,4 +1,4 @@
-@extends('kaamaru/laravel-forums.master')
+@extends('b50/laravel-forums.master')
 
 @section('content')
     <div id="sign"></div>

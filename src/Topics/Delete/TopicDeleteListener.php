@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Topics\Delete;
+<?php namespace B50\Forums\Topics\Delete;
 
 /**
  * Interface TopicMoverInterface

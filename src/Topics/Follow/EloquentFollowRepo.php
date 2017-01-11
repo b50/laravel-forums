@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Topics\Follow;
+<?php namespace B50\Forums\Topics\Follow;
 
-use Kaamaru\Forums\Core\Repositories\EloquentRepo;
+use B50\Forums\Core\Repositories\EloquentRepo;
 
 /**
  * Class EloquentFollowRepo
  *
- * @package Kaamaru\Forums\Topics\Follow
+ * @package B50\Forums\Topics\Follow
  */
 class EloquentFollowRepo extends EloquentRepo implements FollowRepoInterface
 {

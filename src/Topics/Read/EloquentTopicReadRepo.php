@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Topics\Read;
+<?php namespace B50\Forums\Topics\Read;
 
-use Kaamaru\Forums\Core\Repositories\EloquentRepo;
+use B50\Forums\Core\Repositories\EloquentRepo;
 
 class EloquentTopicReadRepo extends EloquentRepo implements TopicReadRepoInterface
 {

@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Topics\Favorite;
+<?php namespace B50\Forums\Topics\Favorite;
 
 /**
  * Class EloquentFavorite
@@ -17,7 +17,7 @@ class EloquentFavorite extends \Eloquent
      */
     public function read()
     {
-        return $this->hasOne('Kaamaru\Forums\Topics\Read\EloquentTopicRead', 'topic_id')
+        return $this->hasOne('B50\Forums\Topics\Read\EloquentTopicRead', 'topic_id')
             ->where('user_id', \Auth::user()->id);
     }
 }

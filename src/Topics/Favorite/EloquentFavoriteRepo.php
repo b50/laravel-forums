@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Topics\Favorite;
+<?php namespace B50\Forums\Topics\Favorite;
 
-use Kaamaru\Forums\Core\Repositories\EloquentRepo;
+use B50\Forums\Core\Repositories\EloquentRepo;
 
 /**
  * Repo for the forum favorites

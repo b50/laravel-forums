@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Posts\Edit;
+<?php namespace B50\Forums\Posts\Edit;
 
-use Kaamaru\Forums\Posts\PostValidator;
+use B50\Forums\Posts\PostValidator;
 
 /**
  * Edit post validation

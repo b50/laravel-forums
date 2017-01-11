@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Users\Group;
+<?php namespace B50\Forums\Users\Group;
 
 /**
  * Class EloquentGroup
  *
- * @package Kaamaru\Forums\Core\Auth
+ * @package B50\Forums\Core\Auth
  */
 class EloquentUserGroup extends \Eloquent
 {

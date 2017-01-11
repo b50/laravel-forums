@@ -1,7 +1,7 @@
-<?php namespace Kaamaru\Forums\Http\Controllers\Topics;
+<?php namespace B50\Forums\Http\Controllers\Topics;
 
-use Kaamaru\Forums\Topics\Follow\FollowRepoInterface;
-use Kaamaru\Forums\Topics\TopicRepoInterface;
+use B50\Forums\Topics\Follow\FollowRepoInterface;
+use B50\Forums\Topics\TopicRepoInterface;
 
 /**
  * The topics controller

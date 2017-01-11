@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Core\Repositories;
+<?php namespace B50\Forums\Core\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

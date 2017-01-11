@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Users;
+<?php namespace B50\Forums\Users;
 
-use Kaamaru\Forums\Core\Validation\Validator;
+use B50\Forums\Core\Validation\Validator;
 
 /**
  * Class UserCreateValidator
  *
- * @package Kaamaru\Forums\Users
+ * @package B50\Forums\Users
  */
 class UserCreateValidator extends Validator
 {

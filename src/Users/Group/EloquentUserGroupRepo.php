@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Users\Group;
+<?php namespace B50\Forums\Users\Group;
 
-use Kaamaru\Forums\Core\Repositories\EloquentRepo;
+use B50\Forums\Core\Repositories\EloquentRepo;
 
 /**
  * Interface UserGroupInterface
  *
- * @package Kaamaru\Forums\Users
+ * @package B50\Forums\Users
  */
 class EloquentUserGroupRepo extends EloquentRepo implements UserGroupRepoInterface
 {

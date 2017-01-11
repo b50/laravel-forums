@@ -1,5 +1,5 @@
 {{ $topics->render() }}
-@include('kaamaru/laravel-forums/forums._suggestion_sort')
+@include('b50/laravel-forums/forums._suggestion_sort')
 <div class="row">
     <div class="col-md-12">
         @if ($topics->count())
@@ -86,4 +86,4 @@
     </div>
 </div>
 {{ $topics->render() }}
-@include('kaamaru/laravel-forums/forums._suggestion_sort')
+@include('b50/laravel-forums/forums._suggestion_sort')

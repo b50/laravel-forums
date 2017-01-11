@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Topics\Lock;
+<?php namespace B50\Forums\Topics\Lock;
 
 /**
  * Interface TopicMoverInterface

@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Posts;
+<?php namespace B50\Forums\Posts;
 
 /**
  * @package App\Forums

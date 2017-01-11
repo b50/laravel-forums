@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Http\Controllers\Topics;
+<?php namespace B50\Forums\Http\Controllers\Topics;
 
-use Kaamaru\Forums\Core\Auth\AuthorizeTrait;
-use Kaamaru\Forums\Forums\ForumTree;
-use Kaamaru\Forums\Topics\Move\MoveTopicRequest;
-use Kaamaru\Forums\Topics\Move\TopicMoverListener;
-use Kaamaru\Forums\Topics\TopicRepoInterface;
-use Kaamaru\Forums\Http\Controllers\BaseController;
+use B50\Forums\Core\Auth\AuthorizeTrait;
+use B50\Forums\Forums\ForumTree;
+use B50\Forums\Topics\Move\MoveTopicRequest;
+use B50\Forums\Topics\Move\TopicMoverListener;
+use B50\Forums\Topics\TopicRepoInterface;
+use B50\Forums\Http\Controllers\BaseController;
 
 /**
  * The topics controller
@@ -44,7 +44,7 @@ class MoveTopicsController extends BaseController implements TopicMoverListener
 
         $tree = $this->tree->getTree();
 
-        return \View::make('kaamaru.laravel-forums.forums.move', compact('topic', 'tree'));
+        return \View::make('b50.laravel-forums.forums.move', compact('topic', 'tree'));
     }
 
     /**

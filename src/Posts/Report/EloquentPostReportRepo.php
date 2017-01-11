@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Posts\Report;
+<?php namespace B50\Forums\Posts\Report;
 
-use Kaamaru\Forums\Core\Repositories\EloquentRepo;
+use B50\Forums\Core\Repositories\EloquentRepo;
 
 /**
  * EloquentPostReport repository
  *
- * @package Kaamaru\Forums\Posts\Report
+ * @package B50\Forums\Posts\Report
  */
 class EloquentPostReportRepo extends EloquentRepo implements PostReportRepoInterface
 {

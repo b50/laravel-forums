@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Topics\Lock;
+<?php namespace B50\Forums\Topics\Lock;
 
-use Kaamaru\Forums\Topics\TopicRepoInterface;
+use B50\Forums\Topics\TopicRepoInterface;
 
 /**
  * Lock topic

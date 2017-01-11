@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Images;
+<?php namespace B50\Forums\Images;
 
 use Eloquent;
 

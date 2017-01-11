@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Http\Controllers\Topics;
+<?php namespace B50\Forums\Http\Controllers\Topics;
 
-use Kaamaru\Forums\Forums\ForumRepoInterface;
-use Kaamaru\Forums\Topics\Read\TopicReadRepoInterface;
-use Kaamaru\Forums\Topics\TopicRepoInterface;
-use Kaamaru\Forums\Http\Controllers\BaseController;
+use B50\Forums\Forums\ForumRepoInterface;
+use B50\Forums\Topics\Read\TopicReadRepoInterface;
+use B50\Forums\Topics\TopicRepoInterface;
+use B50\Forums\Http\Controllers\BaseController;
 
 /**
  * The topics controller

@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Http\Controllers;
+<?php namespace B50\Forums\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 

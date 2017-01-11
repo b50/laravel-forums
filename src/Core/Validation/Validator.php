@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Core\Validation;
+<?php namespace B50\Forums\Core\Validation;
 
 use Illuminate\Validation\Factory;
 

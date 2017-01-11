@@ -1,13 +1,13 @@
-<?php namespace Kaamaru\Forums\Users;
+<?php namespace B50\Forums\Users;
 
 use App\User;
-use Kaamaru\Forums\Users\Group\EloquentUserGroup;
+use B50\Forums\Users\Group\EloquentUserGroup;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 /**
  * The user
  *
- * @package Kaamaru\Forums\Users
+ * @package B50\Forums\Users
  */
 class EloquentUser extends \Eloquent implements HasPresenter
 {

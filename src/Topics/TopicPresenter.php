@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Topics;
+<?php namespace B50\Forums\Topics;
 
 use Carbon\Carbon;
 use McCool\LaravelAutoPresenter\BasePresenter;
@@ -6,7 +6,7 @@ use McCool\LaravelAutoPresenter\BasePresenter;
 /**
  * Present the topic
  *
- * @package Kaamaru\Forums\Forums
+ * @package B50\Forums\Forums
  */
 class TopicPresenter extends BasePresenter
 {

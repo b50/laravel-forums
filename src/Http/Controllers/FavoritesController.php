@@ -1,7 +1,7 @@
-<?php namespace Kaamaru\Forums\Http\Controllers;
+<?php namespace B50\Forums\Http\Controllers;
 
-use Kaamaru\Forums\Topics\Favorite\FavoriteRepoInterface;
-use Kaamaru\Forums\Topics\TopicSort;
+use B50\Forums\Topics\Favorite\FavoriteRepoInterface;
+use B50\Forums\Topics\TopicSort;
 
 /**
  * Show a user's favorite topics
@@ -26,7 +26,7 @@ class FavoritesController extends BaseController
     public function getIndex()
     {
         $favorites = $this->favorites->all($this->sort->getField(), $this->sort->getDirection());
-        return View::make('kaamaru.laravel-forums.forums.favorites', compact('favorites', 'breadcrumbs'),
+        return View::make('b50.laravel-forums.forums.favorites', compact('favorites', 'breadcrumbs'),
             ['sort' => $this->sort]);
     }
 

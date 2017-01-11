@@ -1,17 +1,17 @@
-<?php namespace Kaamaru\Forums\Forums;
+<?php namespace B50\Forums\Forums;
 
 use Carbon\Carbon;
-use Kaamaru\Forums\Core\Paths\PathInterface;
-use Kaamaru\Forums\Core\Paths\PathTrait;
-use Kaamaru\Forums\Read\EloquentForumRead;
-use Kaamaru\Forums\Topics\EloquentTopic;
+use B50\Forums\Core\Paths\PathInterface;
+use B50\Forums\Core\Paths\PathTrait;
+use B50\Forums\Read\EloquentForumRead;
+use B50\Forums\Topics\EloquentTopic;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use McCool\LaravelAutoPresenter\PresenterInterface;
 
 /**
  * Class EloquentForum
  *
- * @package Kaamaru\Forums\Forums
+ * @package B50\Forums\Forums
  */
 class EloquentForum extends \Eloquent implements PathInterface, HasPresenter
 {
@@ -68,7 +68,7 @@ class EloquentForum extends \Eloquent implements PathInterface, HasPresenter
      */
     public function getPresenterClass()
     {
-        return 'Kaamaru\Forums\Forums\ForumPresenter';
+        return 'B50\Forums\Forums\ForumPresenter';
     }
 
     /**

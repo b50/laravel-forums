@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Posts\Edit;
+<?php namespace B50\Forums\Posts\Edit;
 
-use Kaamaru\Forums\Posts\PostRepoInterface;
+use B50\Forums\Posts\PostRepoInterface;
 
 /**
  * Class PostEditor
  *
- * @package Kaamaru\Forums\Posts\Edit
+ * @package B50\Forums\Posts\Edit
  */
 class PostEditor
 {

@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Http\Controllers\Posts;
+<?php namespace B50\Forums\Http\Controllers\Posts;
 
-use Kaamaru\Forums\Posts\PostRepoInterface;
+use B50\Forums\Posts\PostRepoInterface;
 
 /**
  * Class PostsController

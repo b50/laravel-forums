@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Forums;
+<?php namespace B50\Forums;
 
 /**
  * Class Breadcrumbs
  *
- * @package Kaamaru\Forums\Services
+ * @package B50\Forums\Services
  */
 class Breadcrumbs
 {

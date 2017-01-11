@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Topics\Edit;
+<?php namespace B50\Forums\Topics\Edit;
 
-use Kaamaru\Forums\Topics\TopicRepoInterface;
+use B50\Forums\Topics\TopicRepoInterface;
 
 /**
  * Edit topic
  *
- * @package Kaamaru\Forums\Posts\Edit
+ * @package B50\Forums\Posts\Edit
  */
 class TopicEditor
 {

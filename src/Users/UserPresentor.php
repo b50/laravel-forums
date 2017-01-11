@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Users;
+<?php namespace B50\Forums\Users;
 
 use McCool\LaravelAutoPresenter\BasePresenter;
 
 /**
  * Present the post
  *
- * @package Kaamaru\Forums\Forums
+ * @package B50\Forums\Forums
  */
 class UserPresenter extends BasePresenter
 {

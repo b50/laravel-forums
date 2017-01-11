@@ -1,13 +1,13 @@
-<?php namespace Kaamaru\Forums\Topics;
+<?php namespace B50\Forums\Topics;
 
-use Kaamaru\Forums\Forums\ForumRepoInterface;
-use Kaamaru\Forums\Topics\Create\TopicCreator;
+use B50\Forums\Forums\ForumRepoInterface;
+use B50\Forums\Topics\Create\TopicCreator;
 use Carbon\Carbon;
 
 /**
  * Redirect topic to a different forum
  *
- * @package Kaamaru\Forums\Topics
+ * @package B50\Forums\Topics
  */
 class RedirectionTopic
 {

@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Topics\Sticky;
+<?php namespace B50\Forums\Topics\Sticky;
 
 /**
  * Interface TopicMoverInterface

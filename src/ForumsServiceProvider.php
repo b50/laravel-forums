@@ -1,15 +1,15 @@
-<?php namespace Kaamaru\Forums;
+<?php namespace B50\Forums;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
-use Kaamaru\Forums\Core\Auth\EloquentUserProvider;
-use Kaamaru\Forums\Core\Validation\ValidationRules;
+use B50\Forums\Core\Auth\EloquentUserProvider;
+use B50\Forums\Core\Validation\ValidationRules;
 
 class ForumsServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'Kaamaru\Forums');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'B50\Forums');
         \Validator::resolver(function ($translator, $data, $rules, $messages) {
             return new ValidationRules($translator, $data, $rules, $messages);
         });
@@ -45,75 +45,75 @@ class ForumsServiceProvider extends ServiceProvider
         // Bind classes
         $this->app->bind(
             'counter',
-            'Kaamaru\Forums\Core\Counters\Redis\RedisCounter'
+            'B50\Forums\Core\Counters\Redis\RedisCounter'
         );
         $this->app->bind(
             'markdown',
-            'Kaamaru\Forums\Core\Markdown\Markdown'
+            'B50\Forums\Core\Markdown\Markdown'
         );
         $this->app->bind(
             'flash',
-            'Kaamaru\Forums\Core\Flash\Flash'
+            'B50\Forums\Core\Flash\Flash'
         );
         $this->app->bind(
             'bouncer',
-            'Kaamaru\Forums\Core\Auth\Bouncer'
+            'B50\Forums\Core\Auth\Bouncer'
         );
         $this->app->bind(
             'finediff',
             'cogpowered\FineDiff\Diff'
         );
         $this->app->bind(
-            'Kaamaru\Forums\Forums\ForumRepoInterface',
-            'Kaamaru\Forums\Forums\EloquentForumRepo'
+            'B50\Forums\Forums\ForumRepoInterface',
+            'B50\Forums\Forums\EloquentForumRepo'
         );
         $this->app->bind(
-            'Kaamaru\Forums\Topics\TopicRepoInterface',
-            'Kaamaru\Forums\Topics\EloquentTopicRepo'
+            'B50\Forums\Topics\TopicRepoInterface',
+            'B50\Forums\Topics\EloquentTopicRepo'
         );
         $this->app->bind(
-            'Kaamaru\Forums\Posts\PostRepoInterface',
-            'Kaamaru\Forums\Posts\EloquentPostRepo'
+            'B50\Forums\Posts\PostRepoInterface',
+            'B50\Forums\Posts\EloquentPostRepo'
         );
         $this->app->bind(
-            'Kaamaru\Forums\Topics\Favorite\FavoriteRepoInterface',
-            'Kaamaru\Forums\Topics\Favorite\EloquentFavoriteRepo'
+            'B50\Forums\Topics\Favorite\FavoriteRepoInterface',
+            'B50\Forums\Topics\Favorite\EloquentFavoriteRepo'
         );
         $this->app->bind(
-            'Kaamaru\Forums\Posts\Vote\PostVoteRepoInterface',
-            'Kaamaru\Forums\Posts\Vote\EloquentPostVoteRepo'
+            'B50\Forums\Posts\Vote\PostVoteRepoInterface',
+            'B50\Forums\Posts\Vote\EloquentPostVoteRepo'
         );
         $this->app->bind(
-            'Kaamaru\Forums\Posts\Report\PostReportRepoInterface',
-            'Kaamaru\Forums\Posts\Report\EloquentPostReportRepo'
+            'B50\Forums\Posts\Report\PostReportRepoInterface',
+            'B50\Forums\Posts\Report\EloquentPostReportRepo'
         );
         $this->app->bind(
-            'Kaamaru\Forums\Read\ForumReadRepoInterface',
-            'Kaamaru\Forums\Read\EloquentForumReadRepo'
+            'B50\Forums\Read\ForumReadRepoInterface',
+            'B50\Forums\Read\EloquentForumReadRepo'
         );
         $this->app->bind(
-            'Kaamaru\Forums\Topics\Read\TopicReadRepoInterface',
-            'Kaamaru\Forums\Topics\Read\EloquentTopicReadRepo'
+            'B50\Forums\Topics\Read\TopicReadRepoInterface',
+            'B50\Forums\Topics\Read\EloquentTopicReadRepo'
         );
         $this->app->bind(
-            'Kaamaru\Forums\Topics\Follow\FollowRepoInterface',
-            'Kaamaru\Forums\Topics\Follow\EloquentFollowRepo'
+            'B50\Forums\Topics\Follow\FollowRepoInterface',
+            'B50\Forums\Topics\Follow\EloquentFollowRepo'
         );
         $this->app->bind(
-            'Kaamaru\Forums\Users\Group\UserGroupRepoInterface',
-            'Kaamaru\Forums\Users\Group\EloquentUserGroupRepo'
+            'B50\Forums\Users\Group\UserGroupRepoInterface',
+            'B50\Forums\Users\Group\EloquentUserGroupRepo'
         );
         $this->app->bind(
-            'Kaamaru\Forums\Users\UserRepoInterface',
-            'Kaamaru\Forums\Users\EloquentUserRepo'
+            'B50\Forums\Users\UserRepoInterface',
+            'B50\Forums\Users\EloquentUserRepo'
         );
         $this->app->view->composer(
             'forums.topics._reply',
-            'Kaamaru\Forums\Posts\QuotesComposer'
+            'B50\Forums\Posts\QuotesComposer'
         );
         $this->app->view->composer(
             'forums.move_post',
-            'Kaamaru\Forums\Posts\MovePostComposer'
+            'B50\Forums\Posts\MovePostComposer'
         );
         // Register aliases
         AliasLoader::getInstance()->alias(
@@ -122,7 +122,7 @@ class ForumsServiceProvider extends ServiceProvider
         );
         AliasLoader::getInstance()->alias(
             'Bouncer',
-            'Kaamaru\Forums\Core\Facades\Bouncer'
+            'B50\Forums\Core\Facades\Bouncer'
         );
 
         // Register service providers

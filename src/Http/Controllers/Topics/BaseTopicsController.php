@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Http\Controllers\Topics;
+<?php namespace B50\Forums\Http\Controllers\Topics;
 
-use Kaamaru\Forums\Http\Controllers\BaseController;
+use B50\Forums\Http\Controllers\BaseController;
 
 /**
  * Base topics controller

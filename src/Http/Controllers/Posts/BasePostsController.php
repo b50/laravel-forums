@@ -1,8 +1,8 @@
-<?php namespace Kaamaru\Forums\Http\Controllers\Posts;
+<?php namespace B50\Forums\Http\Controllers\Posts;
 
 use Illuminate\Support\Facades\Redirect;
-use Kaamaru\Forums\Posts\PostRepoInterface;
-use Kaamaru\Forums\Http\Controllers\BaseController;
+use B50\Forums\Posts\PostRepoInterface;
+use B50\Forums\Http\Controllers\BaseController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**

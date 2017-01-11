@@ -1,10 +1,10 @@
-<?php namespace Kaamaru\Forums\Http\Controllers\Forums;
+<?php namespace B50\Forums\Http\Controllers\Forums;
 
-use Kaamaru\Forums\Forums\ForumRepoInterface;
-use Kaamaru\Forums\Forums\ForumTree;
-use Kaamaru\Forums\Topics\Create\CreateTopicRequest;
-use Kaamaru\Forums\Topics\Create\TopicCreateListener;
-use Kaamaru\Forums\Http\Controllers\BaseController;
+use B50\Forums\Forums\ForumRepoInterface;
+use B50\Forums\Forums\ForumTree;
+use B50\Forums\Topics\Create\CreateTopicRequest;
+use B50\Forums\Topics\Create\TopicCreateListener;
+use B50\Forums\Http\Controllers\BaseController;
 
 /**
  * The forums controller
@@ -38,7 +38,7 @@ class NewTopicForumsController extends BaseController implements TopicCreateList
     {
         $forum = $this->forumRepo->requireById($id);
         $forums = $this->tree->getTree();
-        return \View::make('kaamaru.laravel-forums.forums.new_topic', compact('forum', 'forums'));
+        return \View::make('b50.laravel-forums.forums.new_topic', compact('forum', 'forums'));
     }
 
     /**
@@ -58,7 +58,7 @@ class NewTopicForumsController extends BaseController implements TopicCreateList
      */
     public function showPreview($post, $topic)
     {
-        return \View::make('kaamaru.laravel-forums.forums.new_topic_preview', compact('post', 'topic'),
+        return \View::make('b50.laravel-forums.forums.new_topic_preview', compact('post', 'topic'),
             ['forum' => $this->forum]);
     }
 

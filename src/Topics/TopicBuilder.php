@@ -1,12 +1,12 @@
-<?php namespace Kaamaru\Forums\Topics;
+<?php namespace B50\Forums\Topics;
 
-use Kaamaru\Forums\Topics\Read\TopicReadRepoInterface;
+use B50\Forums\Topics\Read\TopicReadRepoInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Builds topics
  *
- * @package Kaamaru\Forums\Topics
+ * @package B50\Forums\Topics
  */
 class TopicBuilder
 {

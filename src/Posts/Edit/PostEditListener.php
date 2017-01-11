@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Posts\Edit;
+<?php namespace B50\Forums\Posts\Edit;
 
 /**
  * Interface TopicMoverInterface

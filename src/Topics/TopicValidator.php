@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Topics;
+<?php namespace B50\Forums\Topics;
 
-use Kaamaru\Forums\Posts\PostValidator;
+use B50\Forums\Posts\PostValidator;
 
 /**
  * Validate user

@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Topics;
+<?php namespace B50\Forums\Topics;
 
 /**
  * Track topic views. 
@@ -6,7 +6,7 @@
  * or user.
  * A user can update the vote count again after 5 minutes.
  *
- * @package Kaamaru\Forums\Topics
+ * @package B50\Forums\Topics
  */
 class TopicViewCounter
 {

@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Posts\Report;
+<?php namespace B50\Forums\Posts\Report;
 
 /**
  * Interface VoteRepoInterface
  *
- * @package Kaamaru\Forums\Posts\Votes
+ * @package B50\Forums\Posts\Votes
  */
 interface PostReportRepoInterface
 {

@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Posts\Report;
+<?php namespace B50\Forums\Posts\Report;
 
 /**
  * Report post
  *
- * @package Kaamaru\Forums\Posts\Report
+ * @package B50\Forums\Posts\Report
  */
 class PostReporter
 {

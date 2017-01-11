@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Topics\Read;
+<?php namespace B50\Forums\Topics\Read;
 
 interface TopicReadRepoInterface
 {

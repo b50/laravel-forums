@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Core\Markdown;
+<?php namespace B50\Forums\Core\Markdown;
 
-use Kaamaru\Forums\Users\UserRepoInterface;
+use B50\Forums\Users\UserRepoInterface;
 
 /**
  * Class Markdown

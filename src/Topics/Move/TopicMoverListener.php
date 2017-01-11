@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Topics\Move;
+<?php namespace B50\Forums\Topics\Move;
 
 /**
  * Interface TopicMoverInterface

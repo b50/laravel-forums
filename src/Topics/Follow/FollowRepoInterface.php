@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Topics\Follow;
+<?php namespace B50\Forums\Topics\Follow;
 
 /**
  * Interface FollowingRepoInterface
  *
- * @package Kaamaru\Forums\Topics\Follow
+ * @package B50\Forums\Topics\Follow
  */
 interface FollowRepoInterface
 {

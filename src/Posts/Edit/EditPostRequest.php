@@ -1,8 +1,8 @@
-<?php namespace Kaamaru\Forums\Posts\Edit;
+<?php namespace B50\Forums\Posts\Edit;
 
-use Kaamaru\Forums\Posts\PostRepoInterface;
-use Kaamaru\Forums\Preview;
-use Kaamaru\Forums\Topics\Edit\TopicEditor;
+use B50\Forums\Posts\PostRepoInterface;
+use B50\Forums\Preview;
+use B50\Forums\Topics\Edit\TopicEditor;
 
 /**
  * Edit a post

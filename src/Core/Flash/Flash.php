@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Core\Flash;
+<?php namespace B50\Forums\Core\Flash;
 
 /**
  * Show flash messages
  *
- * @package Kaamaru\Forums\Core\Flash
+ * @package B50\Forums\Core\Flash
  */
 class Flash
 {

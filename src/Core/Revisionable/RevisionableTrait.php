@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Core\Revisionable;
+<?php namespace B50\Forums\Core\Revisionable;
 
 /**
  * Custom version of
@@ -132,7 +132,7 @@ trait RevisionableTrait
 
     public function revisionHistory()
     {
-        return $this->morphMany('Kaamaru\Forums\Revisions\EloquentRevision', 'revisionable');
+        return $this->morphMany('B50\Forums\Revisions\EloquentRevision', 'revisionable');
     }
 
     /**

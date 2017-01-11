@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Http\Controllers\Topics;
+<?php namespace B50\Forums\Http\Controllers\Topics;
 
 use Illuminate\Http\Request;
-use Kaamaru\Forums\Posts\Create\CreatePostRequest;
-use Kaamaru\Forums\Posts\Create\PostCreateListener;
-use Kaamaru\Forums\Posts\PostRepoInterface;
-use Kaamaru\Forums\Topics\TopicRepoInterface;
-use Kaamaru\Forums\Http\Controllers\BaseController;
+use B50\Forums\Posts\Create\CreatePostRequest;
+use B50\Forums\Posts\Create\PostCreateListener;
+use B50\Forums\Posts\PostRepoInterface;
+use B50\Forums\Topics\TopicRepoInterface;
+use B50\Forums\Http\Controllers\BaseController;
 
 /**
  * The topics controller

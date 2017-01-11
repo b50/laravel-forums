@@ -1,6 +1,6 @@
-<?php namespace Kaamaru\Forums\Topics;
+<?php namespace B50\Forums\Topics;
 
-use Kaamaru\Forums\Core\Repositories\RepoInterface;
+use B50\Forums\Core\Repositories\RepoInterface;
 
 /**
  * Interface TopicRepoInterface

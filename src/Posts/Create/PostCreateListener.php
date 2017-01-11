@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Posts\Create;
+<?php namespace B50\Forums\Posts\Create;
 
 /**
  * Interface TopicMoverInterface

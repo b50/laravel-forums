@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Core\Paths;
+<?php namespace B50\Forums\Core\Paths;
 
 /**
  * Materialized path methods

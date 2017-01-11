@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Core\Filters;
+<?php namespace B50\Forums\Core\Filters;
 
 use Illuminate\Session\TokenMismatchException;
 

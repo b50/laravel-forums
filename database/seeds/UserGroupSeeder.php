@@ -1,16 +1,16 @@
-<?php
+<?php namespace B50\Forums;
 
 use Illuminate\Database\Seeder;
-use Kaamaru\Forums\Users\Group\EloquentUserGroup;
+use B50\Forums\Users\Group\EloquentUserGroup;
 
 /**
  * Class UserGroupSeeder
  */
-class KaamaruForumsUserGroupSeeder extends Seeder
+class UserGroupSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('lforums_user_group')->delete();
+        \DB::table('lforums_user_group')->delete();
 
         EloquentUserGroup::create([
             'id' => 1,

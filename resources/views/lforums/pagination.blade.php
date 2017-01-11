@@ -1,4 +1,4 @@
-<?php $presenter = new \Kaamaru\Forums\Core\Pagination\CustomPresenter($paginator); ?>
+<?php $presenter = new \B50\Forums\Core\Pagination\CustomPresenter($paginator); ?>
 
 <ul class="pagination pagination-md">
     <li><span class="pages">{{ _('Pages:') }}</span></li>

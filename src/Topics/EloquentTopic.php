@@ -1,12 +1,12 @@
-<?php namespace Kaamaru\Forums\Topics;
+<?php namespace B50\Forums\Topics;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
-use Kaamaru\Forums\Forums\EloquentForum;
-use Kaamaru\Forums\Posts\EloquentPost;
-use Kaamaru\Forums\Topics\Favorite\EloquentFavorite;
-use Kaamaru\Forums\Topics\Read\EloquentTopicRead;
-use Kaamaru\Forums\Users\EloquentUser;
+use B50\Forums\Forums\EloquentForum;
+use B50\Forums\Posts\EloquentPost;
+use B50\Forums\Topics\Favorite\EloquentFavorite;
+use B50\Forums\Topics\Read\EloquentTopicRead;
+use B50\Forums\Users\EloquentUser;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 /**

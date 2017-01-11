@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Posts\Vote;
+<?php namespace B50\Forums\Posts\Vote;
 
-use Kaamaru\Forums\Posts\EloquentPostRepo;
+use B50\Forums\Posts\EloquentPostRepo;
 
 /**
  * Class PostVoter
  *
- * @package Kaamaru\Forums\Posts\Votes
+ * @package B50\Forums\Posts\Votes
  */
 class PostVoter
 {

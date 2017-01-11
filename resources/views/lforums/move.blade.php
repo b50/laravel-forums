@@ -1,4 +1,4 @@
-@extends('kaamaru/laravel-forums.master')
+@extends('b50/laravel-forums.master')
 
 @section('breadcrumbs', Breadcrumbs::render('forums.topics.show', $topic, _('Move topic')))
 @section('title', _('Move topic'))

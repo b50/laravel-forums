@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Topics\Create;
+<?php namespace B50\Forums\Topics\Create;
 
-use Kaamaru\Forums\Add;
-use Kaamaru\Forums\Forums\Read\ForumReadRepoInterface;
-use Kaamaru\Forums\Posts\Create\PostCreator;
-use Kaamaru\Forums\Topics\TopicRepoInterface;
+use B50\Forums\Add;
+use B50\Forums\Forums\Read\ForumReadRepoInterface;
+use B50\Forums\Posts\Create\PostCreator;
+use B50\Forums\Topics\TopicRepoInterface;
 
 /**
  * Class TopicCreator

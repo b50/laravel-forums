@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Core\Facades;
+<?php namespace B50\Forums\Core\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

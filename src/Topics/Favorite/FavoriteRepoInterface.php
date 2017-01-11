@@ -1,4 +1,4 @@
-<?php namespace Kaamaru\Forums\Topics\Favorite;
+<?php namespace B50\Forums\Topics\Favorite;
 
 /**
  * Interface FavoriteRepoInterface

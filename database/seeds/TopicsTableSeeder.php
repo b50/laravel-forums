@@ -1,14 +1,14 @@
-<?php
+<?php namespace B50\Forums;
 
 use Illuminate\Database\Seeder;
-use Kaamaru\Forums\Topics\EloquentTopic;
+use B50\Forums\Topics\EloquentTopic;
 
-class KaamaruForumsTopicsTableSeeder extends Seeder
+class TopicsTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('lforums_topics')->delete();
-        $forumsSeeder = new KaamaruForumsTableSeeder();
+        \DB::table('lforums_topics')->delete();
+        $forumsSeeder = new ForumsTableSeeder();
 
         EloquentTopic::create([
             'id' => 1,

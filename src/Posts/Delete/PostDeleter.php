@@ -1,12 +1,12 @@
-<?php namespace Kaamaru\Forums\Posts\Delete;
+<?php namespace B50\Forums\Posts\Delete;
 
-use Kaamaru\Forums\Add;
-use Kaamaru\Forums\Posts\EloquentPostRepo;
+use B50\Forums\Add;
+use B50\Forums\Posts\EloquentPostRepo;
 
 /**
  * I delete posts >:D
  *
- * @package Kaamaru\Forums\Posts
+ * @package B50\Forums\Posts
  */
 class PostDeleter
 {

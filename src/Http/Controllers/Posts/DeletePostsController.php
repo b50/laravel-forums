@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Http\Controllers\Posts;
+<?php namespace B50\Forums\Http\Controllers\Posts;
 
-use Kaamaru\Forums\Core\Auth\AuthorizeTrait;
-use Kaamaru\Forums\Posts\Delete\PostDeleter;
-use Kaamaru\Forums\Posts\Delete\PostDeleterListener;
-use Kaamaru\Forums\Posts\PostRepoInterface;
+use B50\Forums\Core\Auth\AuthorizeTrait;
+use B50\Forums\Posts\Delete\PostDeleter;
+use B50\Forums\Posts\Delete\PostDeleterListener;
+use B50\Forums\Posts\PostRepoInterface;
 
 /**
  * Class PostsController

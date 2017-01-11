@@ -1,9 +1,9 @@
-<?php namespace Kaamaru\Forums\Topics\Read;
+<?php namespace B50\Forums\Topics\Read;
 
 /**
  * Class EloquentRead
  *
- * @package Kaamaru\Forums\Topics\Read
+ * @package B50\Forums\Topics\Read
  */
 class EloquentTopicRead extends \Eloquent
 {

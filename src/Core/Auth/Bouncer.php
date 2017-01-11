@@ -1,11 +1,11 @@
-<?php namespace Kaamaru\Forums\Core\Auth;
+<?php namespace B50\Forums\Core\Auth;
 
-use Kaamaru\Forums\Users\Group\UserGroupRepoInterface;
+use B50\Forums\Users\Group\UserGroupRepoInterface;
 
 /**
  * Bouncer to block members without the required group or permission
  *
- * @package Kaamaru\Forums\Core\Auth\Guard
+ * @package B50\Forums\Core\Auth\Guard
  */
 class Bouncer
 {
@@ -28,7 +28,7 @@ class Bouncer
     public function inGroup($groupName)
     {
         foreach ($this->group->getGroups() as $group) {
-            if (get_class($group) == 'Kaamaru\Forums\\Auth\\Groups\\' . $groupName) {
+            if (get_class($group) == 'B50\Forums\\Auth\\Groups\\' . $groupName) {
                 return true;
             }
         }
