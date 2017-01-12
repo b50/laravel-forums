@@ -13,13 +13,15 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th colspan="5">
-                                {{ _('Subforums') }}
-                            </th>
+                            <th colspan="5">{{ _('Subforums') }}</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @include('lforums._forums', ['forums' => $subforums, 'path' => $forum->path, 'index' => false])
+                        @include('lforums._forums', [
+                            'forums' => $subforums,
+                            'path' => $forum->path,
+                            'index' => false
+                        ])
                         </tbody>
                     </table>
                 @endif
@@ -30,34 +32,55 @@
     <ul class="nav nav-pills navbar-right">
         @if (Auth::check())
             <li>
-                <a href="{{ route('forums.unread', ['id' => $forum->id, 'slug' => $forum->slug, '_token' => csrf_token()]) }}">
+                <a href="{{ route('forums.unread', [
+                    'id' => $forum->id,
+                    'slug' => $forum->slug,
+                    '_token' => csrf_token()
+                ]) }}">
                     {{ _('Mark unread') }}
                 </a>
             </li>
         @endif
         @if ( ! isset($forum->locked) and ! \Bouncer::inGroup('admin'))
             <li>
-                <a href="{{ route('forums.topics.new', [$forum->id, $forum->slug]) }}">
+                <a href="{{ route('forums.topics.new', [
+                    $forum->id,
+                    $forum->slug
+                ]) }}">
                     {{ _('New topic') }}
                 </a>
             </li>
         @endif
     </ul>
 
-    @include('lforums._topics', ['type' => 'forums', 'topics' => $topics, 'route' => 'forums.show', 'routeParams' => [
-                'id' => $forum->id, 'slug' => $forum->slug]])
+    @include('lforums.forums.topics', [
+        'type' => 'forums',
+        'topics' => $topics,
+        'route' => 'forums.show',
+        'routeParams' => [
+                'id' => $forum->id,
+                'slug' => $forum->slug
+        ]
+    ])
 
     <ul class="nav nav-pills navbar-right">
         @if (Auth::check())
             <li>
-                <a href="{{ route('forums.unread', ['id' => $forum->id, 'slug' => $forum->slug, '_token' => csrf_token()]) }}">
+                <a href="{{ route('forums.unread', [
+                    'id' => $forum->id,
+                    'slug' => $forum->slug,
+                    '_token' => csrf_token()
+                ]) }}">
                     {{ _('Mark unread') }}
                 </a>
             </li>
         @endif
         @if ( ! isset($forum->locked))
             <li>
-                <a href="{{ route('forums.topics.new', [$forum->id, $forum->slug]) }}">
+                <a href="{{ route('forums.topics.new', [
+                    $forum->id,
+                    $forum->slug
+                ]) }}">
                     {{ _('New topic') }}
                 </a>
             </li>

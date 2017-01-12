@@ -57,8 +57,6 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
     public function getForSuggestionForum($forumId, $sort, $direction)
     {
         $topics = $this->model
-            ->select('slug', 'title', 'created_at', 'id', 'updated_at', 'views',
-                'posts_count', 'sticky', 'locked', 'last_post', 'forum_id')
             ->orderBy('sticky', 'desc')
             ->orderBy($sort, $direction)
             ->groupBy('id');
@@ -215,9 +213,6 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
     {
         // Get topics
         $topics = $this->model
-            ->select('slug', 'title', 'created_at', 'id', 'updated_at', 'views',
-                'posts_count', 'sticky', 'locked', 'last_post','tag',
-                'forum_id')
             ->whereNested(function ($query) {
                 /** @var $query \Illuminate\Database\Query\Builder */
                 $query->where('expires_at', null)

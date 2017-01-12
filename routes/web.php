@@ -105,6 +105,4 @@ Route::group(['namespace' => 'B50\Forums\Http\Controllers', 'middleware' => ['we
             });
         });
     });
-
-    Route::get('users')->name('users.show', 'UsersController@getProfile');
 });

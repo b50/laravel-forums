@@ -1,7 +1,6 @@
 <?php namespace B50\Forums\Topics;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use B50\Forums\Forums\EloquentForum;
 use B50\Forums\Posts\EloquentPost;
 use B50\Forums\Topics\Favorite\EloquentFavorite;
@@ -75,6 +74,16 @@ class EloquentTopic extends \Eloquent implements HasPresenter
     public function author()
     {
         return $this->belongsTo(EloquentUser::class);
+    }
+
+    /**
+     * The last post user of the topic
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function last_user()
+    {
+        return $this->belongsTo(EloquentUser::class, 'last_post_user', 'id');
     }
 
     public function favorite()

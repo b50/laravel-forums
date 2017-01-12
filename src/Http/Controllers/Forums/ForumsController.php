@@ -91,7 +91,8 @@ class ForumsController extends BaseController
             $this->topicSort->getDirection()
         );
 
-        return View::make('lforums.forum', compact('forum', 'topics', 'subforums'),
-            ['sort' => $this->topicSort]);
+        return View::make('lforums.forums.forum', compact(
+            'forum', 'topics', 'subforums', 'sort'
+        ), ['sort' => $this->topicSort]);
     }
 }
