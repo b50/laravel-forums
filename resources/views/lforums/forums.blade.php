@@ -10,7 +10,7 @@
       <div class="col-md-9" id="forums">
         @if ($forums->count())
           @foreach ($forums as $forum)
-            @if (is_numeric($forum->path))
+            @if (is_null($forum->path))
               <table class="table table-default">
                 <thead>
                 <tr>
@@ -23,7 +23,7 @@
                 </thead>
                 <tbody>
                 @include('lforums._forums', [
-                  'forums' => $forums, 'path' => $forum->path, 'index' => true
+                  'forums' => $forums, 'parentId' => $forum->id, 'index' => true
                 ])
                 </tbody>
               </table>
@@ -42,7 +42,7 @@
         <div class="list-group">
           <a href="{{ route('forums.topics.index', [$forum->id, $forum->slug]) }}"
              class="list-group-item">
-            <i class="fa fa-gavel"></i> {{ _('View All Topics') }}
+            <i class="fa fa-list-ul"></i> {{ _('View All Topics') }}
           </a>
           @if (Auth::check())
             <a href="{{ route('forums.favorites', [$forum->id, $forum->slug]) }}"

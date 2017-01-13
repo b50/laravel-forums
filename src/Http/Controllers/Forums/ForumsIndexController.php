@@ -13,21 +13,21 @@ class ForumsIndexController extends BaseController
     /**
      * Show the forums index
      *
-     * @param TopicRepoInterface $topic
-     * @param PostRepoInterface $post
-     * @param ForumRepoInterface $forum
-     * @return \Illuminate\View\View
+     * @param TopicRepoInterface $topicRepo
+     * @param PostRepoInterface $postRepo
+     * @param ForumRepoInterface $forumRepo
+     * @return \Illuminate\Contracts\View\View
      */
     public function getIndex(
-        TopicRepoInterface $topic,
-        PostRepoInterface $post,
-        ForumRepoInterface $forum
+        TopicRepoInterface $topicRepo,
+        PostRepoInterface $postRepo,
+        ForumRepoInterface $forumRepo
     ) {
-        $forums = $forum->getForums();
+        $forums = $forumRepo->getForums();
 
         // Get sidebar info
-        $recentPosts = $post->getRecent();
-        $recentTopics = $topic->getRecent();
+        $recentPosts = $postRepo->getRecent();
+        $recentTopics = $topicRepo->getRecent();
 
         return \View::make(
             'lforums/forums',

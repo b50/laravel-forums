@@ -19,7 +19,7 @@
                         <tbody>
                         @include('lforums._forums', [
                             'forums' => $subforums,
-                            'path' => $forum->path,
+                            'parentId' => $forum->id,
                             'index' => false
                         ])
                         </tbody>

@@ -17,7 +17,7 @@ class CreateLforumsTable extends Migration
             $table->increments('id');
             $table->string('name', 100);
             $table->string('slug', 100);
-            $table->string('path', 100);
+            $table->string('path', 100)->nullable();
             $table->string('description');
             $table->tinyInteger('rank', false, true);
             $table->integer('posts');

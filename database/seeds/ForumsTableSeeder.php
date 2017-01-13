@@ -14,6 +14,7 @@ class ForumsTableSeeder extends Seeder
         'games' => 8,
         'suggestions' => 9,
         'test' => 10,
+        'subnews' => 2
     ];
 
     public function run()
@@ -22,10 +23,9 @@ class ForumsTableSeeder extends Seeder
 
         EloquentForum::create([
             'id' => $this->ids['general'],
-            'path' => $this->ids['general'],
             'slug' => 'general',
             'name' => _('General'),
-            'description' => _('Lots of news'),
+            'description' => _('General stuff...'),
             'posts' => 3,
             'topics_count' => 2,
             'rank' => 1,
@@ -37,6 +37,18 @@ class ForumsTableSeeder extends Seeder
             'slug' => 'news',
             'name' => _('News & announcements'),
             'description' => _('Lots of news'),
+            'path' => $this->ids['general'],
+            'posts' => 3,
+            'topics_count' => 2,
+            'rank' => 2,
+            'last_topic' => 2,
+        ]);
+
+        EloquentForum::create([
+            'id' => $this->ids['subnews'],
+            'slug' => 'news',
+            'name' => _('Subnews'),
+            'description' => _('More news'),
             'path' => $this->ids['general'] . '/' . $this->ids['news'],
             'posts' => 3,
             'topics_count' => 2,
@@ -46,7 +58,7 @@ class ForumsTableSeeder extends Seeder
 
         EloquentForum::create([
             'id' => $this->ids['games'],
-            'path' => $this->ids['test'] . '/' . $this->ids['games'],
+            'path' => $this->ids['test'],
             'slug' => 'games',
             'name' => _('Games'),
             'description' => _('COUNTER STRIKE'),
@@ -57,7 +69,7 @@ class ForumsTableSeeder extends Seeder
 
         EloquentForum::create([
             'id' => $this->ids['suggestions'],
-            'path' => $this->ids['test'] . '/' . $this->ids['suggestions'],
+            'path' => $this->ids['test'],
             'slug' => 'suggestions',
             'name' => _('Suggestions'),
             'description' => _('suggestions...'),
@@ -69,7 +81,6 @@ class ForumsTableSeeder extends Seeder
 
         EloquentForum::create([
             'id' => $this->ids['test'],
-            'path' => $this->ids['test'],
             'slug' => 'test',
             'name' => _('Test'),
             'description' => _('test...'),

@@ -14,6 +14,6 @@ Trait PathTrait
      */
     public function pathExplode()
     {
-        return array_filter(explode('/', $this->path));
+        return array_merge(explode('/', $this->path), [$this->id]);
     }
 }

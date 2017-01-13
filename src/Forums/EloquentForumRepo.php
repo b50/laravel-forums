@@ -106,8 +106,6 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
         $query = $this->forumsQuery();
 
         return $query
-            ->where('lforums.path', 'LIKE', "%")
-            ->where('lforums.path', 'NOT LIKE', "%/%/%/%")
             ->orderBy('name')
             ->get();
     }
@@ -119,16 +117,17 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
     {
         $query = $this->forumsQuery();
 
+        $path = $forum->path ? "$forum->path/$forum->id" : $forum->id;
         return $query
-            ->where('lforums.path', 'LIKE', "$forum->path%/%")
-            ->where('lforums.path', 'NOT LIKE', "$forum->path%/%/%/%")
+            ->where('path', '=', $path)
+            ->orwhere('path', 'LIKE', "$forum->path/$forum->id/%")
             ->get();
     }
 
     /**
      * The forums query shared by other queries
      *
-     * @return $this
+     * @return \Eloquent
      */
     protected function forumsQuery()
     {
