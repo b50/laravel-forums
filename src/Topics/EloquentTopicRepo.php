@@ -135,7 +135,7 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
         $topic->updated_at = time();
         $topic->last_post_user_id = $post->user_id;
         $topic->last_post_id = $post->id;
-        $topic->posts_count++;
+        $topic->post_count++;
         return $topic->save();
     }
 
@@ -194,7 +194,7 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
         if ($lastPost) {
             return $this->model
                 ->where('id', $topicId)
-                ->decrement('posts_count', 1, [
+                ->decrement('post_count', 1, [
                     'last_post_id' => $lastPost->id,
                     'last_post_user_id' => $lastPost->user_id,
                 ]);
@@ -202,7 +202,7 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
 
         return $this->model
             ->where('id', $topicId)
-            ->decrement('posts_count');
+            ->decrement('post_count');
     }
 
     /**

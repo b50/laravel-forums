@@ -25,7 +25,7 @@ class EloquentFavoriteRepo extends EloquentRepo implements FavoriteRepoInterface
         return $this->model
             ->select('users.slug as user_slug', 'users.username', 'lforums_topics.slug', 'lforums_topics.title',
                 'lforums_topics.created_at', 'lforums_topics.id', 'lforums_topics.updated_at',
-                'lforums_topics.posts_count', 'lforums_topics.sticky', 'lforums_topics.locked',
+                'lforums_topics.post_count', 'lforums_topics.sticky', 'lforums_topics.locked',
                 'last_user.slug as last_user_slug',
                 'lforums_topics.deleted_at', 'last_user.username as last_user_username')
             ->where('forum_favorites.user_id', \Auth::user()->id)

@@ -416,6 +416,13 @@ img.forum-avatar {
   display: inline-block;
 }
 
+i.default-avatar {
+  font-size: 15vw;
+  text-align: center;
+  display: block;
+  color: darkgrey;
+}
+
 /*
  * Forums sidebar
  */
@@ -622,12 +629,13 @@ img.topic-avatar {
     width: $post-user-width;
     vertical-align: top;
   }
-
+  .post-content-container {
+    display: inline-block;
+    width: 81%;
+  }
   .post-content {
     padding: 10px 0 0 20px;
     font-size: 16px;
-    display: inline-block;
-    width: 79%;
     min-height: 150px;
 
     blockquote {
@@ -703,11 +711,11 @@ img.topic-avatar {
 
 .signature {
   border-top: 1px solid #DDD;
-  width: 100%;
   padding-left: 25px;
   padding-right: 18%;
   padding-top: 10px;
-  margin-left: 18%;
+  margin-left: -4px;
+  width: 102%;
 }
 
 /**

@@ -89,7 +89,7 @@
                 'type' => 'forums',
                 'id' => $topic->last_post
             ]) }}">
-                {{ $topic->updated_at }}
+                {{ $topic->updated_at->diffForHumans() }}
             </a>
             <br>
         @endif

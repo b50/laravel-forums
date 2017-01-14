@@ -38,7 +38,6 @@ class TopicViewCounter
         }
 
         // Store view for 5 minutes
-        \Cache::put($key, 1, 5*60);
-
+        \Cache::put($key, 1, 5);
     }
 }

@@ -7,7 +7,7 @@ class TopicSort extends Sort
     protected $fields = [
         'title' => 'lforums_topics.title',
         'views' => 'lforums_topics.views',
-        'replies' => 'lforums_topics.posts_count',
+        'replies' => 'lforums_topics.post_count',
         'last_post' => 'lforums_topics.updated_at',
         'votes' => 'first_post.votes',
     ];

@@ -88,7 +88,7 @@ class EloquentUserRepo extends EloquentRepo implements UserRepoInterface
     public function addTopic($user, $topic)
     {
         $user->topics++;
-        $user->posts += $topic->posts_count;
+        $user->posts += $topic->post_count;
         $user->update();
     }
 
@@ -124,7 +124,7 @@ class EloquentUserRepo extends EloquentRepo implements UserRepoInterface
 			      WHERE id = $topic->user_id";
 
         // Run query
-        return \DB::update($query, [$topic->posts_count]);
+        return \DB::update($query, [$topic->post_count]);
     }
 
     /**

@@ -13,7 +13,7 @@
                 <td class="stats">
                     <a href="{{ $sort->getSortLink('views') }}">
                         {{ _('Views') }}
-                    </a>
+                    </a>/
                     <a href="{{ $sort->getSortLink('replies') }}">
                         {{ _('Replies') }}
                     </a>

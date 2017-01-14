@@ -123,16 +123,22 @@
         <div class="avatar-background"></div>
         <div class="avatar">
             @if (file_exists($avatar = $post->author->avatar))
-                <img src="{{ $avatar }}" alt="" class="forum-avatar">
+                <div class="avatar">
+                    <img src="{{ $avatar }}" alt="" class="forum-avatar">
+                </div>
+            @else
+                <i class="fa fa-user default-avatar" aria-hidden="true"></i>
             @endif
         </div>
-        <div class="post-content">
-            {{ $post->html }}
-        </div>
-        @if ($post->author->signature)
-            <div class="signature">
-                <p>{{$post->author->signature }}</p>
+        <div class="post-content-container">
+            <div class="post-content">
+                {{ $post->html }}
             </div>
-        @endif
+            @if ($post->author->signature)
+                <div class="signature">
+                    <p>{{$post->author->signature }}</p>
+                </div>
+            @endif
+        </div>
     </div>
 </div>
