@@ -83,7 +83,17 @@ class EloquentTopic extends \Eloquent implements HasPresenter
      */
     public function last_user()
     {
-        return $this->belongsTo(EloquentUser::class, 'last_post_user', 'id');
+        return $this->belongsTo(EloquentUser::class, 'last_post_user_id', 'id');
+    }
+
+    /**
+     * The last post of the topic
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function last_post()
+    {
+        return $this->belongsTo(EloquentPost::class, 'last_post_id', 'id');
     }
 
     public function favorite()
@@ -127,7 +137,7 @@ class EloquentTopic extends \Eloquent implements HasPresenter
 
         return $this->posts = $this
             ->posts()
-            ->paginate(\Config::get('forums/forum.posts_per_page'));
+            ->paginate(config('forums.posts_per_page'));
     }
 
     /**
@@ -144,7 +154,7 @@ class EloquentTopic extends \Eloquent implements HasPresenter
         return $this->posts = $this->posts()
             ->orderBy('votes', 'desc')
             ->where('developer_response', false)
-            ->paginate(\Config::get('forums/forum.posts_per_page'));
+            ->paginate(config('forums.posts_per_page'));
     }
 
     /**

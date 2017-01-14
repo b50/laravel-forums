@@ -34,7 +34,7 @@ class EloquentPostRepo extends EloquentRepo implements PostRepoInterface
                 }, 'author'
             ])
             ->orderBy('created_at', 'desc')
-            ->take(\Config::get('forums/forum.recent'))
+            ->take(config('forums.recent_post_count'))
             ->get();
     }
 
@@ -63,8 +63,7 @@ class EloquentPostRepo extends EloquentRepo implements PostRepoInterface
                 ->where('id', '<', $post->id)
                 ->where('topic_id', $post->topic_id)
                 ->count() + 1;
-        $postsPerPage = \Config::get('forums.posts_per_page');
-        return ceil($position / $postsPerPage);
+        return ceil($position / config('forums.recent_post_count'));
     }
 
     /**

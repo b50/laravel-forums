@@ -26,10 +26,10 @@ class ForumsTableSeeder extends Seeder
             'slug' => 'general',
             'name' => _('General'),
             'description' => _('General stuff...'),
-            'posts' => 3,
-            'topics_count' => 2,
+            'post_count' => 3,
+            'topic_count' => 2,
             'rank' => 1,
-            'last_topic' => 2
+            'last_topic_id' => 2
         ]);
 
         EloquentForum::create([
@@ -38,10 +38,10 @@ class ForumsTableSeeder extends Seeder
             'name' => _('News & announcements'),
             'description' => _('Lots of news'),
             'path' => $this->ids['general'],
-            'posts' => 3,
-            'topics_count' => 2,
+            'post_count' => 3,
+            'topic_count' => 2,
             'rank' => 2,
-            'last_topic' => 2,
+            'last_topic_id' => 2,
         ]);
 
         EloquentForum::create([
@@ -50,10 +50,9 @@ class ForumsTableSeeder extends Seeder
             'name' => _('Subnews'),
             'description' => _('More news'),
             'path' => $this->ids['general'] . '/' . $this->ids['news'],
-            'posts' => 3,
-            'topics_count' => 2,
+            'post_count' => 0,
+            'topic_count' => 0,
             'rank' => 2,
-            'last_topic' => 2,
         ]);
 
         EloquentForum::create([
@@ -63,8 +62,8 @@ class ForumsTableSeeder extends Seeder
             'name' => _('Games'),
             'description' => _('COUNTER STRIKE'),
             'rank' => 4,
-            'posts' => 0,
-            'topics_count' => 0,
+            'post_count' => 0,
+            'topic_count' => 0,
         ]);
 
         EloquentForum::create([
@@ -74,8 +73,8 @@ class ForumsTableSeeder extends Seeder
             'name' => _('Suggestions'),
             'description' => _('suggestions...'),
             'rank' => 4,
-            'posts' => 0,
-            'topics_count' => 0,
+            'post_count' => 0,
+            'topic_count' => 0,
             'type' => 'suggestions'
         ]);
 
@@ -85,8 +84,8 @@ class ForumsTableSeeder extends Seeder
             'name' => _('Test'),
             'description' => _('test...'),
             'rank' => 55,
-            'posts' => 0,
-            'topics_count' => 0,
+            'post_count' => 0,
+            'topic_count' => 0,
         ]);
 
     }

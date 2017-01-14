@@ -85,4 +85,14 @@ class EloquentForum extends \Eloquent implements PathInterface, HasPresenter
         return $parents[count($parents) - 2];
     }
 
+    /**
+     * Return most recent topic to be updated.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function last_topic()
+    {
+        return $this->hasOne(EloquentTopic::class, 'id', 'last_topic_id');
+    }
+
 }

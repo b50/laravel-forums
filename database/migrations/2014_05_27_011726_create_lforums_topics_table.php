@@ -25,10 +25,10 @@ class CreateLforumsTopicsTable extends Migration
             $table->integer('forum_id')->nullable();
             $table->timestamp('created_at');
             $table->timestamp('updated_at')->nullable();
-            $table->integer('posts_count')->default(0);
+            $table->integer('post_count')->default(0);
             $table->integer('views')->default(0);
-            $table->integer('last_post')->nullable();
-            $table->integer('last_post_user')->nullable();
+            $table->integer('last_post_id')->nullable();
+            $table->integer('last_post_user_id')->nullable();
             $table->boolean('sticky')->default(0);
             $table->boolean('locked')->default(0);
             $table->timestamp('expires_at')->nullable();
@@ -38,7 +38,7 @@ class CreateLforumsTopicsTable extends Migration
             $table->index(['sticky', 'updated_at']);
             $table->index(['sticky', 'title']);
             $table->index(['sticky', 'views']);
-            $table->index(['sticky', 'posts_count']);
+            $table->index(['sticky', 'post_count']);
         });
     }
 

@@ -58,7 +58,7 @@
     </span>
 </td>
 <td class="stats">
-    {{ $topic->posts_count - 1 }} {{ _('replies') }}
+    {{ $topic->post_count - 1 }} {{ _('replies') }}
     <br>
     {{ $topic->views or 0 }} {{ _('views') }}
 </td>

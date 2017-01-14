@@ -21,7 +21,7 @@
             </li>
             <li>
 			<span class="toolTip" title="{{ _('replies') }}">
-				<i class="fa fa-comments"></i> {{ ($topic->posts_count - 1) }}
+				<i class="fa fa-comments"></i> {{ ($topic->post_count - 1) }}
 			</span>
             </li>
             <li>

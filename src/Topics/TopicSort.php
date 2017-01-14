@@ -11,6 +11,6 @@ class TopicSort extends Sort
         'last_post' => 'lforums_topics.updated_at',
         'votes' => 'first_post.votes',
     ];
-    protected $defaultField = 'last_post';
+    protected $defaultField = 'last_post_id';
     protected $defaultDirection = 'desc';
 }

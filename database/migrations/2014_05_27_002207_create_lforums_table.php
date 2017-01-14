@@ -20,9 +20,9 @@ class CreateLforumsTable extends Migration
             $table->string('path', 100)->nullable();
             $table->string('description');
             $table->tinyInteger('rank', false, true);
-            $table->integer('posts');
-            $table->integer('topics_count');
-            $table->integer('last_topic')->nullable();
+            $table->integer('post_count');
+            $table->integer('topic_count');
+            $table->integer('last_topic_id')->nullable();
             $table->string('type')->nullable();
         });
     }

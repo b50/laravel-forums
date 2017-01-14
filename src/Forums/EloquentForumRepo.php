@@ -39,16 +39,16 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
 
         if ($lastPost) {
             $query = "UPDATE forums
-			      SET posts = posts + ?, topics_count = topics_count + 1, last_topic = ?
+			      SET post_count = post_count + ?, topic_count = topic_count + 1, last_topic = ?
 			      WHERE id IN ($ids)";
 
-            \DB::update($query, [$topic->posts_count, $topic->id]);
+            \DB::update($query, [$topic->post_count, $topic->id]);
         } else {
             $query = "UPDATE forums
-			      SET posts = posts + ?, topics_count = topics_count + 1
+			      SET post_count = post_count + ?, topic_count = topic_count + 1
 			      WHERE id IN ($ids)";
 
-            \DB::update($query, [$topic->posts_count]);
+            \DB::update($query, [$topic->post_count]);
         }
 
     }
@@ -62,10 +62,10 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
         $ids = implode(',', array_filter($topic->pathExplode(), 'is_numeric'));
 
         $query = "UPDATE forums
-			      SET posts = posts - ?, topics_count = topics_count - 1
+			      SET post_count = post_count - ?, topic_count = topic_count - 1
 			      WHERE id IN ($ids)";
 
-        return \DB::update($query, [$topic->posts_count]);
+        return \DB::update($query, [$topic->post_count]);
     }
 
     /**
@@ -75,7 +75,7 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
     {
         $this->model
             ->whereIn('id', $ids)
-            ->increment('posts');
+            ->increment('post_count');
     }
 
     /**
@@ -85,7 +85,7 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
     {
         $this->model
             ->whereIn('id', $ids)
-            ->decrement('posts', 1);
+            ->decrement('post_count', 1);
     }
 
     /**
@@ -93,7 +93,10 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
      */
     public function getTree()
     {
-        return $this->model->orderBy('rank')->select('id', 'name', 'path')->get();
+        return $this->model
+            ->select('id', 'name', 'path')
+            ->orderBy('rank')
+            ->get();
     }
 
     /**
@@ -132,11 +135,9 @@ class EloquentForumRepo extends EloquentRepo implements ForumRepoInterface
     protected function forumsQuery()
     {
         $query = $this->model
-            ->select('id', 'description', 'name', 'slug', 'topics_count',
-                'posts', 'path')
             ->with(['topics' => function($query) {
-                $query->select('title', 'last_post', 'slug', 'updated_at',
-                    'forum_id', 'last_post_user')
+                $query->select('title', 'last_post_id', 'slug', 'updated_at',
+                    'forum_id', 'last_post_user_id')
                     ->where('deleted_at', null);
             }])
             ->orderBy('rank')

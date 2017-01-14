@@ -26,8 +26,8 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
         return $this->model
             ->select('id', 'slug', 'title', 'created_at', 'author_id')
             ->with('author')
-            ->take(\Config::get('forums/forum.recent'))
-            ->orderBy('updated_at', 'dsc')
+            ->take(config('forums.recent_topic_count'))
+            ->orderBy('created_at', 'dsc')
             ->where('expires_at', null)
             ->get();
     }
@@ -66,7 +66,7 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
         }
 
         return $topics->where('forum_id', $forumId)
-            ->paginate(\Config::get('forums/forum.topics_per_page'));
+            ->paginate(config('forums.topics_per_page'));
     }
 
     /**
@@ -79,8 +79,11 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
 
         // Get user specific stuff if user is logged in
         if ($user) {
-            $topic = $topic
-                ->select('*', 'forum_topic_follow.id as following', 'forum_favorites.id as favorite');
+            $topic = $topic->select(
+                '*',
+                'forum_topic_follow.id as following',
+                'forum_favorites.id as favorite'
+            );
 
             // Find if this topic is in our favorites
             $topic->leftJoin('forum_favorites', function ($join) use ($user) {
@@ -130,8 +133,8 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
     public function addPost($topic, $post)
     {
         $topic->updated_at = time();
-        $topic->last_post_user = $post->user_id;
-        $topic->last_post = $post->id;
+        $topic->last_post_user_id = $post->user_id;
+        $topic->last_post_id = $post->id;
         $topic->posts_count++;
         return $topic->save();
     }
@@ -141,7 +144,9 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
      */
     public function sticky($id)
     {
-        return $this->model->where('id', $id)->update(['sticky' => \DB::raw('NOT sticky')]);
+        return $this->model
+            ->where('id', $id)
+            ->update(['sticky' => \DB::raw('NOT sticky')]);
     }
 
     /**
@@ -149,7 +154,9 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
      */
     public function lock($id)
     {
-        return $this->model->where('id', $id)->update(['locked' => \DB::raw('NOT locked')]);
+        return $this->model
+            ->where('id', $id)
+            ->update(['locked' => \DB::raw('NOT locked')]);
     }
 
     /**
@@ -188,8 +195,8 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
             return $this->model
                 ->where('id', $topicId)
                 ->decrement('posts_count', 1, [
-                    'last_post' => $lastPost->id,
-                    'last_post_user' => $lastPost->user_id,
+                    'last_post_id' => $lastPost->id,
+                    'last_post_user_id' => $lastPost->user_id,
                 ]);
         }
 
