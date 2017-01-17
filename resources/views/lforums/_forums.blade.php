@@ -72,15 +72,15 @@
                         <span class="description">
               {{ $forum->last_topic->updated_at->diffForHumans() }} by
             </span>
-                        @if ($forum->last_topic->author->user)
+                        @if ($forum->last_topic->last_user->user)
                             @if(Route::has('users.show'))
                                 <a href="{{ route('users.show', [
-                        'id' => $forum->last_topic->last_user->id
-                    ]) }}">
-                                    {{  $forum->last_topic->last_user->user->name() }}
+                                    'id' => $forum->last_topic->last_user->id
+                                 ]) }}">
+                                    {{  $forum->last_topic->last_user->user->name }}
                                 </a>
                             @else
-                                {{  $forum->last_topic->last_user->user->name() }}
+                                {{  $forum->last_topic->last_user->user->name }}
                             @endif
                         @else
                             {{ _('user deleted') }}

@@ -8,7 +8,7 @@
 class EloquentFavorite extends \Eloquent
 {
     public $timestamps = false;
-    protected $table = 'forum_favorites';
+    protected $table = 'lforums_favorites';
 
     /**
      * Is marked as read

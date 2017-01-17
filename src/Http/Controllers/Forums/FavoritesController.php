@@ -1,5 +1,6 @@
-<?php namespace B50\Forums\Http\Controllers;
+<?php namespace B50\Forums\Http\Controllers\Forums;
 
+use B50\Forums\Http\Controllers\BaseController;
 use B50\Forums\Topics\Favorite\FavoriteRepoInterface;
 use B50\Forums\Topics\TopicSort;
 
@@ -8,8 +9,18 @@ use B50\Forums\Topics\TopicSort;
  *
  * @package App\Controllers\Forums
  */
-class FavoritesController extends BaseController
-{
+class FavoritesController extends BaseController {
+
+    /**
+     * @var FavoriteRepoInterface
+     */
+    private $favorites;
+
+    /**
+     * @var TopicSort
+     */
+    private $sort;
+
     /**
      * @param FavoriteRepoInterface $favorites
      * @param TopicSort $sort
@@ -25,9 +36,12 @@ class FavoritesController extends BaseController
      */
     public function getIndex()
     {
-        $favorites = $this->favorites->all($this->sort->getField(), $this->sort->getDirection());
-        return View::make('b50.laravel-forums.forums.favorites', compact('favorites', 'breadcrumbs'),
-            ['sort' => $this->sort]);
+        $favorites = $this->favorites->all(
+            $this->sort->getField(),
+            $this->sort->getDirection()
+        );
+        return \View::make('lforums.favorites',
+            compact('favorites', 'breadcrumbs'), ['sort' => $this->sort]);
     }
 
     /**
@@ -41,13 +55,15 @@ class FavoritesController extends BaseController
     public function getAdd($topicType, $topicId, $slug)
     {
         // If not already a favorite...
-        if (!$this->favorites->getByPostId($topicId, \Auth::user()->id)) {
+        if ( ! $this->favorites->getByPostId($topicId, \Auth::user()->id)) {
             // Save favorite
             $this->favorites->add($topicId);
         }
 
         // Return to the topic
-        return Redirect::route('forums.topics.show', ['topicType' => $topicType, 'id' => $topicId, 'slug' => $slug]);
+        return \Redirect::route('forums.topics.show', [
+            'topicType' => $topicType, 'id' => $topicId, 'slug' => $slug
+        ]);
     }
 
     /**
@@ -64,6 +80,8 @@ class FavoritesController extends BaseController
         $this->favorites->remove($topicId);
 
         // Return to the topic
-        return Redirect::route('forums.topics.show', ['topicType' => $topicType, 'id' => $topicId, 'slug' => $slug]);
+        return \Redirect::route('forums.topics.show', [
+            'topicType' => $topicType, 'id' => $topicId, 'slug' => $slug
+        ]);
     }
 }

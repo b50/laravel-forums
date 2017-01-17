@@ -82,13 +82,13 @@ class EloquentTopicRepo extends EloquentRepo implements TopicRepoInterface
             $topic = $topic->select(
                 '*',
                 'forum_topic_follow.id as following',
-                'forum_favorites.id as favorite'
+                'lforums_favorites.id as favorite'
             );
 
             // Find if this topic is in our favorites
-            $topic->leftJoin('forum_favorites', function ($join) use ($user) {
-                $join->on('forum_favorites.topic_id', '=', 'id')
-                    ->where('forum_favorites.user_id', '=', $user->id);
+            $topic->leftJoin('lforums_favorites', function ($join) use ($user) {
+                $join->on('lforums_favorites.topic_id', '=', 'id')
+                    ->where('lforums_favorites.user_id', '=', $user->id);
             });
 
             // Find if we are following this topic

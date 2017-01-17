@@ -4,6 +4,9 @@ Route::group(['namespace' => 'B50\Forums\Http\Controllers', 'middleware' => ['we
      * topics
      */
     Route::group(['prefix' => 'forums/', 'namespace' => 'Topics'], function () {
+        Route::get('topics', 'TopicsController@getIndex')
+            ->name('forums.topics.index');
+
         Route::group(['prefix' => 'topics/{id}-{slug?}'], function () {
             Route::get('', 'TopicsController@getTopic')
                 ->name('forums.topics.show');
@@ -79,10 +82,6 @@ Route::group(['namespace' => 'B50\Forums\Http\Controllers', 'middleware' => ['we
             Route::get('', 'FavoritesController@getIndex')
                 ->name('forums.favorites');
         });
-
-        // Topics
-        Route::get('topics', 'TopicsController@getIndex')
-            ->name('forums.topics.index');
 
         // Forum
         Route::group(['prefix' => '{id}-{slug?}'], function () {

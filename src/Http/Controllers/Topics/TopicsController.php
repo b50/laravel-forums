@@ -3,6 +3,7 @@
 use B50\Forums\Topics\TopicBuilder;
 use B50\Forums\Topics\TopicRepoInterface;
 use B50\Forums\Http\Controllers\BaseController;
+use B50\Forums\Topics\TopicSort;
 
 /**
  * The topics controller
@@ -33,15 +34,17 @@ class TopicsController extends BaseController
 
     /**
      * Show all topics
+     * @param TopicSort $sort
+     * @return \Illuminate\Contracts\View\View
      */
-    public function getIndex()
+    public function getIndex(TopicSort $sort)
     {
         $topics = $this->topicRepo->getAll(
-            $this->sort->getField(),
-            $this->sort->getDirection()
+            $sort->getField(),
+            $sort->getDirection()
         );
-        return \View::make('lforums.forums.all_topics',
-            compact('topics'), ['sort' => $this->sort]);
+        return \View::make('lforums.all_topics',
+            compact('topics'), ['sort' => $sort]);
     }
 
     /**
